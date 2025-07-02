@@ -373,105 +373,148 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function renderFinalOverview() {
+  const pmc = window.pmcInfo || {};
   const addresses = window.businessInfoList || [];
-  let html = '';
-  addresses.forEach((address, idx) => {
-    html += `
-      <table style="width:100%; border-collapse: collapse; margin-bottom: 24px;">
-        <thead>
-          <tr style="background: #000000; color: white;">
-            <th colspan="2" style="padding: 8px; border: 1px solid #ccc; text-align:left; font-size:1.1em;">Property Address ${idx + 1}</th>
-          </tr>
-          <tr style="background: #eaeaea; color: #222;">
-            <th style="padding: 8px; border: 1px solid #ccc; width: 180px;">Property Info</th>
-            <th style="padding: 8px; border: 1px solid #ccc;">Property Detail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td style="padding: 8px; border: 1px solid #ccc; background-color: #fafafa;">Property Name</td><td style="padding: 8px; border: 1px solid #ccc; font-weight: bold;">${address.businessName || ''}</td></tr>
-          <tr><td style="padding: 8px; border: 1px solid #ccc; background-color: #fafafa;">Street Address</td><td style="padding: 8px; border: 1px solid #ccc; font-weight: bold;">${address.street || ''}</td></tr>
-          <tr><td style="padding: 8px; border: 1px solid #ccc; background-color: #fafafa;">City</td><td style="padding: 8px; border: 1px solid #ccc; font-weight: bold;">${address.city || ''}</td></tr>
-          <tr><td style="padding: 8px; border: 1px solid #ccc; background-color: #fafafa;">State</td><td style="padding: 8px; border: 1px solid #ccc; font-weight: bold;">${address.state || ''}</td></tr>
-          <tr><td style="padding: 8px; border: 1px solid #ccc; background-color: #fafafa;">ZIP Code</td><td style="padding: 8px; border: 1px solid #ccc; font-weight: bold;">${address.zipcode || ''}</td></tr>
-        </tbody>
-      </table>
-    `;
-  });
-  document.querySelector('.final-overview').innerHTML = html;
-  renderPaymentBreakdown();
-}
 
-function renderPaymentBreakdown() {
+  // Mock data for demonstration (replace with real data as needed)
+  const numberOfStates = 2;
+  const activationFee = 1750.00;
+  const proratedMonthlyFee = 500.00;
+  const monthlyDue = 0.00;
+  const serviceType = 'Broker Oversight';
+  const googleReview = '3 or less stars';
+  const googleReviewColor = 'color:#e00; font-weight:bold;';
+  const units = [
+    { range: '0-250', today: 0, monthly: 0 },
+    { range: '251-300', today: 25, monthly: 50 },
+    { range: '301-350', today: 37.5, monthly: 75 },
+    { range: '351-400', today: 50, monthly: 100 },
+    { range: '401-450', today: 62.5, monthly: 125 },
+    { range: '451+', today: 75, monthly: 150 },
+  ];
+
+  // Start with a placeholder for the service type charge
+  let serviceTypeCharge = '...';
+
+  let html = `
+    <table style="width:100%; border-collapse:collapse; margin-bottom:24px;">
+      <tr>
+        <th colspan="5" style="background:#0033cc; color:white; padding:8px; font-size:1.1em; text-align:left;">
+          Property Management Company
+        </th>
+      </tr>
+      <tr style="background:#f5f5f5;">
+        <th>Company Name</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>ZIP</th>
+      </tr>
+      <tr>
+        <td style="color:#0074d9; font-weight:bold;">${pmc.name || 'ABC Property Management, Inc.'}</td>
+        <td>${pmc.street || '123 Main Street'}</td>
+        <td>${pmc.city || 'Atlanta'}</td>
+        <td>${pmc.state || 'GA'}</td>
+        <td>${pmc.zipcode || '30309'}</td>
+      </tr>
+    </table>
+  `;
+
+  document.querySelector('.pmc-overview').innerHTML = html;
+
+  // Fetch cart to get line item prices for each address
   fetch('/cart.js')
     .then(res => res.json())
     .then(cart => {
-      let paymentHTML = `<table style="width:100%; border-collapse: collapse; margin-top: 20px;">
-        <thead>
-          <tr style="background: #000000; color: white;">
-            <th style="padding: 8px; border: 1px solid #ccc;">Property / Service</th>
-            <th style="padding: 8px; border: 1px solid #ccc;">Price</th>
-            <th style="padding: 8px; border: 1px solid #ccc;">Total</th>
-            <th style="padding: 8px; border: 1px solid #ccc;"></th>
-          </tr>
-        </thead>
-        <tbody>`;
-      cart.items.forEach(item => {
-        const quantityLabel = item.quantity > 1 ? ` x${item.quantity}` : '';
-        const hasPropertyInfo = item.properties && (item.properties.BusinessName || item.properties.Street || item.properties.City || item.properties.State || item.properties.ZIP);
-        paymentHTML += `
-          <tr>
-            <td style="padding: 8px; border: 1px solid #ccc;">
-              <strong>${item.title}${quantityLabel}</strong>
-              ${(item.properties && (
-                item.properties.BusinessName || item.properties.Street || item.properties.City || item.properties.State || item.properties.ZIP ||
-                item.properties.PMCName || item.properties.PMCStreet || item.properties.PMCCity || item.properties.PMCState || item.properties.PMCZipcode
-              )) ? `
-                <div style='font-size:0.95em; color:#444; margin-top:4px;'>
-                  ${item.properties.BusinessName ? `<div><strong>Property Name:</strong> ${item.properties.BusinessName}</div>` : ''}
-                  ${item.properties.Street ? `<div><strong>Street:</strong> ${item.properties.Street}</div>` : ''}
-                  ${item.properties.City ? `<div><strong>City:</strong> ${item.properties.City}</div>` : ''}
-                  ${item.properties.State ? `<div><strong>State:</strong> ${item.properties.State}</div>` : ''}
-                  ${item.properties.ZIP ? `<div><strong>ZIP:</strong> ${item.properties.ZIP}</div>` : ''}
-                  ${item.properties.PMCName ? `<div><strong>PMC Name:</strong> ${item.properties.PMCName}</div>` : ''}
-                  ${item.properties.PMCStreet ? `<div><strong>PMC Address:</strong> ${item.properties.PMCStreet}</div>` : ''}
-                  ${item.properties.PMCCity ? `<div><strong>PMC City:</strong> ${item.properties.PMCCity}</div>` : ''}
-                  ${item.properties.PMCState ? `<div><strong>PMC State:</strong> ${item.properties.PMCState}</div>` : ''}
-                  ${item.properties.PMCZipcode ? `<div><strong>PMC ZIP:</strong> ${item.properties.PMCZipcode}</div>` : ''}
-                </div>
-              ` : ''}
-            </td>
-            <td style="padding: 8px; border: 1px solid #ccc; text-align:right;">$${(item.price/100).toFixed(2)}</td>
-            <td style="padding: 8px; border: 1px solid #ccc; text-align:right; font-weight:bold;">$${((item.price * item.quantity)/100).toFixed(2)}</td>
-            <td style="padding: 8px; border: 1px solid #ccc; text-align:center;">
-              ${hasPropertyInfo ? `<button class='remove-property-btn' data-line-item-key='${item.key}' data-service-type='${item.properties?.ServiceType || ''}' style='color:red; background:none; border:none; cursor:pointer; font-weight:bold;'>Remove Property</button>` : ''}
-            </td>
-          </tr>
+      let overallTotal = 0;
+      let addressHtml = '';
+      // if (addresses.length > 0) {
+      //   addressHtml += `
+      //     <div style="margin-bottom: 12px; font-size: 1.1em;">
+      //       <strong>Property Overview</strong>
+      //     </div>
+      //   `;
+      // }
+      addresses.forEach((address, idx) => {
+        // Find the address and service type cart items for this address by shared _unique property
+        const addressItem = cart.items.find(item =>
+          item.properties &&
+          item.properties.BusinessName === address.businessName &&
+          item.properties.Street === address.street &&
+          item.properties.City === address.city &&
+          item.properties.State === address.state &&
+          item.properties.ZIP === address.zipcode &&
+          item.properties.Units
+        );
+        // Use the _unique property to match both items
+        const uniqueId = addressItem && addressItem.properties._unique;
+        const serviceTypeItem = cart.items.find(item =>
+          item.properties &&
+          item.properties._unique === uniqueId &&
+          !item.properties.Units // ServiceType item does not have Units
+        );
+        const addressPrice = addressItem ? addressItem.price : 0;
+        const serviceTypePrice = serviceTypeItem ? serviceTypeItem.price : 0;
+        const todayCharge = (addressPrice + serviceTypePrice) / 100;
+        overallTotal += todayCharge;
+        const addressServiceType = address.serviceType || serviceType;
+        addressHtml += `
+          <table style="width:100%; border-collapse:collapse; margin-bottom:24px;">
+            <tr>
+              <th colspan="8" style="background:#0033cc; color:white; padding:8px; font-size:1.1em; text-align:left;">
+                ${address.street || '123 Main Street'}, ${address.city || 'Atlanta'}, ${address.state || 'GA'} ${address.zipcode || '30309'}
+              </th>
+            </tr>
+            <tr style="background:#f5f5f5;">
+              <th>State</th>
+              <th>Building Name</th>
+              <th>Property Address</th>
+              <th>Units</th>
+              <th>Service Type</th>
+              <th style="background:#e00; color:white;">Today's Charges</th>
+              <th>Address Action</th>
+            </tr>
+            <tr>
+              <td>${address.state || 'Georgia'}</td>
+              <td>${address.businessName || 'ABC Apartments'}</td>
+              <td style="color:#0074d9;">${address.street || '123 Main Street'}, ${address.city || 'Atlanta'}, ${address.state || 'GA'} ${address.zipcode || '30309'}</td>
+              <td>${addressItem && addressItem.properties.Units ? addressItem.properties.Units : units[0].range}</td>
+              <td style="color:#e00; font-weight:bold;">${addressServiceType}</td>
+              <td style="color:#e00; font-weight:bold;">$${todayCharge.toFixed(2)}</td>
+              <td style="text-align:center;">
+                <button class="remove-address-btn" data-unique="${uniqueId || ''}" style="color:red; background:none; border:none; cursor:pointer; font-weight:bold;">Remove Address</button>
+              </td>
+            </tr>
+          </table>
         `;
       });
-      paymentHTML += `
-          <tr style="background: #eaeaea; font-weight:bold;">
-            <td colspan="3" style="padding: 8px; border: 1px solid #ccc; text-align:right;">Total</td>
-            <td style="padding: 8px; border: 1px solid #ccc; text-align:right;">$${(cart.total_price/100).toFixed(2)}</td>
-          </tr>
-        </tbody>
-      </table>`;
-      document.querySelector('.Total').innerHTML = paymentHTML;
+      // Add overall total due at the bottom
+      if (addresses.length > 0) {
+        addressHtml += `
+          <div style="margin-top: 24px; font-size: 1.2em; text-align: right;">
+            <strong style="color:#0033cc;">Overall Total Due: $${overallTotal.toFixed(2)}</strong>
+          </div>
+        `;
+      }
+      document.querySelector('.address-overview').innerHTML = addressHtml;
 
-      // Add event listeners for remove buttons
-      document.querySelectorAll('.remove-property-btn').forEach(btn => {
+      // Attach remove button listeners
+      document.querySelectorAll('.remove-address-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-          const key = this.getAttribute('data-line-item-key');
-          const serviceType = this.getAttribute('data-service-type');
-          // Remove both the property and its associated service type from the cart
+          const uniqueId = this.getAttribute('data-unique');
+          if (!uniqueId) return;
+
+          console.log('remove btn clicked', uniqueId)
+          // Remove all cart items with this _unique value
           fetch('/cart.js')
             .then(res => res.json())
             .then(cart => {
-              const itemsToRemove = cart.items.filter(item =>
-                item.key === key || (item.properties && item.properties.ServiceType === serviceType)
-              );
               const updates = {};
-              itemsToRemove.forEach(item => {
-                updates[item.key] = 0;
+              cart.items.forEach(item => {
+                console.log('line item: ', item.properties._unique)
+                if (item.properties && item.properties._unique === parseInt(uniqueId)) {
+                  updates[item.key] = 0;
+                }
               });
               fetch('/cart/update.js', {
                 method: 'POST',
@@ -484,21 +527,11 @@ function renderPaymentBreakdown() {
                   .then(res => res.json())
                   .then(newCart => {
                     if (newCart.items.length === 0) {
-                      document.querySelector('.final-process').classList.add('hide');
-                      document.querySelector('.process-one').classList.remove('hide');
-                      document.querySelector('.process-header h1').textContent = 'Property Management Process';
-                      const progress = document.querySelector('.progress-container .progress');
-                      if (progress) progress.style.width = '25%';
-                      // Reset stepper header
-                      document.querySelectorAll('.steps .step').forEach((step, idx) => {
-                        step.classList.remove('step--active', 'step--complete', 'step--inactive');
-                        if (idx === 0) {
-                          step.classList.add('step--active');
-                        }
-                      });
-                      if (typeof setActiveStep === 'function') {
-                        setActiveStep('process-icon-one');
-                      }
+                      // Close the modal and reset UI
+                      // document.querySelector('.property-process')?.classList.remove('show');
+                      // document.body.classList.remove('no-scroll');
+                      window.location.reload();
+                      // Optionally, reset steps or redirect as needed
                     } else {
                       renderFinalOverview();
                     }
@@ -508,4 +541,148 @@ function renderPaymentBreakdown() {
         });
       });
     });
+
+  // Re-attach button actions
+  // Cancel Transaction Button: Clear cart on click
+  document.querySelector('.cancel-trans-btn')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    fetch('/cart/clear.js', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+      .then(() => {
+        // Optionally, refresh the page or redirect
+        document.querySelector('.property-process')?.classList.remove('show');
+        document.body.classList.remove('no-scroll');
+        window.location.href = '/';
+      });
+  });
+
+  // Add Another Address Button
+  document.getElementById('add-address-btn')?.addEventListener('click', function() {
+    window.addingAnotherAddress = true;
+    document.querySelectorAll('.process').forEach(step => step.classList.add('hide'));
+    document.querySelector('.process-one').classList.remove('hide');
+    document.querySelector('.process-header h1').textContent = 'Property Management Process';
+    // Reset progress bar
+    const progress = document.querySelector('.progress-container .progress');
+    if (progress) progress.style.width = '25%';
+    // Set step bar to first step as active
+    if (typeof setActiveStep === 'function') {
+      setActiveStep('process-icon-one');
+    }
+  });
+
+  // Checkout Button
+  document.querySelector('.checkout-btn')?.addEventListener('click', function() {
+    window.location.href = '/checkout';
+  });
+
+  // renderPaymentBreakdown();
 }
+
+// function renderPaymentBreakdown() {
+//   fetch('/cart.js')
+//     .then(res => res.json())
+//     .then(cart => {
+//       let paymentHTML = `<table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+//         <thead>
+//           <tr style="background: #000000; color: white;">
+//             <th style="padding: 8px; border: 1px solid #ccc;">Property / Service</th>
+//             <th style="padding: 8px; border: 1px solid #ccc;">Price</th>
+//             <th style="padding: 8px; border: 1px solid #ccc;">Total</th>
+//             <th style="padding: 8px; border: 1px solid #ccc;"></th>
+//           </tr>
+//         </thead>
+//         <tbody>`;
+//       cart.items.forEach(item => {
+//         const quantityLabel = item.quantity > 1 ? ` x${item.quantity}` : '';
+//         const hasPropertyInfo = item.properties && (item.properties.BusinessName || item.properties.Street || item.properties.City || item.properties.State || item.properties.ZIP);
+//         paymentHTML += `
+//           <tr>
+//             <td style="padding: 8px; border: 1px solid #ccc;">
+//               <strong>${item.title}${quantityLabel}</strong>
+//               ${(item.properties && (
+//                 item.properties.BusinessName || item.properties.Street || item.properties.City || item.properties.State || item.properties.ZIP ||
+//                 item.properties.PMCName || item.properties.PMCStreet || item.properties.PMCCity || item.properties.PMCState || item.properties.PMCZipcode
+//               )) ? `
+//                 <div style='font-size:0.95em; color:#444; margin-top:4px;'>
+//                   ${item.properties.BusinessName ? `<div><strong>Property Name:</strong> ${item.properties.BusinessName}</div>` : ''}
+//                   ${item.properties.Street ? `<div><strong>Street:</strong> ${item.properties.Street}</div>` : ''}
+//                   ${item.properties.City ? `<div><strong>City:</strong> ${item.properties.City}</div>` : ''}
+//                   ${item.properties.State ? `<div><strong>State:</strong> ${item.properties.State}</div>` : ''}
+//                   ${item.properties.ZIP ? `<div><strong>ZIP:</strong> ${item.properties.ZIP}</div>` : ''}
+//                   ${item.properties.PMCName ? `<div><strong>PMC Name:</strong> ${item.properties.PMCName}</div>` : ''}
+//                   ${item.properties.PMCStreet ? `<div><strong>PMC Address:</strong> ${item.properties.PMCStreet}</div>` : ''}
+//                   ${item.properties.PMCCity ? `<div><strong>PMC City:</strong> ${item.properties.PMCCity}</div>` : ''}
+//                   ${item.properties.PMCState ? `<div><strong>PMC State:</strong> ${item.properties.PMCState}</div>` : ''}
+//                   ${item.properties.PMCZipcode ? `<div><strong>PMC ZIP:</strong> ${item.properties.PMCZipcode}</div>` : ''}
+//                 </div>
+//               ` : ''}
+//             </td>
+//             <td style="padding: 8px; border: 1px solid #ccc; text-align:right;">$${(item.price/100).toFixed(2)}</td>
+//             <td style="padding: 8px; border: 1px solid #ccc; text-align:right; font-weight:bold;">$${((item.price * item.quantity)/100).toFixed(2)}</td>
+//             <td style="padding: 8px; border: 1px solid #ccc; text-align:center;">
+//               ${hasPropertyInfo ? `<button class='remove-property-btn' data-line-item-key='${item.key}' data-service-type='${item.properties?.ServiceType || ''}' style='color:red; background:none; border:none; cursor:pointer; font-weight:bold;'>Remove Property</button>` : ''}
+//             </td>
+//           </tr>
+//         `;
+//       });
+//       paymentHTML += `
+//           <tr style="background: #eaeaea; font-weight:bold;">
+//             <td colspan="3" style="padding: 8px; border: 1px solid #ccc; text-align:right;">Total</td>
+//             <td style="padding: 8px; border: 1px solid #ccc; text-align:right;">$${(cart.total_price/100).toFixed(2)}</td>
+//           </tr>
+//         </tbody>
+//       </table>`;
+//       document.querySelector('.Total').innerHTML = paymentHTML;
+
+//       // Add event listeners for remove buttons
+//       document.querySelectorAll('.remove-property-btn').forEach(btn => {
+//         btn.addEventListener('click', function() {
+//           const key = this.getAttribute('data-line-item-key');
+//           const serviceType = this.getAttribute('data-service-type');
+//           // Remove both the property and its associated service type from the cart
+//           fetch('/cart.js')
+//             .then(res => res.json())
+//             .then(cart => {
+//               const itemsToRemove = cart.items.filter(item =>
+//                 item.key === key || (item.properties && item.properties.ServiceType === serviceType)
+//               );
+//               const updates = {};
+//               itemsToRemove.forEach(item => {
+//                 updates[item.key] = 0;
+//               });
+//               fetch('/cart/update.js', {
+//                 method: 'POST',
+//                 headers: { 'Content-Type': 'application/json' },
+//                 body: JSON.stringify({ updates })
+//               })
+//               .then(() => {
+//                 // After update, check if cart is empty
+//                 fetch('/cart.js')
+//                   .then(res => res.json())
+//                   .then(newCart => {
+//                     if (newCart.items.length === 0) {
+//                       document.querySelector('.final-process').classList.add('hide');
+//                       document.querySelector('.process-one').classList.remove('hide');
+//                       document.querySelector('.process-header h1').textContent = 'Property Management Process';
+//                       const progress = document.querySelector('.progress-container .progress');
+//                       if (progress) progress.style.width = '25%';
+//                       // Reset stepper header
+//                       document.querySelectorAll('.steps .step').forEach((step, idx) => {
+//                         step.classList.remove('step--active', 'step--complete', 'step--inactive');
+//                         if (idx === 0) {
+//                           step.classList.add('step--active');
+//                         }
+//                       });
+//                       if (typeof setActiveStep === 'function') {
+//                         setActiveStep('process-icon-one');
+//                       }
+//                     } else {
+//                       renderFinalOverview();
+//                     }
+//                   });
+//               });
+//             });
+//         });
+//       });
+//     });
+// }

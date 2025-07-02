@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "slideshow_rWfxYY": {
       "type": "slideshow",
@@ -24,37 +24,20 @@
             "button_style": "primary",
             "button_label": "Discover More",
             "button_link": "/",
-            "image": "shopify://shop_images/64c8e2d1278a110cde96789f_Rectangle_1_1_2_1_1.jpg",
+            "image": "shopify://shop_images/atlanta-midtown-2.webp",
             "overlay_opacity": 0.4
-          }
-        },
-        "slide_xDQ3zy": {
-          "type": "slide",
-          "settings": {
-            "color_scheme": "background-3",
-            "subheading": "What Myths are you believing?",
-            "heading": "5 Myths About Out-of-State Real Estate Transactions",
-            "heading_size": "medium",
-            "description": "Out-of-state real estate transactions can feel intimidating—but much of the fear stems from misinformation. Read more as we debunk the biggest misconceptions across state lines.",
-            "show_button": true,
-            "button_style": "primary",
-            "button_label": "Read More",
-            "button_link": "/",
-            "image": "shopify://shop_images/jakub-zerdzicki-hqe4Vyp2J_s-unsplash.jpg",
-            "overlay_opacity": 0.5
           }
         }
       },
       "block_order": [
-        "slide_GEBTBP",
-        "slide_xDQ3zy"
+        "slide_GEBTBP"
       ],
       "name": "t:sections.slideshow.presets.name",
       "settings": {
         "color_scheme": "background-1",
-        "full_width": false,
+        "full_width": true,
         "height": "21/9",
-        "enable_autoplay": true,
+        "enable_autoplay": false,
         "slide_duration": 5,
         "controls_color_scheme": "light",
         "padding_top": "no-indent",

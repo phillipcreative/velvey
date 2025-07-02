@@ -8165,3 +8165,12 @@ fieldset {
 .process.process-pmc .selected-service-wrapper {
   top: 50%;
 }
+
+.final-process-property-management h1 {
+  font-size: 18px;
+  margin-top: 0px !important;
+}
+
+.final-process {
+  margin-top: 0px !important;
+}
