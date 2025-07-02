@@ -1,0 +1,130 @@
+<section class="image-split-section">
+  <div class="image-split__container{% if section.settings.image_position == 'right' %} reverse{% endif %} container">
+    <div class="image-split__image">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | image_url: width: 1200 }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          loading="lazy"
+          width="600"
+          height="auto"
+        >
+      {% endif %}
+    </div>
+    <div class="image-split__content">
+      {% if section.settings.heading != blank %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <p>{{ section.settings.text }}</p>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="button">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+.image-split__container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 2rem;
+  margin: 5rem 0;
+}
+
+.image-split__container.reverse {
+  flex-direction: row-reverse;
+}
+
+  .image-split__image {
+    display: flex;
+    justify-content: center;
+  }
+
+.image-split__image, .image-split__content {
+  flex: 1 1 50%;
+}
+
+.image-split__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 550px;
+}
+
+.image-split__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+@media screen and (max-width: 749px) {
+  .image-split__container,
+  .image-split__container.reverse {
+    flex-direction: column;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "50/50 Image Split",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your Heading Here"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Your descriptive text goes here."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [
+    {
+      "name": "50/50 Image Split",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,42 @@
+{% for block in blocks %}
+  {% assign mega_submenu_trigger = block.settings.mega_submenu_trigger | handle | strip %}
+  {% if link.handle == mega_submenu_trigger %}
+    <ul class="mega-submenu__tabs list-unstyled">
+      {% for sublink in link.links %}
+        <li>
+          <a
+            href="{{ sublink.url }}"
+            class="mega-submenu__tab header__menu-item list-menu__item link focus-inset{% if forloop.first %} active{% endif %}"
+            data-tab-id="{{ sublink.title | escape | handle }}-{{ forloop.index0 }}"
+          >
+            <span>
+              {{- sublink.title | escape -}}
+            </span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% for sublink in link.links %}
+      {% if sublink.links != blank %}
+        <ul
+          class="mega-submenu__submenu list-menu motion-reduce{% if forloop.first %} active{% endif %}"
+          data-tab-id="{{ sublink.title | escape | handle }}-{{ forloop.index0 }}"
+        >
+          {%- for subsublink in sublink.links -%}
+            <li>
+              <a
+                href="{{ subsublink.url }}"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                <span>
+                  {{- subsublink.title | escape -}}
+                </span>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {% endif %}
+    {% endfor %}
+  {%- endif -%}
+{% endfor %}

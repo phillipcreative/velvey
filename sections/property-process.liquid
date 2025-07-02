@@ -1,0 +1,313 @@
+{% assign property_product = all_products['house-unit-management-plan'] %}
+
+<div class="property-process">
+  <div class="process-header">
+    <a href="/"><img class="header-logo" src="https://cdn.shopify.com/s/files/1/0690/9476/8822/files/BORS_Logo.jpg?v=1747789500" width="120" height="40"></a>
+    <h1>Property Management</h1>
+    <a class="cancel-btn btn" href="/">Close</a>
+  </div>
+{% comment %} <div class="progress-container">
+  <div class="progress"></div>
+</div> {% endcomment %}
+
+  <div class="process-content">
+
+    <div class="process-progress-box">
+      <ul class="steps">
+        <li class="step step--active process-icon-one">
+          <span class="step__icon"></span>
+          <span class="step__label">Service Type</span>
+        </li>
+        <li class="step process-icon-pmc">
+          <span class="step__icon"></span>
+          <span class="step__label">Property Management Company</span>
+        </li>
+        <li class="step process-icon-two">
+          <span class="step__icon"></span>
+          <span class="step__label">Enter Management Info.</span>
+        </li>
+        <li class="step process-icon-units">
+          <span class="step__icon"></span>
+          <span class="step__label">Select Units</span>
+        </li>
+        <li class="step process-icon-three">
+          <span class="step__icon"></span>
+          <span class="step__label">Review Property Pricing</span>
+        </li>
+        <li class="step process-icon-four">
+          <span class="step__icon"></span>
+          <span class="step__label">Review & Complete</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="process process-one">
+      <h2>Are You a Registered Company or Need Broker Oversight?</h2>
+      <span class="sub-text">Select a service type!</span>
+      <div class="service-type" data-process="service-type">
+        <div class="step-el" data-variant-id="44005175886006">
+					{% comment %} {% render 'badge-ribbon-icon' %} {% endcomment %}
+          <h2>Registered Company</h2>
+        </div>
+        <div class="step-el" data-variant-id="44005175853238">
+					{% comment %} {% render 'agent-icon' %} {% endcomment %}
+          <h2>Broker Oversight</h2>
+        </div>
+        <div class="process-one-tip">
+          {% render 'tooltip-icon' %}<span hover-tooltip="Choose this if you're not a registered company and need a licensed broker to oversee the transaction on your behalf" tooltip-position="top">What are these?</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="process process-pmc hide">
+      <div class="selected-service-wrapper hide">
+        <h3>Selected Items</h3>
+        <div class="selected-service"></div>
+        <span class="go-back-process-text">Need To Edit? <a href="#" class="selected--service-back-button">← Back</a></span>
+      </div>
+      <h2>Enter Property Management Company Info</h2>
+      {% comment %} <span class="sub-text">This is the company that will manage your property. Please enter their details below.</span> {% endcomment %}
+      <form id="pmc-info" class="business-info pmc-info" action="/submit" method="post">
+        <div class="form-group">
+          <label for="pmcName">PMC Name:</label><br>
+          <input type="text" name="pmcName" required>
+        </div>
+        <div class="form-group">
+          <label for="pmcStreet">PMC Street Address:</label><br>
+          <input type="text" name="pmcStreet" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pmcCity">PMC City:</label><br>
+            <input type="text" name="pmcCity" required>
+          </div>
+          <div class="form-group">
+            <label for="pmcState">PMC State:</label><br>
+            <select name="pmcState" required>
+              <option value="">-- Select a State --</option>
+              <option value="Alabama">Alabama</option>
+              <option value="Alaska">Alaska</option>
+              <option value="Arizona" disabled>Arizona</option>
+              <option value="Arkansas">Arkansas</option>
+              <option value="California" disabled>California</option>
+              <option value="Colorado">Colorado</option>
+              <option value="Connecticut">Connecticut</option>
+              <option value="Delaware">Delaware</option>
+              <option value="Florida">Florida</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Hawaii">Hawaii</option>
+              <option value="Idaho">Idaho</option>
+              <option value="Illinois">Illinois</option>
+              <option value="Indiana">Indiana</option>
+              <option value="Iowa">Iowa</option>
+              <option value="Kansas" disabled>Kansas</option>
+              <option value="Kentucky">Kentucky</option>
+              <option value="Louisiana">Louisiana</option>
+              <option value="Maine">Maine</option>
+              <option value="Maryland">Maryland</option>
+              <option value="Massachusetts">Massachusetts</option>
+              <option value="Michigan">Michigan</option>
+              <option value="Minnesota">Minnesota</option>
+              <option value="Mississippi">Mississippi</option>
+              <option value="Missouri">Missouri</option>
+              <option value="Montana">Montana</option>
+              <option value="Nebraska">Nebraska</option>
+              <option value="Nevada">Nevada</option>
+              <option value="New Hampshire">New Hampshire</option>
+              <option value="New Jersey">New Jersey</option>
+              <option value="New Mexico">New Mexico</option>
+              <option value="New York">New York</option>
+              <option value="North Carolina">North Carolina</option>
+              <option value="North Dakota">North Dakota</option>
+              <option value="Ohio">Ohio</option>
+              <option value="Oklahoma">Oklahoma</option>
+              <option value="Oregon">Oregon</option>
+              <option value="Pennsylvania">Pennsylvania</option>
+              <option value="Rhode Island">Rhode Island</option>
+              <option value="South Carolina">South Carolina</option>
+              <option value="South Dakota">South Dakota</option>
+              <option value="Tennessee">Tennessee</option>
+              <option value="Texas">Texas</option>
+              <option value="Utah">Utah</option>
+              <option value="Vermont">Vermont</option>
+              <option value="Virginia">Virginia</option>
+              <option value="Washington">Washington</option>
+              <option value="West Virginia">West Virginia</option>
+              <option value="Wisconsin">Wisconsin</option>
+              <option value="Wyoming">Wyoming</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pmcZipcode">PMC ZIP Code:</label><br>
+            <input type="text" name="pmcZipcode" required>
+          </div>
+        </div>
+        <input class="form-submit-btn" type="submit" value="Continue">
+      </form>
+    </div>
+
+    <div class="process process-two hide">
+      <div class="selected-service-wrapper hide">
+        <h3>Selected Items</h3>
+        <div class="selected-service"></div>
+        <span class="go-back-process-text">Need To Edit? <a href="#" class="selected--service-back-button">← Back</a></span>
+      </div>
+      <h2>Enter Property Adress Information</h2>
+      {% comment %} <span class="sub-text">This is the address of the property you are currently managing. We will collect information about you and your business in checkout step</span> {% endcomment %}
+      <form id="business-info" class="business-info" action="/submit" method="post">
+        <div class="form-group">
+            <label for="businessName">Property Name:</label><br>
+            <input type="text" name="businessName" required>
+        </div>
+        <div class="form-group">
+            <label for="street">Property Street Address:</label><br>
+            <input type="text" name="street" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="city">Property City:</label><br>
+                <input type="text" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="state">Property State:</label><br>
+                <select name="state" required>
+                  <option value="">-- Select a State --</option>
+                  <option value="Alabama">Alabama</option>
+                  <option value="Alaska">Alaska</option>
+                  <option value="Arizona" disabled>Arizona</option>
+                  <option value="Arkansas">Arkansas</option>
+                  <option value="California" disabled>California</option>
+                  <option value="Colorado">Colorado</option>
+                  <option value="Connecticut">Connecticut</option>
+                  <option value="Delaware">Delaware</option>
+                  <option value="Florida">Florida</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Hawaii">Hawaii</option>
+                  <option value="Idaho">Idaho</option>
+                  <option value="Illinois">Illinois</option>
+                  <option value="Indiana">Indiana</option>
+                  <option value="Iowa">Iowa</option>
+                  <option value="Kansas" disabled>Kansas</option>
+                  <option value="Kentucky">Kentucky</option>
+                  <option value="Louisiana">Louisiana</option>
+                  <option value="Maine">Maine</option>
+                  <option value="Maryland">Maryland</option>
+                  <option value="Massachusetts">Massachusetts</option>
+                  <option value="Michigan">Michigan</option>
+                  <option value="Minnesota">Minnesota</option>
+                  <option value="Mississippi">Mississippi</option>
+                  <option value="Missouri">Missouri</option>
+                  <option value="Montana">Montana</option>
+                  <option value="Nebraska">Nebraska</option>
+                  <option value="Nevada">Nevada</option>
+                  <option value="New Hampshire">New Hampshire</option>
+                  <option value="New Jersey">New Jersey</option>
+                  <option value="New Mexico">New Mexico</option>
+                  <option value="New York">New York</option>
+                  <option value="North Carolina">North Carolina</option>
+                  <option value="North Dakota">North Dakota</option>
+                  <option value="Ohio">Ohio</option>
+                  <option value="Oklahoma">Oklahoma</option>
+                  <option value="Oregon">Oregon</option>
+                  <option value="Pennsylvania">Pennsylvania</option>
+                  <option value="Rhode Island">Rhode Island</option>
+                  <option value="South Carolina">South Carolina</option>
+                  <option value="South Dakota">South Dakota</option>
+                  <option value="Tennessee">Tennessee</option>
+                  <option value="Texas">Texas</option>
+                  <option value="Utah">Utah</option>
+                  <option value="Vermont">Vermont</option>
+                  <option value="Virginia">Virginia</option>
+                  <option value="Washington">Washington</option>
+                  <option value="West Virginia">West Virginia</option>
+                  <option value="Wisconsin">Wisconsin</option>
+                  <option value="Wyoming">Wyoming</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="zipcode">ZIP Code:</label><br>
+                <input type="text" name="zipcode" required>
+            </div>
+        </div>
+        <input class="form-submit-btn" type="submit" value="Submit">
+      </form>
+      <div class="process-one-tip">
+        {% render 'tooltip-icon' %}<span hover-tooltip="You will be able to add as many addresses as you need towards the end" tooltip-position="top">How Many Addresses Can I add?</span>
+      </div>
+    </div>
+
+    <div class="process process-three hide">
+      <div class="selected-service-wrapper hide">
+        <h3>Selected Items</h3>
+        <div class="selected-service"></div>
+        <span class="go-back-process-text">Need To Edit? <a href="#" class="selected--service-back-button">← Back</a></span>
+      </div>
+      <div class="property-options">
+        <h2>Select Unit Amount</h2>
+        <div class="property-options-wrapper">
+          {% for variant in property_product.variants %}
+            <div class="property-number-el" data-variant-id="{{ variant.id }}" data-recipient-amount="{{ variant.title }}">
+              {% comment %} <img src="{{ variant.featured_image |  image_url: width: '80x' }}"> {% endcomment %}
+              <span class="variant-title">{{ variant.title }}</span>
+            </div>
+          {% endfor %}
+        </div>
+
+        <a href="#" class="back-to-edit-address">← Edit Address</a>
+
+        <div class="process-one-tip">
+          {% render 'tooltip-icon' %}<span hover-tooltip="You will be able to add as many addresses as you need towards the end" tooltip-position="top">Tool Tip Can Go Here?</span>
+        </div>
+      </div>
+    </div>
+
+		<div class="final-process final-process-property-management process hide">
+				<h3>Property Summary</h3>
+				<div class="Total"></div>
+      <div class="legal-info">
+        <span class="text">Checking out you are agreeing to the <a href="#" target="_blank">Property Management Terms of Service</a></span>
+      </div>
+			<div class="button-container">
+				<a class="cancel-btn cancel-trans-btn btn" href="#">Cancel Transaction</a>
+        <button type="button" id="add-address-btn">Add Another Property</button>
+				<a class="checkout-btn btn" href="/checkout">Checkout</a>
+			</div>
+		</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Property Process",
+  "settings": [
+    {
+      "type": "product",
+      "id": "property_product",
+      "label": "Property Management Product"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "process",
+      "name": "Process Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title"
+        },
+        {
+          "type": "textarea",
+          "id": "step_description",
+          "label": "Step Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Property Process"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "custom.overlay",
+  "name": "t:sections.overlay-group.name",
+  "sections": {
+    "notification-banner": {
+      "type": "notification-banner",
+      "settings": {
+        "layout": "banner",
+        "popup-id": "notification-banner-modern",
+        "background-color": "#3565e0",
+        "heading-color": "#ffffff",
+        "text-color": "#ffffff",
+        "link-color": "#040404",
+        "link-color-hover": "#3565e0",
+        "icon-color": "#99b1ee",
+        "icon-color-hover": "#ffffff"
+      }
+    },
+    "popup": {
+      "type": "popup",
+      "blocks": {
+        "popup_heading": {
+          "type": "popup_heading",
+          "settings": {}
+        },
+        "subscribe_form": {
+          "type": "subscribe_form",
+          "settings": {
+            "button_style": "primary",
+            "description": "<p>Your personal data will be used to support your experience throughout this website, and for other purposes described in our Privacy Policy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "popup_heading",
+        "subscribe_form"
+      ],
+      "settings": {
+        "trigger-open": "manual",
+        "manual-selector": "#notification-banner-modern"
+      }
+    }
+  },
+  "order": [
+    "notification-banner",
+    "popup"
+  ]
+}

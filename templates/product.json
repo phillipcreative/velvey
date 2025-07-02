@@ -1,0 +1,243 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "vendor_url": ""
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "description": "Essential details about the product's features and use."
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_quantity": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "pickup_availability": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "color_scheme": "black",
+            "text": "Upgrade your tech collection with the latest must-have item, available now in limited quantities.",
+            "toggle_type": "read_more",
+            "popup_heading": "Popup Title",
+            "popup_text": "Popup description",
+            "page": ""
+          }
+        },
+        "advantage_1": {
+          "type": "advantage",
+          "settings": {
+            "color_scheme": "black",
+            "heading": "Advantage heading",
+            "text": "Advantage description",
+            "toggle_type": "popup",
+            "popup_heading": "Popup Title",
+            "popup_text": "Use this space to highlight a special promotion, newsletter sign-up incentive, or time-limited deal to capture attention."
+          }
+        },
+        "advantage_2": {
+          "type": "advantage",
+          "settings": {
+            "color_scheme": "colored",
+            "heading": "Advantage heading",
+            "text": "Advantage description",
+            "toggle_type": "read_more"
+          }
+        },
+        "note": {
+          "type": "note",
+          "settings": {
+            "heading": "Product Note",
+            "text": "Important details about this item at a glance."
+          }
+        },
+        "promo_banner": {
+          "type": "promo_banner",
+          "settings": {
+            "text": "Text for promo banner",
+            "link_text": "Link for promo banner",
+            "link_url": "",
+            "link_color": "#ffd875"
+          }
+        },
+        "related_product": {
+          "type": "related_product",
+          "settings": {}
+        },
+        "about_1": {
+          "type": "about",
+          "settings": {
+            "heading": "Description",
+            "opened": true
+          }
+        },
+        "about_2": {
+          "type": "about",
+          "settings": {
+            "heading": "Characteristics",
+            "opened": false
+          }
+        },
+        "floated_form": {
+          "type": "floated_form",
+          "settings": {}
+        },
+        "recommendation": {
+          "type": "recommendation",
+          "settings": {
+            "heading_recommendation": "Similar Items You Might Like",
+            "subheading_recommendation": "Based on what customers bought",
+            "products_limit_recommended": 6,
+            "columns_mobile_1": "1",
+            "image_ratio": "square",
+            "card_image_fit": "cover",
+            "show_secondary_image": false,
+            "show_vendor": false,
+            "show_desc": false,
+            "show_sku": false
+          }
+        },
+        "complementary": {
+          "type": "complementary",
+          "settings": {
+            "heading_complementary": "Shop For More Compatible Items",
+            "subheading_complementary": "Items that pair well together",
+            "product_list_limit": 10,
+            "columns_mobile_2": "1",
+            "image_ratio": "square",
+            "card_image_fit": "cover",
+            "show_secondary_image": false,
+            "show_vendor": false,
+            "show_desc": false,
+            "show_sku": false
+          }
+        },
+        "banner": {
+          "type": "banner",
+          "settings": {
+            "background_color": "#1e48b5",
+            "heading": "Banner Info",
+            "heading_color": "#ffd875",
+            "text": "Quick note about this banner’s purpose.",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "description",
+        "variant_picker",
+        "buy_buttons",
+        "pickup_availability",
+        "inventory",
+        "advantage_1",
+        "advantage_2",
+        "note",
+        "promo_banner",
+        "related_product",
+        "about_1",
+        "about_2",
+        "floated_form",
+        "recommendation",
+        "complementary",
+        "banner"
+      ],
+      "settings": {
+        "desktop_alignment": "left",
+        "image_fit": "cover",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "color_scheme": "background-1",
+        "heading": "Check Out These Related Products",
+        "link": "Explore",
+        "products_limit": 6,
+        "columns_mobile": "1",
+        "image_ratio": "square",
+        "image_fit": "cover",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_desc": false,
+        "show_sku": false,
+        "padding_top": "m",
+        "padding_bottom": "no-indent"
+      }
+    },
+    "featured-blog": {
+      "type": "featured-blog",
+      "settings": {
+        "color_scheme": "background-1",
+        "color_scheme_card": "background-1",
+        "heading_size": "h2",
+        "post_layout": "column-icon",
+        "image_width": "small",
+        "image_fit": "contain",
+        "blog": "",
+        "post_limit": 6,
+        "post_limit_mobile": 3,
+        "show_image": true,
+        "show_tags": false,
+        "show_date": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "show_view_all": true,
+        "show_view_all_mobile": true,
+        "button_label": "View All",
+        "button_style": "secondary",
+        "padding_top": "m",
+        "padding_bottom": "xl"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-recommendations",
+    "featured-blog"
+  ]
+}

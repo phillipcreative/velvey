@@ -1,0 +1,114 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "type": "header",
+  "name": "t:sections.header.settings.header-group.label",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "height": 40,
+        "height_mobile": 40,
+        "color_scheme": "1",
+        "text": "<p>For example, a test of the announcement of some news</p>"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "dropdown": {
+          "type": "dropdown",
+          "settings": {
+            "shop_button_label": "Submit A Transaction",
+            "shop_button_menu": "main-menu",
+            "button_style": "tertiary",
+            "show_promo_1": true,
+            "color_scheme_1": "light",
+            "heading_1": "SalesTransaction",
+            "description_1": "",
+            "overlay_opacity_1": 0.5,
+            "show_button_1": true,
+            "button_link_1": "/",
+            "button_label_1": "Get Started",
+            "button_style_1": "primary",
+            "text_1": "",
+            "text_accent_1": "",
+            "show_promo_2": true,
+            "color_scheme_2": "light",
+            "heading_2": "LeaseTransaction",
+            "description_2": "",
+            "overlay_opacity_2": 0.5,
+            "show_button_2": true,
+            "button_link_2": "/",
+            "button_label_2": "Get Started",
+            "button_style_2": "primary",
+            "text_2": "",
+            "text_accent_2": "",
+            "show_promo_3": true,
+            "color_scheme_3": "light",
+            "heading_3": "Property Management",
+            "description_3": "",
+            "overlay_opacity_3": 0.5,
+            "show_button_3": true,
+            "button_link_3": "/",
+            "button_label_3": "Get Started",
+            "button_style_3": "primary",
+            "text_3": "",
+            "text_accent_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "dropdown"
+      ],
+      "settings": {
+        "header_type": "broker-custom",
+        "color_scheme": "background-1",
+        "logo": "shopify://shop_images/BORS_Logo.jpg",
+        "logo_width": 230,
+        "menu": "main-menu",
+        "clickable_menu_items_with_submenu": false,
+        "small_menu": "",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "sticky_header_type": "on-scroll-up",
+        "enable_contact_block": false,
+        "contact_text": "Get in Touch",
+        "contact_text_accent": "<p>Send us a message</p>",
+        "enable_search": false,
+        "enable_search_modal": true,
+        "show_collection_card": false,
+        "collection_list": [],
+        "show_items": false,
+        "product_list": [],
+        "show_vendor": false,
+        "show_price": false,
+        "items_link": "",
+        "show_articles": false,
+        "blog": "",
+        "show_image": false,
+        "show_date": false,
+        "blog_link": "",
+        "show_search_block": false,
+        "search_color_scheme": "dark",
+        "search_heading": "Need Help Finding Something?",
+        "search_text": "Search or contact us — we're here to help.",
+        "search_text_accent": "Answers in a click.",
+        "button_link": "",
+        "button_label": "Contact Us",
+        "button_style": "primary"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

@@ -1,0 +1,399 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_rWfxYY": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_GEBTBP": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "background-3",
+            "subheading": "",
+            "heading": "Real Estate Moves Faster With Us.",
+            "heading_size": "large",
+            "description": "With 20+ years of experience and coverage in 40 states, we provide the legal oversight and support you need for seamless sales, leases, and property management.",
+            "show_button": true,
+            "button_style": "primary",
+            "button_label": "Discover More",
+            "button_link": "/",
+            "image": "shopify://shop_images/64c8e2d1278a110cde96789f_Rectangle_1_1_2_1_1.jpg",
+            "overlay_opacity": 0.4
+          }
+        },
+        "slide_xDQ3zy": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "background-3",
+            "subheading": "What Myths are you believing?",
+            "heading": "5 Myths About Out-of-State Real Estate Transactions",
+            "heading_size": "medium",
+            "description": "Out-of-state real estate transactions can feel intimidating—but much of the fear stems from misinformation. Read more as we debunk the biggest misconceptions across state lines.",
+            "show_button": true,
+            "button_style": "primary",
+            "button_label": "Read More",
+            "button_link": "/",
+            "image": "shopify://shop_images/jakub-zerdzicki-hqe4Vyp2J_s-unsplash.jpg",
+            "overlay_opacity": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "slide_GEBTBP",
+        "slide_xDQ3zy"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": false,
+        "height": "21/9",
+        "enable_autoplay": true,
+        "slide_duration": 5,
+        "controls_color_scheme": "light",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "rich_text_CYUa6w": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_74XjUe": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Covered Every Step Of The Way"
+          }
+        },
+        "heading_UREAVU": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p><strong>Full Library of State-Compliant Forms</strong></p>",
+            "heading_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_74XjUe",
+        "heading_UREAVU"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent",
+        "padding_top": "s",
+        "padding_bottom": "no-indent"
+      }
+    },
+    "multicolumn_CxQBHE": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_gUwKmx": {
+          "type": "column",
+          "settings": {
+            "heading": "Co-Brokerage\nAgreements",
+            "text": ""
+          }
+        },
+        "column_4CceQN": {
+          "type": "column",
+          "settings": {
+            "heading": "Agency\nDisclosures",
+            "text": ""
+          }
+        },
+        "column_8cJWAi": {
+          "type": "column",
+          "settings": {
+            "heading": "Seller\nDisclosures",
+            "text": ""
+          }
+        },
+        "column_UkEL7f": {
+          "type": "column",
+          "settings": {
+            "heading": "Listing\nAgreements",
+            "text": ""
+          }
+        },
+        "column_n7TTTr": {
+          "type": "column",
+          "settings": {
+            "heading": "Buyer Representation Agreements",
+            "text": ""
+          }
+        },
+        "column_L7YhaY": {
+          "type": "column",
+          "settings": {
+            "heading": "Lease\nAgreements",
+            "text": ""
+          }
+        },
+        "column_kRz7FY": {
+          "type": "column",
+          "settings": {
+            "heading": "Non-Disclosure\nAgreements",
+            "text": ""
+          }
+        },
+        "column_haKMBU": {
+          "type": "column",
+          "settings": {
+            "heading": "Letters\nof Intent",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_gUwKmx",
+        "column_4CceQN",
+        "column_8cJWAi",
+        "column_UkEL7f",
+        "column_n7TTTr",
+        "column_L7YhaY",
+        "column_kRz7FY",
+        "column_haKMBU"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "multicolumn_to_show": 4,
+        "image_type": "image",
+        "icon_background": "background-2",
+        "image_width": "medium",
+        "object_fit": "contain",
+        "swipe_on_mobile": false,
+        "border_top": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent",
+        "padding_top": "xs",
+        "padding_bottom": "m"
+      }
+    },
+    "product_slider_tabs_hKcPWJ": {
+      "type": "product-slider-tabs",
+      "blocks": {
+        "product_slide_FjmUAK": {
+          "type": "product_slide",
+          "settings": {
+            "thumbs_heading": "Property Management",
+            "subheading": "A brief tagline for this slide",
+            "color_text": "#282828",
+            "show_subheading_dot": true,
+            "color_dot": "#40b66f",
+            "heading": "Here can be a product featured in this tab",
+            "text": "Explain what this slide highlights such as a new launch, trending product or special offer.",
+            "show_button": true,
+            "button_style": "primary",
+            "button_label": "Shop Now",
+            "button_link": ""
+          }
+        },
+        "product_slide_6YUbzH": {
+          "type": "product_slide",
+          "settings": {
+            "thumbs_heading": "Sales Transaction Process",
+            "subheading": "A brief tagline for this slide",
+            "color_text": "#282828",
+            "show_subheading_dot": true,
+            "color_dot": "#40b66f",
+            "heading": "Here can be a product featured in this tab",
+            "text": "Explain what this slide highlights such as a new launch, trending product or special offer.",
+            "show_button": true,
+            "button_style": "primary",
+            "button_label": "Shop Now",
+            "button_link": ""
+          }
+        },
+        "product_slide_nkkkCQ": {
+          "type": "product_slide",
+          "settings": {
+            "thumbs_heading": "Lease Transaction Process",
+            "subheading": "A brief tagline for this slide",
+            "color_text": "#282828",
+            "show_subheading_dot": true,
+            "color_dot": "#40b66f",
+            "heading": "Here can be a product featured in this tab",
+            "text": "Explain what this slide highlights such as a new launch, trending product or special offer.",
+            "show_button": true,
+            "button_style": "primary",
+            "button_label": "Shop Now",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_slide_FjmUAK",
+        "product_slide_6YUbzH",
+        "product_slide_nkkkCQ"
+      ],
+      "name": "t:sections.product-slider-tabs.presets.name",
+      "settings": {
+        "color_scheme": "2",
+        "desktop_alignment": "right",
+        "mobile_alignment": "before",
+        "slide_duration": 5,
+        "overlay": true,
+        "opacity_overlay": 0.5,
+        "image_width": "small",
+        "object_fit": "contain",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent"
+      }
+    },
+    "collapsible-content": {
+      "type": "collapsible-content",
+      "blocks": {
+        "block_1": {
+          "type": "accordion",
+          "settings": {
+            "question": "Are we obligated to pay your fee if the transaction does not close?",
+            "answer": "<p>No, our fee is subject to the successful closing of the transaction.</p>",
+            "opened": false
+          }
+        },
+        "block_2": {
+          "type": "accordion",
+          "settings": {
+            "question": "I would like some of my salespeople to work on the transaction.  Can they do that?",
+            "answer": "<p>Yes, as long as the transaction state allows it, any salespeople actively licensed under the out-of-state broker's license may also work on the transaction. </p>",
+            "opened": false
+          }
+        },
+        "block_3": {
+          "type": "accordion",
+          "settings": {
+            "question": "I'm a salesperson in my home state and not a broker.  Can I still enter into a co-brokerage agreement with you?",
+            "answer": "<p>We prefer to work directly with the out-of-state broker for several legal and logistical reasons.  For example, not every state allows an out-of-state salesperson to work on transactions unless the out-of-state broker/firm is involved.  Additionally, if the out-of-state broker/firm is not involved, you would not be able to advertise using their name or logo in the transaction state.</p>",
+            "opened": false
+          }
+        },
+        "accordion_R3RDAj": {
+          "type": "accordion",
+          "settings": {
+            "question": "When do I get paid my commission and how does that work?",
+            "answer": "<p>In most states, an out-of-state broker's commission can be disbursed directly by the settlement company to the out-of-state broker.  All commissions for out-of-state salespeople must be disbursed to their home state broker.  This particular requirement is a function of the transaction state's licensing laws as well as the out-of-state salesperson's home state licensing laws.  Otherwise, the broker of record and the salesperson may be in violation of licensing laws - not only in the transaction state, but also in the salesperson's home state.</p>",
+            "opened": false
+          }
+        },
+        "accordion_wELRrn": {
+          "type": "accordion",
+          "settings": {
+            "question": "What's the best way to communicate with you during a transaction?",
+            "answer": "<p>Email, since it allows us to save a history of our conversations.  This helps remind us where we're at in the transaction process.  It's also just good business practice for any potential disputes with clients or audit requests from regulators.</p>",
+            "opened": false
+          }
+        },
+        "accordion_rCP3zy": {
+          "type": "accordion",
+          "settings": {
+            "question": "What types of matters are we expected to communicate with you during a transaction?",
+            "answer": "<p>We ask that you copy us on all emails.  For any communications which have taken place offline (phone calls, regular mail, etc.), we ask that you let us know about those communications as well, via email.</p>",
+            "opened": false
+          }
+        },
+        "accordion_e39Ee6": {
+          "type": "accordion",
+          "settings": {
+            "question": "How will I know what I can and can't do in the transaction state?",
+            "answer": "<p>We'll make it clear from the start.  We include that information in the Co-Brokerage Agreement, reference the relevant statutes/rules if necessary, and explain everything clearly so you'll know exactly what you can and can't do in the transaction state.</p>",
+            "opened": false
+          }
+        },
+        "accordion_tUyLj6": {
+          "type": "accordion",
+          "settings": {
+            "question": "Will I work with the same broker of record for every state?",
+            "answer": "<p>Yes, you'll work with the same <a href=\"https://mybrokerofrecord.com/our-firm/our-broker/\">broker of record</a> for every state where we're licensed.</p>",
+            "opened": false
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "accordion_R3RDAj",
+        "accordion_wELRrn",
+        "accordion_rCP3zy",
+        "accordion_e39Ee6",
+        "accordion_tUyLj6"
+      ],
+      "settings": {
+        "heading": "FAQ",
+        "heading_size": "h3",
+        "text": "Have a question? Check out our FAQ section for answers to common inquiries.",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent",
+        "padding_top": "m",
+        "padding_bottom": "xl"
+      }
+    },
+    "fifty_fifty_image_H6mATG": {
+      "type": "fifty-fifty-image",
+      "name": "50/50 Image Split",
+      "settings": {
+        "image": "shopify://shop_images/converted_image.jpg",
+        "heading": "Our Broker",
+        "text": "Alex Everest is the President and Managing Broker of Broker of Record Solutions, Inc.\n     \nAlex has served as the 'Broker of Record' for a wide-variety of commercial real estate transactions including; apartment buildings, retail, medical, self-storage, industrial, assisted living, offices, government, and land.\n     \nIn addition, he has successfully argued regulatory matters before multiple real estate commissions, passed every audit he's ever been involved in, and successfully defended all civil cases in his favor.",
+        "button_label": "Learn More",
+        "button_link": "",
+        "image_position": "left"
+      }
+    },
+    "contact_form_Vg9HpR": {
+      "type": "contact-form",
+      "blocks": {
+        "image_with_text_PG7fJT": {
+          "type": "image-with-text",
+          "settings": {
+            "subheading": "Experts ready to assist",
+            "heading": "Need a Broker of Record?",
+            "image": "shopify://shop_images/lance-asper-daPFr-vV7Vc-unsplash.jpg",
+            "height": "adapt",
+            "text": "",
+            "column_text": "Submit your questions in the form, we'll get back to you within an hour.",
+            "image_author": "shopify://shop_images/converted_image.jpg",
+            "name": "Alex Everest",
+            "author_position": "President & Broker",
+            "padding_top": 0,
+            "padding_bottom": 70
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_PG7fJT"
+      ],
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "position": "right",
+        "layout": "top",
+        "heading": "<p>Contact form</p>",
+        "additional_text": "<p>We'll get back to you within an hour!</p>",
+        "padding_top": "no-indent",
+        "padding_bottom": "m"
+      }
+    }
+  },
+  "order": [
+    "slideshow_rWfxYY",
+    "rich_text_CYUa6w",
+    "multicolumn_CxQBHE",
+    "product_slider_tabs_hKcPWJ",
+    "collapsible-content",
+    "fifty_fifty_image_H6mATG",
+    "contact_form_Vg9HpR"
+  ]
+}
