@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "nominate_teacher_new_cafUPT": {
+      "type": "nominate_teacher_new",
+      "settings": {
+        "img_banner": "shopify:\/\/shop_images\/shutterstock_1796658001_2x_aba1fd3b-c296-4ce4-8e2f-3155776053e2.png",
+        "bannername": "<span>NOMINATE<\/span> A TEACHER",
+        "text_below_banner_heading": "NOMINATE A TEACHER FOR A #SUPERVELVEY",
+        "img_nominate": "shopify:\/\/shop_images\/nominate_teacher.png",
+        "text_bellowheading": "<span>“SUPER VELVEY”<\/span>\n  <p> A Super Velvey is packed with curated gifts and epic prizes—think day spa treatments,\nweekend getaways, airfare, or even a serious cash surprise. Each one is unique, just\nlike the incredible teacher you're nominating.<\/p>",
+        "text_bellowheading1": "<p>Thanks for deciding to nominate an\nextraordinary educator!<\/p>\n           <p>In the form below, please share the reason(s) you think your teacher \ndeserves a #SuperVeIvey. Basically, all the ways they go above and beyond \nfor their students, fellow teachers, or in the community.     <\/p>\n           <p>Please be sure to double-check their contact information before submitting \nyour nomination. We'd hate for a winner to miss out on their prize!    <\/p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "nominate_teacher_new_cafUPT"
+  ]
+}

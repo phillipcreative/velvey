@@ -1,0 +1,445 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const coverImage = document.getElementById('playButton');
+  const video = document.getElementById('video_player');
+  const playBtn = document.querySelector('.play-icon');
+
+  if (coverImage && video) {
+    coverImage.addEventListener('click', () => {
+      coverImage.style.display = 'none';
+      playBtn.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    });
+
+    playBtn.addEventListener('click', () => {
+      coverImage.style.display = 'none';
+      playBtn.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    });
+  }
+});
+</script>
+
+<style>
+#playButton, #video_player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+#video_player {
+  display: none;
+}
+
+.video_width_section {
+  max-width: 700px;
+  height: 345px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.video_width_section video#video_player {
+  max-width: 100%;
+}
+
+@media(max-width: 550px) {
+  .video_width_section {
+    height: 191px;
+  }
+}
+
+.btn-custom {
+  background: #193e5a;
+  color: white;
+  outline: 0;
+  border-radius: 10px;
+  border: 0;
+  padding: 2px 10px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.info-extra img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.bg-custom {
+  background: url('	https://cdn.shopify.com/s/files/1/0447/4047/7095/files/GOLD_GRADIENT_Texture_HEADER.png?v=1598553876');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.play-icon {
+  position: absolute;
+    bottom: 30px;
+    left: 30px;
+    max-width: 215px !important;
+    z-index: 99;
+}
+
+.video_width_section #playButton {
+  border-radius: 23px;
+}
+
+@media only screen and (max-width:768px) {
+  .play-icon {
+    max-width: 130px !important;
+    height: auto;
+    bottom: 20px;
+    left: 20px;
+  }
+}
+
+@media only screen and (max-width:550px) {
+  .video_width_section {
+    margin-top: 25px;
+  }
+
+  .welcome-txt>.container {
+    padding: 25px;
+  }
+}
+</style>
+
+{% if section.settings.enable %}
+  <div class="block fullboxed {{ section.settings.outer_margin }} welcome-txt" style="background-image: url('{{ section.settings.section_bg_image | img_url: "master" }}'); background-repeat: no-repeat;">
+    <div class="container info-extra new-video-btn">
+
+      <h2>{{ section.settings.heading}}</h2>
+
+      <p class="text-center">{{ section.settings.description }}</p>
+
+      {% if section.settings.enable_popup %}
+        <a href="javascript:void(0)" class="cstm_popup btn btn-purple">
+          <img style="display:inline-block;margin-right:10px;" width="60" src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Group_34137.png?v=1744620470" />
+          <img class="play-icon" src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Group_34136.png?v=1744620670">
+        </a>
+
+        <section class="popup">
+          <div class="popup__content">
+            <div class="close">
+              <span></span>
+              <span></span>
+            </div>
+            <video width="600" controls loop playsinline>
+              <source src="https://cdn.shopify.com/videos/c/o/v/6b46afcf1cfb4d058dab38d40b9fa83e.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+        </section>
+      {% else %}
+        <div class="video_width_section cstm_popup" id="video-{{ section.id }}">
+          {% if section.settings.poster != blank %}
+            <img src="{{ section.settings.poster | image_url: width: 1000, height: 1000 }}" id="playButton">
+            <img class="play-icon" src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/Group_34136_2x_82d04af4-0273-4555-bd10-a17aed7294cc.png?v=1748224143">
+          {% endif %}
+
+          {% if section.settings.video != blank %}
+            {{ section.settings.video | video_tag:
+              image_size: '1100x',
+              autoplay: true,
+              loop: true,
+              class: 'video_player',
+              id: 'video_player',
+              controls: true,
+              muted: false
+            }}
+          {% else %}
+            <video width="700" controls loop playsinline id="video_player" class="video_player">
+              <source src="https://cdn.shopify.com/videos/c/o/v/6b46afcf1cfb4d058dab38d40b9fa83e.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="block {{ section.settings.block_width }} offset-top-negative-100">
+    <div class="container">
+      <div class="row row-flex-sm no-gutter promo-box-row">
+        {% assign link_targets = "link_1,link_2,link_3" | split: "," %}
+        {% assign link_target_values = "link_target_1,link_target_2,link_target_3" | split: "," %}
+        {% assign icons = "icon1,icon2,icon3" | split: "," %}
+        {% assign captions_1 = "box_1_caption_1,box_2_caption_1,box_3_caption_1" | split: "," %}
+        {% assign captions_2 = "box_1_caption_2,box_2_caption_2,box_3_caption_2" | split: "," %}
+
+        {% for i in (0..2) %}
+          <div class="col-sm-4">
+            {% assign link_key = link_targets[i] %}
+            {% assign target_key = link_target_values[i] %}
+            <a {% if section.settings[link_key] %}href="{{ section.settings[link_key] }}" target="{{ section.settings[target_key] }}"{% endif %} class="promo-box text-center">
+              <span class="count_cstm">{{ i | plus: 1 }}</span>
+              <div class="promo-box-icon">
+                {% assign icon_key = icons[i] %}
+                {% if section.settings[icon_key] != blank %}
+                  <img src="{{ section.settings[icon_key] | img_url: 'grande' }}">
+                {% else %}
+                  <img src="https://dummyimage.com/250x100">
+                {% endif %}
+              </div>
+              <h3 class="promo-box-title promo-box-title-ct">{{ section.settings[captions_1[i]] }}</h3>
+              <div class="promo-box-text">{{ section.settings[captions_2[i]] }}</div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+
+                                <!-- <button class="btn-custom bottom-btn" onclick="location.href= '/pages/how-it-works-new';">Learn More</button> -->
+      <a href="/collections/everyday-picks" class="btn-velvey bottom-btn homepage-btn"><img src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/icon_vel.png?v=1628848389" /> Send a Velvey</a>
+    </div>
+  </div>
+{% endif %}
+
+<style>
+.bottom-btn {
+      position: absolute;
+    bottom: -103px;
+    left: 50%;
+    transform: translate(-50%);
+    margin: 0;
+    width: 100%;
+    max-width: 362px;
+    min-height: 53px;
+    border-radius: 10px;
+    font-size: 23px;
+    font-weight: 700;
+    font-family: Montserrat;
+    letter-spacing: 0;
+    line-height: 28px;
+    color: #fff;
+    background: #eea822 !important;
+}
+</style>
+
+{% schema %}
+{
+"name": "Welcome to",
+"class": "index-section bg-custom",
+"settings": [
+  {
+    "type": "video",
+    "id": "video",
+    "label": "video"
+  },
+  {
+            "type": "image_picker",
+            "id": "poster",
+            "label": "Poster"
+          },
+  {
+"type": "checkbox",
+"id": "enable_popup",
+"label": "enable popop"
+},
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+  {
+"type": "image_picker",
+"id": "section_bg_image",
+"label": "Add a Background Image"
+},
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"global_width",
+"info":"click Save to see changes"
+},
+{
+"type": "select",
+"id": "outer_margin",
+"label": "Outer top margin",
+"options":[
+{"value":"offset-top-0","label":"None"},
+{"value":"offset-top-30","label":"30px"},
+{"value":"offset-top-40","label":"40px"},
+{"value":"offset-top-50","label":"50px"}
+],
+"default": "offset-top-50"
+},
+{
+"type": "header",
+"content": "General"
+},
+{
+"type": "image_picker",
+"id": "title_img",
+"label": "Image"
+},
+{
+"type": "textarea",
+"id": "heading",
+"label": "Title",
+"default": "WELCOME TO VELVEY,"
+},
+{
+"type": "textarea",
+"id": "description",
+"label": "Description",
+"default":"Dolor sit amet, ex eam mundi populo accusamus, aliquam quaestio petentium te cum tacimates, usu cu iudico graeco. Graeci eripuit inimicus vel eu eu mel unum laoreet splendide, cu integre apeirian has"
+},
+{
+"type": "header",
+"content": "Info Box 1"
+},
+{
+"type": "url",
+"id": "link_1",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_1",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon1",
+"label": "Icon"
+},
+{
+"type": "html",
+"id": "box_1_caption_1",
+"label": "Caption 1",
+"default":"FREE SHIPPING"
+},
+
+{
+"type": "textarea",
+"id": "box_1_caption_2",
+"label": "Caption 2",
+"default":"Free shipping on all orders over $199"
+},
+{
+"type": "header",
+"content": "Info Box 2"
+},
+{
+"type": "url",
+"id": "link_2",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_2",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon2",
+"label": "Icon"
+},
+{
+"type": "html",
+"id": "box_2_caption_1",
+"label": "Caption 1",
+"default":"MONEY BACK"
+},
+
+{
+"type": "textarea",
+"id": "box_2_caption_2",
+"label": "Caption 2",
+"default":"100% money back guarantee"
+},
+{
+"type": "header",
+"content": "Info Box 3"
+},
+{
+"type": "url",
+"id": "link_3",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_3",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon3",
+"label": "Icon"
+},
+{
+"type": "html",
+"id": "box_3_caption_1",
+"label": "Caption 1",
+"default":"ONLINE SUPPORT"
+},
+
+{
+"type": "textarea",
+"id": "box_3_caption_2",
+"label": "Caption 2",
+"default":"Service support fast 24/7"
+},
+  {
+"type": "url",
+"id": "button_link1",
+"label": "Add a URL of button1"
+},
+  {
+"type": "text",
+"id": "button_name1",
+"label": "Add a Name of button1"
+},
+  {
+"type": "url",
+"id": "button_link2",
+"label": "Add a URL of button2"
+},
+  {
+"type": "text",
+"id": "button_name2",
+"label": "Add a Name of button2"
+}
+
+],
+"presets": [
+{
+"name": "Welcome To",
+"category": "Text"
+}
+]
+}
+{% endschema %}

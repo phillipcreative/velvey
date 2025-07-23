@@ -1,0 +1,35 @@
+<div class="html_structure">
+  <div class="container">
+    <div class="row">
+    <div class="main_headingcstm">
+    <h2>{{ section.settings.main_heading }} </h2>
+    </div>
+      <div class="main_content">
+      {{ section.settings.html_content }}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Html Structure",
+"settings": [
+      {
+        "type":"text",
+        "id":"main_heading",
+        "label":"Add Main Image of Page"
+      },
+      {
+        "type":"html",
+        "id":"html_content",
+        "label":"Enter main content of this page "
+      }
+
+    ],
+  "presets":[
+    {
+      "name":"Html Structure"
+    }
+  ]
+}
+{% endschema %}

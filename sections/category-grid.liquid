@@ -1,0 +1,135 @@
+<!-- Center column -->
+<div class="aside">
+  {% if section.settings.collections_title %}
+    <h1 class="text-center">{{ collection.title }}</h1>
+  {% endif %}
+
+  {% if collection.description != blank %}
+    {% if collection.description contains '|[config]|' %}
+      {% assign desc = collection.description | split: '|[config]|' %}
+      {% if desc.size > 1 %}<div class="description">{{ desc | last }}</div>{% endif %}
+    {% else %}
+      <div>{{ collection.description }}</div><br />
+    {% endif %}
+  {% endif %}
+
+  <div class="collection-listing">
+    {% if section.blocks.size > 0 %}
+      <div class="product-items products-grid data-to-show-5 data-to-show-lg-5 data-to-show-md-5 data-to-show-sm-2 data-to-show-xs-2">
+        {% for block in section.blocks %}
+          <div class="product-item">
+            <div class="product-item-inside">
+              <div class="product-item-photo-holder">
+                <div class="product-item-photo">
+                  <a href="{{ block.settings.link }}" title="{{ block.settings.title }}">
+                    <img class="product-image" src="{{ block.settings.image | img_url: 'grande' }}" alt="{{ block.settings.title }}">
+                  </a>
+                </div>
+              </div>
+              <div class="product-item-details">
+                <div class="product-item-name">
+                  <a href="{{ block.settings.link }}" title="{{ block.settings.title }}" class="product-item-link">
+                    {{ block.settings.title }}
+                  </a>
+                  <span class="product-sub-title">
+                    {{ block.settings.subtitle }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <br/><br/>
+</div>
+
+{% schema %}
+{
+  "name": "Products content",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "[Documentation](http://big-skins.com/banita/shopify/manuals/#Collection)"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "collections_products_per_row",
+      "label": "Products per row in desktop",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "collections_per_row_mobile",
+      "label": "Products per row in mobile",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "products_per_page",
+      "label": "Default Count of products per page",
+      "options": [
+        { "value": "12", "label": "12" },
+        { "value": "18", "label": "18" },
+        { "value": "36", "label": "36" },
+        { "value": "50", "label": "All" }
+      ],
+      "default": "12"
+    },
+    {
+      "type": "checkbox",
+      "id": "collections_title",
+      "label": "Show heading",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "collections_description",
+      "label": "Enable collection description",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "custom_link",
+      "name": "Link Block",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "id": "subtitle",
+          "type": "textarea",
+          "label": "Sub Title"
+        },
+        {
+          "id": "link",
+          "type": "url",
+          "label": "Link URL"
+        },
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,370 @@
+<style>
+    .banner-relative {
+        position: relative;
+    }
+
+    .banner-overlay-text {
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 3;
+        position: absolute;
+    }
+
+    .bs-content {
+        display: table;
+        padding: 0.25em 0.4em;
+        font-weight: 700;
+        background-color: rgb(255, 255, 255);
+        color: rgb(47, 47, 47);
+        animation-delay: 1000ms;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+        font-size: 0.55em;
+        line-height: 1em;
+    }
+    .bs-content span {
+        color: #e4aa44;
+    }
+    .left-banner {
+        -ms-flex-align: start !important;
+        align-items: flex-start !important;
+        justify-content: flex-end !important;
+    }
+
+    .right-banner {
+        -ms-flex-align: end !important;
+        align-items: flex-end !important;
+        justify-content: flex-end !important;
+    }
+
+    .bs-vert {
+        font-size: 100px;
+    }
+
+    .bs-vert {
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .banner-overlay-text .container {
+        padding: 15px;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        text-align: center;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        height: 100%;
+        padding-bottom: 40px;
+    }
+    @media (min-width: 1500px) {
+        .banner-overlay-text .container {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+    @media (min-width: 1280px) {
+        .banner-overlay-text .container {
+            width: 1250px;
+        }
+    }
+    @media screen and (max-width: 1199px) {
+        .bs-vert {
+            font-size: 80px;
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        .bs-vert {
+            font-size: 60px;
+        }
+    }
+
+    @media (max-width: 1499px) and (min-width: 992px) {
+        .banner-overlay-text .container {
+            max-width: 1250px !important;
+            padding-left: 55px !important;
+            padding-right: 55px !important;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .bs-vert {
+            font-size: 50px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+      .img-ct{
+      max-width:250px;
+      }
+        .banner-overlay-text .container {
+            padding-bottom: 20px;
+        }
+      
+
+.col-md-8, .col-md-4, .col-md-12 {
+    padding: 0 30px!important;
+}
+      
+    }
+
+    @media screen and (max-width: 490px) {
+        .bs-vert {
+            font-size: 40px;
+        }
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet" />
+<div class="banner-bg banner-relative">
+  
+    <img src="{{section.settings.imgbanner | img_url: 'master'}}" />
+
+    <div class="banner-overlay-text">
+        <div class="container right-banner">
+            <div class="bs-vert " data-aos-delay="10000000" >
+              
+                <div class="bs-content">{{ section.settings.bannername }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-story">
+    <div class="container">
+        <div class="story-content">
+              <div class="row">
+          <div class="col-md-12">
+            <h3 class="text-center h-big">{{ section.settings.bannerbelow_heading }}</h3>
+            <p>
+                <br />
+            {{ section.settings.bannerbelow_heading_text1 }}
+            </p>
+            <p>
+                <br />
+              {{ section.settings.bannerbelow_heading_text2 }}
+            </p>
+            <p>
+                <br />
+            {{ section.settings.bannerbelow_heading_text3 }}
+               </p>
+
+            <div class="signature-text">
+              With Love, <br>
+              Team Velvey
+            </div>
+
+
+            <img class="img-responsive" src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/thumb_shutterstock_2161573767.jpg?v=1749737829" />
+            <!-- <img class="img-responsive" src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/Rectangle_15172_2x_016beaea-bf52-4b4d-a52e-6b284a04d870.png?v=1709622945" /> -->
+
+            <!-- <div class="row item-banner">
+
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-9 nopadding">
+                            <h3 style="text-align: center;">
+                                <br />
+
+                              <p class="d-big">{{ section.settings.text_leftimg1 }}</p>
+                                <p class="d-big">{{ section.settings.text_leftimg2 }}</p>
+                            </h3>
+                            <div style="text-align: center;">{{ section.settings.text_leftimg3 }}</div>
+                        </div>
+
+                        <div class="col-md-3 nopadding">
+                            <img class="img-responsive img-ct" width="200" src="{{section.settings.image_text | img_url: 'master'}} "/>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <img class="img-responsive" src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/Rectangle_15173_2x_39294a8d-0306-4972-bd73-cf78dfdbe3a9.png?v=1709623093" /> -->
+
+            <!-- <p style="text-align: left;">
+                <br />{{ section.settings.text_lastsection1 }}
+               
+            </p>
+            <p style="text-align: left;">
+                <br />{{ section.settings.text_lastsection2 }}
+               
+            </p>
+            <br />
+            <h3 class="italic-big">{{ section.settings.text_lastsection3 }},</h3>
+            <h3 class="italic-big">{{ section.settings.text_lastsection4 }}</h3> -->
+          </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .img-responsive {
+        margin: 0 auto;
+    }
+    .italic-big {
+        font-family: "MonteCarlo", cursive;
+        font-size: 40px;
+        color: #db8f16;
+        line-height: 1;
+        text-align: center;
+        font-weight: 400;
+    }
+    .d-big {
+        font-size: 23px;
+        font-weight: 500;
+            line-height: 1.25;
+    }
+    .item-banner {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .nopadding {
+        padding: 0 !important;
+    }
+    .h-big {
+        font-size: 40px;
+        font-weight: 500;
+        color: #e4aa43;
+    }
+    .banner-bg img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .bg-story {
+        background: url(https://cdn.shopify.com/s/files/1/0447/4047/7095/files/GOLD_GRADIENT.jpg?v=1598557572);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .story-content {
+        display: block;
+        max-width: 670px;
+        margin: 50px auto;
+    }
+  
+  .mobile{
+  display:none;
+  }
+
+    @media screen and (max-width: 768px) {
+      
+      .desktop{
+      display:none;
+      }
+      
+      .mobile{
+      display:block;
+      }
+        .story-content {
+            display: block;
+            width: 100%;
+        }
+    }
+</style>
+{% schema %}
+{
+  "name": "Our Story",
+"settings": [
+      {
+        "type":"image_picker",
+        "id":"imgbanner",
+        "label":"Add image Banner"
+      },
+      {
+        "type":"html",
+        "id":"bannername",
+        "label":"Enter Heading Of Banner"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"bannerbelow_heading",
+        "label":"Enter Heading Of Banner bellow Heading"
+      }
+  ,
+      {
+        "type":"richtext",
+        "id":"bannerbelow_heading_text1",
+        "label":"Enter Heading Of Banner bellow Heading text1"
+      }
+  ,
+      {
+        "type":"richtext",
+        "id":"bannerbelow_heading_text2",
+        "label":"Enter Heading Of Banner bellow Heading Text2"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"bannerbelow_heading_text3",
+        "label":"Enter Heading Of Banner bellow Heading Text3"
+      },
+      {
+        "type":"html",
+        "id":"text_leftimg1",
+        "label":"Enter Left text of image section3"
+      }
+  ,
+      {
+        "type":"html",
+        "id":"text_leftimg2",
+        "label":"Enter Left text2 of image section3"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"text_leftimg3",
+        "label":"Enter Left text3 of image section3"
+      }
+  ,
+      {
+        "type":"image_picker",
+        "id":"image_text",
+        "label":"Add image Left text section3"
+      }
+  ,
+      {
+        "type":"html",
+        "id":"text_lastsection1",
+        "label":"Enter text1 bellow section3"
+      }
+  ,
+      {
+        "type":"html",
+        "id":"text_lastsection2",
+        "label":"Enter text2 bellow section3"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"text_lastsection3",
+        "label":"Enter text3 bellow section3"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"text_lastsection4",
+        "label":"Enter text4 bellow section3"
+      }
+    ],
+  "presets":[
+    {
+      "name":"Our Story"
+    }
+  ]
+}
+{% endschema %}

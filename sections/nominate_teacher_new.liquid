@@ -1,0 +1,356 @@
+<style>
+  .banner-relative{
+  
+  position:relative;
+  }
+.btn-velvey{
+background:#eea822 !important;
+    border-radius: 15px;
+}
+  .link-underline{
+  color:#eea822 !important;
+    text-decoration: underline;
+  }
+  .s-big{
+    font-size:16px;
+   font-weight:500;
+        line-height: 1;
+  }
+  .d-big{
+  font-size:30px;
+  color:#eea822 !important;
+   font-weight:bold;
+        line-height: 1;
+  }
+  
+
+  .img-responsive{
+  margin:0 auto;
+  
+  }
+
+  .item-banner{
+        margin-bottom: 30px;
+  }
+  .nopadding{
+  padding:0 !important;
+  }
+  .h-big{
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  font-size: 35px;
+    font-weight:500;
+  color:#E4AA43;
+    line-height:1;
+  } 
+  .banner-bg img{
+  display:block;
+    margin:0 auto;
+    max-width:100%;
+  }
+  
+  .bg-story{
+  background: url(https://cdn.shopify.com/s/files/1/0447/4047/7095/files/GOLD_GRADIENT.jpg?v=1598557572);
+    background-repeat: no-repeat;
+        background-size: contain;
+  }
+  
+  .story-content{
+  display: block;
+    max-width:750px;
+    margin: 50px auto;
+  }
+  
+  .banner-overlay-text{
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 3;
+    position: absolute;
+  }
+  
+  
+  
+  .bs-content{
+    display: table;
+    padding: 0.25em 0.4em;
+    font-weight: 700;
+    background-color: rgb(255, 255, 255);
+    color: rgb(47, 47, 47);
+    animation-delay: 1000ms;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    font-size: .55em;
+    line-height: 1em;
+
+  }
+  .bs-content span{
+  color: #e4aa44
+  }
+  .left-banner {
+    -ms-flex-align: start !important;
+    align-items: flex-start !important;
+    justify-content: flex-end !important;
+}
+  
+    .right-banner {
+    -ms-flex-align: end !important;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+}
+  
+  .bs-vert{
+    font-size:100px;
+  }
+  
+  .bs-vert{
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+ 
+  .banner-overlay-text .container {
+      padding: 15px;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+        padding-bottom: 40px;
+  }
+  
+  
+  @media (min-width: 1500px){
+.banner-overlay-text .container {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+  }
+     @media (min-width: 1280px){
+     .banner-overlay-text .container {
+    width: 1250px;
+}
+       
+}
+  
+  form.contact-form .btn {
+    margin-top: 15px;
+    padding: 15px 30px;
+    line-height: 1;
+}
+  
+ @media screen and (max-width: 1199px){
+.bs-vert {
+    font-size: 80px;
+}
+ }
+  
+  @media screen and (max-width: 991px){
+.bs-vert {
+    font-size: 60px;
+}
+  }
+  
+  
+  @media (max-width: 1499px) and (min-width: 992px){
+.banner-overlay-text .container {
+    max-width: 1250px!important;
+    padding-left: 55px!important;
+    padding-right: 55px!important;
+  
+}
+  }
+  
+  
+  
+  @media screen and (max-width: 767px){
+.bs-vert {
+    font-size: 50px;
+}
+  }
+  
+  @media screen and (max-width: 768px) {
+  .story-content{
+  display: block;
+    width: 100%;
+    padding: 0 15px;
+  }
+    
+      .banner-overlay-text .container {
+            padding-bottom: 20px;
+      }
+    
+    
+}
+  
+  @media screen and (max-width: 490px){
+.bs-vert {
+    font-size: 40px;
+}
+  }
+</style>
+
+<div class="banner-bg banner-relative">
+    <img  src="{{ section.settings.img_banner | img_url: 'master' }}" />
+
+            
+            <div class="banner-overlay-text">
+      
+              <div class="container right-banner">
+              
+ 
+                                    <div class="bs-vert">
+                                                <div class="bs-content">{{ section.settings.bannername }}</div>
+                    </div>
+         </div>  
+               </div>
+       
+      
+  
+</div>
+<div class="bg-story">
+    <div class="container">
+        <div class="story-content">
+            <h3 class="text-center h-big">{{ section.settings.text_below_banner_heading }}</h3>
+            <div class="row item-banner">
+                <div class="col-md-12"></div>
+
+                <div class="col-md-12">
+                    <div class="row">
+                           <div class="col-md-4">
+                            <img class="img-responsive" src="{{ section.settings.img_nominate | img_url:'master' }}" />
+                             <br>
+                        </div>
+
+<div class="heading_cust">
+  {{ section.settings.text_bellowheading }}
+ 
+</div>
+                      
+                      
+                        <div class="col-md-8">
+                          {{ section.settings.text_bellowheading1 }}
+
+                          
+                              
+                   
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+          
+        <div class="row item-banner">
+            <div class="col-md-12 offset-top-20">
+                {% form 'contact', class:"contact-form" %}
+                    {% if form.posted_successfully? %}
+                        <p class="note form-success">
+                            <b>{{ 'contact.form.post_success' | t }}</b>
+                        </p>
+                    {% endif %}
+                    {{ form.errors | default_errors }}
+                {% assign name_attr = 'contact.form.name' | t | handle %}
+                {% assign name_attr = 'contact.form.phone' | t | handle %}
+              
+              				<input type="hidden"  required name="contact[email]" value="service@velvey.com" >
+                    
+                           	<label>Your first & last name:</label>
+                            <input class="form-control input-lg" type="text" name="contact[Your first & last name]" required>
+              
+                            <label>Your mobile number or email address:</label>
+                            <input class="form-control input-lg" type="text" name="contact[Your mobile number or email address]" required >
+              
+              	    		<label>First & last name of teacher you're nominating:</label>
+                            <input class="form-control input-lg" type="text" name="contact[First & last name of teacher you're nominating]" required >
+              
+                  			<label>Teacher’s mobile number or email address:</label>
+                            <input class="form-control input-lg" type="text" name="contact[Teacher's mobile number or email address]" required >
+              
+              				<label>School:</label>
+                            <input class="form-control input-lg" type="text" name="contact[School]" required >
+              
+              				<label>City & State</label>
+                            <input class="form-control input-lg" type="text" name="contact[City & State ]"required >
+
+
+                    <label>Why you would like to nominate this teacher?:</label>
+                    <textarea  class="form-control input-lg" id="ContactFormMessage" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+
+                  	<label>Is it ok if we let them know you nominated them?</label>
+                            <input class="form-control input-lg" type="text" name="contact[Is it ok if we let them know you nominated them? ]">
+
+                    <div class="text-center">
+                        <button class="btn btn-lg btn-alt btn-velvey" type="submit">Submit</button>
+                    </div>
+                {% endform %}
+            </div>
+        </div>
+          
+          
+
+
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Nominate Teacher",
+"settings": [
+      {
+        "type":"image_picker",
+        "id":"img_banner",
+        "label":"Add image Banner"
+      },
+      {
+        "type":"html",
+        "id":"bannername",
+        "label":"Enter Heading Of Banner"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"text_below_banner_heading",
+        "label":"Enter Heading Of Banner bellow Heading"
+      }
+  ,
+      {
+        "type":"image_picker",
+        "id":"img_nominate",
+        "label":"Add Image of Bellow heading Section"
+      }
+  ,
+      {
+        "type":"html",
+        "id":"text_bellowheading",
+        "label":"Enter Text Of Banner bellow Heading Text1"
+      }
+  ,
+      {
+        "type":"html",
+        "id":"text_bellowheading1",
+        "label":"Enter Text Of Banner bellow Heading Text2"
+      }
+    ],
+  "presets":[
+    {
+      "name":"Nominate Teacher"
+    }
+  ]
+}
+{% endschema %}

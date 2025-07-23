@@ -1,0 +1,111 @@
+<div class="breadcrumb-container">
+  {% include 'breadcrumbs' %}
+</div>
+<div class="container">
+  {% section 'category-grid' %}
+</div>
+
+<style>
+  .breadcrumb-container {
+    padding: 49px 0 72px;
+  }
+
+  .breadcrumb-container .container {
+    margin-top: 0px !important;
+  }
+
+  .product-item .product-item-inside {
+    background-color: transparent !important;
+  }
+
+  .product-item:hover .product-item-inside {
+    background-color: #ffffff !important;
+  }
+
+  .product-item .product-item-name {
+    margin-top: 0px !important;
+  }
+
+  .product-item .product-item-name a {
+    font-family: "Montserrat", sans-serif !important;
+  }
+
+  .product-sub-title {
+    font-family: "Montserrat", sans-serif !important;
+    display: block;
+    letter-spacing: -0.4px;
+    color: #000000;
+    opacity: 1;
+    display: block;
+    font-weight: 500;
+    margin-top: 12px;
+  }
+
+  .products-grid .product-item .product-item-details {
+    padding: 12px 15px 29px !important;
+  }
+
+  .products-grid.data-to-show-md-5 .product-item {
+    padding: 0px !important;
+  }
+
+  .products-grid:not(.products-carousel) {
+    gap: 31px;
+    display: flex;
+    margin: auto;
+  }
+
+  .products-grid.data-to-show-xs-2:not(.products-carousel) .product-item:nth-child(2n) {
+    margin-right: auto;
+  }
+
+  .product-item .product-item-photo {
+    border: 0px;
+  }
+
+  @media (min-width:1280px) {
+    body.boxed .page-main .block.global_width, .page-main .block.boxed {
+      width: auto;
+    }
+  }
+
+  @media (max-width: 1365px) {
+    .breadcrumb-container {
+      padding: 30px 12px;
+    }
+
+    .products-grid:not(.products-carousel) {
+      gap: 15px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .breadcrumb-container {
+      padding: 30px 12px;
+    }
+
+    .product-item .product-item-name a {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .products-grid .product-item .product-item-details {
+      padding: 12px 10px !important;
+    }
+
+    .product-sub-title {
+      margin-top: 5px;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .products-grid {
+      flex-wrap: wrap;
+    }
+
+    .products-grid.data-to-show-sm-2 .product-item {
+      width: 100% !important;
+      margin-bottom: 0px;
+    }
+  }
+</style>

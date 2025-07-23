@@ -1,0 +1,200 @@
+/* ==================================================== */
+                  /* Gift Card Popup */
+/* ==================================================== */
+
+.gift-card .header-sec {
+  margin-top: 0px !important;
+  line-height: normal;
+}
+
+.gift-card .box-fluid .box-body .voucher-card .voucher-img {
+  height: auto !important;
+}
+
+.gift-card .box-fluid .box-body .voucher-card {
+  width: 24% !important;
+  margin-right: 5px !important;
+  margin-bottom: 16px !important;
+}
+
+.gift-card .box-fluid {
+  padding: 1.5rem 0 !important;
+}
+
+.gift-card .box-fluid .box-body {
+  justify-content: space-between !important;
+  gap: unset !important;
+}
+
+.gift-card .heading {
+  letter-spacing: normal !important;
+}
+
+.gift-card .sub-heading {
+  font-size: 12px !important;
+}
+
+.gift-card .box-fluid .box-footer .btn-next,
+.gift-card .box-fluid .box-footer .btn-prev {
+  font-size: 18px !important;
+  max-height: 50px !important;
+  line-height: normal !important;
+  border: none !important;
+}
+
+.gift-card .box-fluid .box-footer {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.gift-card .box-fluid .box-header .box-heading {
+  line-height: normal !important;
+  letter-spacing: normal !important;
+  font-weight: 800 !important;
+  margin-bottom: 0px !important;
+}
+
+.gift-card .box-fluid .box-header {
+  margin-bottom: 1rem !important;
+}
+
+.modal-dialog .modal-header .close {
+  font-size: 30px !important;
+  color: #000000 !important;
+  right: 33px !important;
+  top: 22px !important;
+  z-index: 99 !important;
+}
+
+body.modal-open .modal .modal-dialog {
+  max-width: 1000px !important;
+}
+
+@media only screen and (max-width: 950px) {
+  body.modal-open .modal .modal-dialog {
+    width: 95% !important;
+    max-width: unset !important;
+  }
+
+  .gift-card .box-fluid .box-header .box-heading {
+    font-size: 25px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .gift-card .box-fluid .box-header {
+    justify-content: center !important;
+  }
+
+  .gift-card .box-fluid .box-header .search-box {
+    width: 100% !important;
+  }
+
+  .gift-card .box-fluid .box-header .search-box .search-input {
+    height: 100% !important;
+  }
+
+  .gift-card .box-fluid .box-header .search-box {
+    align-items: center !important;
+  }
+
+  .mdlchk .modal-content {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .gift-card .box-fluid .box-body .voucher-card {
+    width: 30.3% !important;
+  }
+
+  .gift-card .box-fluid .box-footer {
+    padding: .5rem 0 0 0 !important;
+    margin-top: 0px !important;
+  }
+
+  .gift-card .box-fluid .box-body {
+    justify-content: center !important;
+  }
+
+  .gift-card .box-fluid {
+    padding: 0px !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .modal-header .close {
+    right: 18px !important;
+    top: 10px !important;
+  }
+
+  body.modal-open .modal.in {
+    padding: 10px 0 !important;
+  }
+
+  .gift-card .box-fluid .box-header h2.box-heading {
+    margin-bottom: 0px !important;
+  }
+
+  .gift-card p.sub-heading {
+    margin: 0px !important;
+  }
+
+  .gift-card .box-fluid .box-header .box-heading {
+    font-size: 20px !important;
+  }
+}
+
+/* ==================================================== */
+             /* Homepage Video Embed */
+/* ==================================================== */
+
+.welcome-txt>.container div a.video-link.btn-velvey-home, .welcome-txt>.container div a.cstm_popup {
+  padding: 1rem !important;
+}
+
+.welcome-txt>.container div {
+  padding-top: 50px !important;
+}
+
+.container.info-extra {
+  padding-bottom: 50px !important;
+}
+
+.shopify-section.index-section.bg-custom>.fullboxed>.container.info-extra a.cstm_popup {
+  max-width: 700px;
+  background: none !important;
+  position: relative;
+  display: table;
+}
+
+.shopify-section.index-section.bg-custom>.fullboxed>.container.info-extra a.cstm_popup img:last-child {
+  position: absolute;
+  bottom: 60px;
+  left: 30px;
+  max-width: 215px;
+}
+
+.shopify-section.index-section.bg-custom>.fullboxed>.container.info-extra a.cstm_popup img:first-child {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  position: relative;
+}
+.shopify-section.index-section.bg-custom>.fullboxed>.container.info-extra a.cstm_popup *:hover, .shopify-section.index-section.bg-custom>.fullboxed>.container.info-extra a.cstm_popup:hover *{
+  background: none !important;
+}
+
+.shopify-section.index-section.bg-custom>.fullboxed>.container.info-extra a.cstm_popup img:last-child {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  max-width: 215px;
+}
+
+@media only screen and (max-width: 768px) {
+  .shopify-section.index-section.bg-custom>.fullboxed>.container.info-extra a.cstm_popup img:last-child {
+    max-width: 100px;
+    height: auto;
+    bottom: 30px;
+    left: 30px;
+  }
+}

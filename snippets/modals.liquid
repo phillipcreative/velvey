@@ -1,0 +1,1129 @@
+<style>
+  .gift-btn {
+    background: #eea822 !important;
+    height: 48px;
+    padding: 14px 18px;
+  }
+
+  .text-white {
+    color: #fff !important;
+  }
+
+  a:hover:has(.text-white) {
+    text-decoration: none;
+  }
+
+  .btn-success {
+    background-color: #5cb85c !important;
+    color: #fff;
+  }
+
+  .btn-success:hover {
+    background-color: #449d44 !important;
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap !important;
+  }
+
+  .justify-content-center {
+    justify-content: center;
+  }
+
+  .w-100 {
+    width: 100%;
+  }
+
+  .h-100 {
+    height: 100%;
+  }
+
+  .dev-rounded {
+    border-radius: 10px;
+  }
+
+  .d-none {
+    display: none;
+  }
+
+  @media (min-width: 780px) {
+    .d-sm-flex {
+      display: flex !important;
+    }
+    .d-sm-block {
+      display: block !important;
+    }
+    .w-sm-auto {
+      width: auto !important;
+    }
+
+    .text-sm-start {
+      text-align: left !important;
+    }
+    .gift-card-content {
+      padding: 0 0 0 0.75rem;
+    }
+    .d-sm-block {
+      display: block !important;
+    }
+  }
+</style>
+
+{% unless customer %}
+  <!-- Modal Login -->
+  <div class="modal modal-form fade zoom" id="modalLogin">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          &#10006;
+        </button>
+      </div>
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="form-wrap-login active">
+            <div class="modal-title">{{ 'general.theme.login' | t }}</div>
+            <p class="text-center">{{ 'customer.login.if_have_title' | t }}</p>
+            <!-- form -->
+            {% form 'customer_login' %}
+              <div class="label">
+                {{ 'customer.login.email' | t -}}
+                <span class="required">*</span>
+              </div>
+              <input
+                type="email"
+                class="form-control"
+                name="customer[email]"
+                placeholder="{{ 'customer.login.email' | t }}*"
+              >
+              <div class="label">
+                {{ 'customer.login.password' | t -}}
+                <span class="required">*</span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                name="customer[password]"
+                placeholder="{{ 'customer.login.password' | t }}*"
+              >
+              <p>
+                <a href="#" class="js-change-form">Forgot Password</a>
+              </p>
+              <button type="submit" class="btn btn-lg btn-full">{{ 'customer.login.sign_in' | t }}</button>
+            {% endform %}
+            <!-- /form -->
+            <p class="text-center">{{ 'customer.login.or' | t }}</p>
+            <a class="btn btn-lg btn-full btn-alt" href="/account/register">
+              {{- 'layout.customer.create_account' | t -}}
+            </a>
+          </div>
+        </div>
+        <div class="form-wrap-password">
+          <div class="modal-title">{{ 'customer.recover_password.title' | t }}</div>
+          <p>{{ 'customer.recover_password.subtext' | t }}</p>
+          <!-- form -->
+          {% form 'recover_customer_password' %}
+            <input
+              class="form-control"
+              type="email"
+              value=""
+              name="email"
+              id="RecoverEmail"
+              placeholder="{{ 'customer.recover_password.email' | t }}"
+            >
+            <p>
+              <a href="#" class="js-change-form">{{ 'customer.recover_password.cancel' | t }}</a>
+            </p>
+            <button type="submit" class="btn btn-lg btn-full">{{ 'customer.recover_password.submit' | t }}</button>
+          {% endform %}
+          <!-- /form -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Modal Login -->
+{% endunless %}
+
+<!-- Modal Error -->
+<div
+  class="modal modal-countdown fade zoom info error"
+  data-interval="5000"
+  id="modalError"
+>
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        &#10006;
+      </button>
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="text-center">
+          <div class="icon-info">
+            <i class="icon  icon-alert"></i>
+          </div>
+          <p></p>
+        </div>
+        <div class="modal-countdown">
+          window closes in
+          <b class="count"></b>
+          seconds
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal Error -->
+<!-- Modal Success -->
+<div
+  class="modal modal-countdown fade zoom info success"
+  data-interval="5000"
+  id="modalSuccess"
+>
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        &#10006;
+      </button>
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="text-center">
+          <div class="icon-info">
+            <i class="icon icon-alert"></i>
+          </div>
+          <p></p>
+        </div>
+        <div class="modal-countdown">
+          window closes in
+          <b class="count"></b>
+          seconds
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal Success -->
+<!-- Modal Quick View -->
+<div class="modal quick-view zoom" id="quickView">
+  <div class="modal-dialog">
+    <div class="modalLoader-wrapper">
+      <div class="modalLoader bg-striped"></div>
+    </div>
+    <div class="modal-header">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        &#10006;
+      </button>
+    </div>
+    <div class="modal-content">
+      <iframe></iframe>
+    </div>
+  </div>
+</div>
+<!-- /Modal Quick View -->
+<!-- Modal Checkout -->
+<div
+  class="modal mdlchk fade"
+  id="modalCheckout"
+  aria-labelledby="modalCheckout1"
+  aria-hidden="true"
+  tabindex="-1"
+  data-addtocart-function="addToCartModal"
+  data-getupsells-function="checkoutModalGetUpsells"
+  data-qty-function="checkoutModalQtyUpdate"
+  data-remove-function="checkoutModalRemoveItem"
+  data-upsellclick-function="checkoutModalUpsellsAddToCart"
+  data-price-converter="checkoutModalPriceUpdate"
+  data-btn-text='{"add_to_cart": "{{ 'general.theme.read_more' | t}}", "select_options": "{{ 'general.theme.read_more' | t}}", "pre_order": "{{ 'general.theme.read_more' | t}}", "sold_out": "Sold Out"}'
+  data-cart=""
+>
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        &#10006;
+      </button>
+    </div>
+    <div class="modal-content" id="modalCheckout1">
+      <div class="js-mdlchk-row2"></div>
+
+      <div class="mdlchk-row display-flex js-mdlchk-row">
+        <div class="mdlchk-col1">
+          <div class="mdlchk-prd-photo js-mdlchk-prd-photo"></div>
+        </div>
+        <div class="mdlchk-col2 mdlchk-col1">
+          <div class="mdlchk-info">
+            <div class="text-center">
+              <div class="mdlchk-icon-added">
+                <svg
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 25.772 25.772"
+                  style="enable-background:new 0 0 25.772 25.772;"
+                  xml:space="preserve"
+                >
+                  <g>
+                    <path style="fill:#030104;" d="M25.646,13.74l-1.519-2.396l0.901-2.689c0.122-0.367-0.03-0.77-0.365-0.962l-2.458-1.417l-0.452-2.8 c-0.063-0.382-0.385-0.667-0.771-0.683l-2.835-0.111l-1.701-2.27c-0.232-0.31-0.652-0.413-0.999-0.246l-2.561,1.218l-2.562-1.219 C9.976,0,9.558,0.103,9.325,0.412l-1.701,2.27L4.789,2.793c-0.385,0.015-0.708,0.3-0.77,0.682l-0.452,2.8L1.109,7.692 C0.774,7.884,0.621,8.287,0.743,8.654l0.901,2.689L0.126,13.74c-0.207,0.327-0.154,0.754,0.125,1.022l2.047,1.963l-0.23,2.826 c-0.031,0.387,0.213,0.74,0.584,0.848l2.725,0.785l1.109,2.611c0.152,0.355,0.533,0.561,0.911,0.479l2.78-0.57l2.194,1.797 c0.149,0.121,0.332,0.184,0.515,0.184s0.365-0.063,0.515-0.184l2.194-1.797l2.78,0.57c0.377,0.08,0.76-0.123,0.911-0.479 l1.109-2.611l2.725-0.785c0.371-0.107,0.615-0.461,0.584-0.848l-0.23-2.826l2.047-1.963C25.8,14.494,25.853,14.067,25.646,13.74z M18.763,9.829l-5.691,8.526c-0.215,0.318-0.548,0.531-0.879,0.531c-0.33,0-0.699-0.185-0.934-0.421L7.081,14.22 c-0.285-0.29-0.285-0.76,0-1.05l1.031-1.05c0.285-0.286,0.748-0.286,1.031,0l2.719,2.762l4.484-6.718 c0.225-0.339,0.682-0.425,1.014-0.196l1.209,0.831C18.902,9.029,18.988,9.492,18.763,9.829z" />
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </div>
+              <h2 class="mdlchk-prd-title js-mdlchk-prd-title"></h2>
+              <p class="mdlchk-added-text">{{ 'general.theme.has_been_added_to_cart' | t }}</p>
+            </div>
+            <div class="clearfix mt-20 display-flex ">
+              <div class="mdlchk-prd-lbl pull-left">{{ 'cart.label.quantity_short' | t }}:</div>
+              <div class="pull-right">
+                <div class="pull-left">
+                  <div class="product-qty">
+                    <div class="qty qty-changer js-mdlchk-qty">
+                      <fieldset>
+                        <span class="js-mdlchk-prd-qty"></span>
+                        <input
+                          type="button"
+                          value="+"
+                          class="increase"
+                        >
+                        <input
+                          type="button"
+                          value="-"
+                          class="decrease"
+                        >
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix mt-5 display-flex ">
+              <div class="mdlchk-prd-lbl pull-left">{{ 'cart.label.price' | t }}:</div>
+              <div class="pull-right">
+                <div class="mdlchk-prd-price custom-color-alt js-mdlchk-prd-price"></div>
+              </div>
+            </div>
+            <div
+              class=" display-flex"
+              style="
+                margin-bottom: 10px;
+                margin-top: 10px;
+              "
+            >
+              <a href="#" class="dev-rounded gift-grid-init">
+                <div class="d-sm-flex gift-block">
+                  <div
+                    class="d-flex d-sm-block align-items-center justify-content-center h-100"
+                    style="width:80%; margin:auto; "
+                  >
+                    <img
+                      width="100"
+                      style="align-self:center; margin-bottom:0.85rem;"
+                      class="img-responsive"
+                      src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/gift_list_2.png?v=1687931304"
+                    >
+                  </div>
+                  <div class="text-white gift-card-content text-center text-sm-start">
+                    <h5 class="text-white" style="font-size: 16px; font-weight: normal; margin-bottom:0.35rem;">
+                      ADD A DIGITAL GIFT CARD
+                    </h5>
+                    <span style="font-style: italic; font-size:12px;">
+                      Choose a merchant, select a dollar amount, and your recipient will receive instructions on how to
+                      redeem with your personal message.
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="text-center d-sm-flex flex-wrap align-items-center" style="justify-content: space-between;">
+              <button data-dismiss="modal" class="btn btn-alt btn-gold-cart w-100 mr-4 w-sm-auto">
+                {{ 'cart.general.continue' | t }}
+              </button>
+              <a href="/checkout" class="btn btn-success w-100 w-sm-auto">{{ 'general.theme.go_to_checkout' | t }}</a>
+            </div>
+            <div class="mdlchk-custom d-sm-block d-none">
+              {% if settings.checkout_popup_guaranteed %}
+                <h4>{{ settings.checkout_popup_guaranteed_caption }}</h4>
+              {% endif %}
+              <img
+                src="{% if settings.checkout_popup_guaranteed_image != blank %}{{ settings.checkout_popup_guaranteed_image | img_url:'master' }}{% else %}{{ 'guaranteed.png' | asset_url }}{% endif %}"
+                alt=""
+                class="img-responsive"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="/cart" class="mdlchk-total display-flex">
+        <div class="mdlchk-total-col1">
+          <div class="display-flex">
+            <i class="icon-cart"></i>
+            <div class="mdlchk-total_text">
+              <span
+                data-text-plural="{{ 'general.theme.there_are' | t}}"
+                data-text-single="{{ 'general.theme.there_is' | t}}"
+                data-count="js-mdlchk-prd-count"
+              ></span>
+              <span class="js-mdlchk-prd-count custom-color-alt"></span>
+              <span
+                data-text-plural="{{ 'general.theme.items' | t}}"
+                data-text-single="{{ 'general.theme.item' | t}}"
+                data-count="js-mdlchk-prd-count"
+              ></span>
+              {{ 'general.theme.in_your_cart' | t }}
+            </div>
+            <div class="mdlchk-total_hover-text">{{ 'general.theme.go_to_your_cart' | t }}</div>
+          </div>
+        </div>
+        <div class="mdlchk-total-col2">
+          <!--
+            <div class="display-flex">
+            <div>{{ 'general.theme.items_count' | t}}:</div>
+            <div class="custom-color-alt js-mdlchk-prd-count"></div>
+            </div>
+          -->
+          <div class="display-flex">
+            <div>{{ 'cart.general.subtotal' | t }}:</div>
+            <span class="custom-color-alt js-mdlchk-prd-total"></span>
+          </div>
+        </div>
+        <div class="bg-striped"></div>
+      </a>
+      <div class="bg-striped"></div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Model gift card selection {% endcomment %}
+
+<div
+  class="modal mdlchk fade"
+  id="modalGiftPrice"
+  aria-labelledby="modalGiftPrice1"
+  aria-hidden="true"
+  tabindex="-1"
+  data-addtocart-function="addToCartModal"
+  data-getupsells-function="checkoutModalGetUpsells"
+  data-qty-function="checkoutModalQtyUpdate"
+  data-remove-function="checkoutModalRemoveItem"
+  data-upsellclick-function="checkoutModalUpsellsAddToCart"
+  data-price-converter="checkoutModalPriceUpdate"
+  data-btn-text='{"add_to_cart": "{{ 'general.theme.read_more' | t}}", "select_options": "{{ 'general.theme.read_more' | t}}", "pre_order": "{{ 'general.theme.read_more' | t}}", "sold_out": "Sold Out"}'
+  data-cart=""
+>
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        &#10006;
+      </button>
+    </div>
+    <div class="modal-content" id="modalGiftPrice1">
+      <div class="js-mdlchk-rows2"></div>
+      <a href="/cart" class="mdlchk-total display-flex">
+        <div class="mdlchk-total-col1">
+          <div class="display-flex">
+            <i class="icon-cart"></i>
+            <div class="mdlchk-total_text">
+              <span
+                data-text-plural="{{ 'general.theme.there_are' | t}}"
+                data-text-single="{{ 'general.theme.there_is' | t}}"
+                data-count="js-mdlchk-prd-count"
+              ></span>
+              <span class="js-mdlchk-prd-count custom-color-alt"></span>
+              <span
+                data-text-plural="{{ 'general.theme.items' | t}}"
+                data-text-single="{{ 'general.theme.item' | t}}"
+                data-count="js-mdlchk-prd-count"
+              ></span>
+              {{ 'general.theme.in_your_cart' | t }}
+            </div>
+            <div class="mdlchk-total_hover-text">{{ 'general.theme.go_to_your_cart' | t }}</div>
+          </div>
+        </div>
+        <div class="mdlchk-total-col2">
+          <!--
+            <div class="display-flex">
+            <div>{{ 'general.theme.items_count' | t}}:</div>
+            <div class="custom-color-alt js-mdlchk-prd-count"></div>
+            </div>
+          -->
+          <div class="display-flex">
+            <div>{{ 'cart.general.subtotal' | t }}:</div>
+            <span class="custom-color-alt js-mdlchk-prd-total"></span>
+          </div>
+        </div>
+        <div class="bg-striped"></div>
+      </a>
+      <div class="bg-striped"></div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Model gift card selection {% endcomment %}
+<div
+  class="modal mdlchk fade"
+  id="modalGiftCardSelection"
+  aria-labelledby="modalGiftCardSelection1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        &#10006;
+      </button>
+    </div>
+    <div class="modal-content" id="modalGiftCardSelection1">Loading...</div>
+  </div>
+</div>
+
+
+
+{% comment %} <div
+  class="modal mdlchk fade"
+  id="disclaimer"
+  aria-labelledby="disclaimer1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-header">
+    
+    </div>
+    <div class="modal-content" id="disclaimer1">Loading...</div>
+  </div>
+</div> {% endcomment %}
+
+
+
+<style>
+  .tooltip1 {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+  .tooltip1 .tooltiptext1 {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  .tooltip1:hover .tooltiptext1 {
+    visibility: visible;
+  }
+
+  .pd-0 {
+    padding: 0 !important;
+  }
+  .gift-options {
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 365px;
+  }
+  .gift-options li {
+    padding: 3px 0;
+    display: inline-block;
+    width: 14.5%;
+    font-size: 12px;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  .btn-gold-cart {
+    background: #eea822 !important;
+  }
+  .gift-card-item {
+    border: 2px solid black;
+    /* padding: 0 71px; */
+    max-width: 200px;
+    margin: 5px auto;
+  }
+  .gift-card-price {
+    padding: 1em 0;
+    text-align: center;
+    font-size: 1.5em;
+    color: #e4aa44;
+  }
+  .gift-card-action {
+    background: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1em;
+  }
+  .gift-card-action span {
+    cursor: pointer;
+  }
+  .gift-btn-gold {
+    font-size: 12px;
+    padding: 5px 15px;
+    color: #fff !important;
+    background: #e4aa44;
+    border-radius: 7px;
+    font-weight: 500;
+    min-width: 100px;
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none !important;
+  }
+  .gift-btn-gray {
+    font-size: 12px;
+    padding: 5px 15px;
+    background: #f5f5f5;
+    border-radius: 7px;
+    font-weight: 500;
+    min-width: 100px;
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none !important;
+  }
+
+  .giftcard-heading {
+    text-align: center;
+    color: #e4aa44;
+    font-size: 28px;
+    line-height: 1.1;
+    margin: 15px 0;
+  }
+
+  .giftcard-subheading {
+    font-size: 16px;
+    text-align: center;
+    color: #000;
+  }
+
+  .value-button {
+    font-size: 21px;
+    line-height: 17px;
+    display: inline-block;
+    border: 1px solid #222;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 0;
+    border-radius: 10px;
+    background: #fff;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    top: -2px;
+    color: #000;
+    font-weight: 600;
+  }
+
+  .value-button:hover {
+    cursor: pointer;
+  }
+
+  .modal-content {
+    background-color: transparent !important;
+  }
+
+  body.modal-open .modal .modal-dialog {
+    /* border-radius:18px;*/
+  }
+
+  form #decreasegift {
+    margin-right: -4px;
+    border-radius: 8px 0 0 8px;
+  }
+
+  form #increasegift {
+    margin-left: -4px;
+    border-radius: 0 8px 8px 0;
+  }
+
+  input#numbergift {
+    text-align: center;
+    border: 1px solid #000;
+    height: 40px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  #numbergift::-webkit-inner-spin-button,
+  #numbergift::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    input#numbergift {
+      width: 120px !important;
+    }
+    .gift-options li {
+      width: 30%;
+    }
+  }
+  .m-0 {
+    margin: 0;
+  }
+  .gift-block {
+    flex-wrap: nowrap;
+    background: #eea822;
+    padding: 10px 11px;
+    font-size: 10px !important;
+    line-height: 12px;
+    align-items: center;
+    border-radius: 15px;
+  }
+
+  #modalGiftCardSelection .modal-dialog {
+    width: 98% !important;
+  }
+</style>
+
+<style>
+    @media screen and (max-width:430px){:root {
+      /* font-family */
+      --primary-family: Work Sans, sans-serif;
+      --feature-card-font-family: 'Kumbh Sans', 'Helvetica', 'Arial', sans-serif;
+
+      /* font-size */
+      --heading: 24px;
+      --sub-heading: 12px;
+      --search-icon: 16px;
+      --voucher-points: 10px;
+      --voucher-name: 12px;
+    }
+
+  }
+  :root {
+    /* font-family */
+    --primary-family: Work Sans, sans-serif;
+    --feature-card-font-family: 'Kumbh Sans', 'Helvetica', 'Arial', sans-serif;
+
+    /* font-size */
+    --heading: 32px;
+    --sub-heading: 18px;
+    --search-icon: 20px;
+    --voucher-points: 12px;
+    --voucher-name: 12px;
+  }
+
+
+
+  .gift-card .header-sec {
+    font-family: var(--primary-family);
+  }
+
+  .gift-card .heading {
+    text-align: center;
+    color: #ffc000;
+    font-size: var(--heading);
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  .gift-card .sub-heading {
+    margin-top: 0;
+    text-align: center;
+    font-size: var(--sub-heading);
+  }
+
+  .gift-card .box-fluid {
+    /* width: 100%; */
+    margin: auto;
+    padding: 1.5rem;
+    font-family: var(--feature-card-font-family);
+  }
+
+  .gift-card .box-fluid .box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 0.5rem; */
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+    /* margin: auto; */
+  }
+
+  .gift-card .box-fluid .box-header .box-heading {
+    font-weight: 200 !important;
+    margin: 0;
+    color: #666;
+  }
+
+  .gift-card .box-fluid .box-header .search-box {
+    display: flex;
+    min-width: 350px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+  }
+
+  .gift-card .box-fluid .box-header .search-box .btn-search {
+    padding: 0.375rem;
+    border: 0;
+    color: #666;
+    border-radius: 3px;
+    background-color: transparent;
+    font-size: var(--search-icon);
+  }
+
+  .gift-card .box-fluid .box-header .search-box .search-input {
+    height: 45px;
+    font-size: 18px;
+    padding-left: 15px;
+    /* padding-right: 30px; */
+    width: 100%;
+    border-radius: 3px !important;
+    background-color: transparent;
+    border: none !important;
+    box-shadow: none;
+    transition: 0.25s ease;
+    transition-property: box-shadow, background-color !important;
+    margin: 0;
+  }
+
+  .gift-card .box-fluid .box-header .search-box .search-input:focus {
+    outline: 0 !important;
+  }
+
+  .gift-card .box-fluid .box-header .search-box:has(.search-input:focus) {
+    background-color: #fff;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .gift-card .box-fluid .box-header .search-box .btn-search:hover {
+    background-color: #f5f9fc;
+  }
+
+  .gift-card .box-fluid .box-body {
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .gift-card .box-fluid .box-body .voucher-card {
+    width: 200px;
+    {% comment %}
+      max-width: 350px;
+    {% endcomment %}
+    height: 100%;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .gift-card .box-fluid .box-body .voucher-card .voucher-img {
+    width: 100%;
+    height: 120px;
+  }
+
+  .gift-card .box-fluid .box-body .voucher-card .voucher-card-footer {
+    padding: 0.5rem 1rem;
+    /* border-top: 1px solid #cfcfcf; */
+  }
+
+  .gift-card .box-fluid .box-body .voucher-card .voucher-card-footer .voucher-name {
+    margin: 0;
+    font-size: var(--voucher-name);
+    overflow: hidden;
+    width: 100%;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    line-height: 1;
+  }
+
+  .gift-card .box-fluid .box-body .voucher-card .voucher-card-footer .voucher-points {
+    margin: 0;
+    /* text-align: end; */
+    color: #357a38;
+    font-size: var(--voucher-points);
+  }
+
+  .gift-card .box-fluid .box-footer {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .gift-card .box-fluid .box-footer .btn-next,
+  .gift-card .box-fluid .box-footer .btn-prev {
+    padding: 1rem;
+    background-color: #ffc000;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+  }
+
+  @media screen and (max-width:690px) {
+
+    .gift-card .box-fluid {
+      padding: 0.25rem;
+    }
+
+    .gift-card .box-fluid .box-body .voucher-card {
+      width: 100px;
+    }
+    .gift-card .box-fluid .box-body .voucher-card .voucher-img {
+      height: 100px;
+    }
+    .gift-card .box-fluid .box-header .search-box {
+      min-width: 5px;
+    }
+    .gift-card .box-fluid .box-header .search-box .search-input {
+      height: 35px;
+    }
+  }
+</style>
+<script id="giftcard-template" type="text/x-handlebars-template">
+  <div class="container-fluid">
+    <div class="row" style="margin-bottom: 2rem;">
+      <div class="col-md-12 pd-0">
+        <div class="gifcard-content">
+          <div class="giftcard-heading text-uppercase">Select your gift card voucher amount</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 pd-0">
+        <img
+          width="190"
+          class="img-responsive"
+          id = 'giftImage'
+          src=""/>
+      </div>
+      <div class="col-md-8 pd-0">
+        <p class="giftcard-subheading">
+          Your recipient will be provided with instructions on how to redeem their digital card voucher from a retailer of their choice
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 pd-0 text-center">
+
+        <div
+          class="value-button"
+          id="decreasegift"
+          onclick="decreaseValue()"
+          value="Decrease Value">-</div>
+        <input
+          type="text"
+          class="gift-input"
+          id="numbergift"
+          value="$25.00"
+          disabled />
+        <div
+          class="value-button"
+          id="increasegift"
+          onclick="increaseValue()"
+          value="Increase Value">+</div>
+
+
+        <ul class="gift-options" id="gift-options-ul">
+          {% for variant in all_products['gift-card-voucher-new'].variants %}
+            {% if variant.available %}
+              <li
+                data-variant="{{ variant.id }}"
+                data-price="{{variant.price |  money}}"
+                data-price-format="{{variant.price | money }}"
+                onclick="changeprice_li(this)">
+                {{ variant.price | money }}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+
+
+      </div>
+      <div class="d-sm-flex justify-content-center text-center">
+        <a href="/cart" class="gift-btn-gray w-100 mr-4 w-sm-auto dev-rounded">
+          Skip
+        </a>
+
+        <a
+          href="javascript:void(0)"
+          class="gift-btn-gold toaddgift w-100 w-sm-auto dev-rounded"
+          data-id="42686461214896"
+          id="add_bag">
+          Add to Cart
+        </a>
+      </div>
+
+
+    </div>
+
+
+  </div>
+</script>
+
+<script>
+    var cprices = [
+      '$10.00',
+      '$25.00',
+      '$50.00',
+      '$100.00',
+      '$200.00',
+      '$500.00'
+    ];
+
+    var camount = [{%- for variant in all_products['gift-card-voucher-new'].variants -%}{%- if variant.available -%}'{{ variant.id }}',{%- endif -%}{%- endfor -%}];
+
+  // console.log('coamount here');
+  // console.log(camount);
+    function changeprice_li(e) {;
+      document.getElementById('numbergift').value = e.getAttribute('data-price-format');
+      document.getElementById('add_bag').setAttribute("data-id", e.getAttribute('data-variant'));
+    }
+    function increaseValue() {
+      var value = document.getElementById('numbergift').value;
+      let giftPrices = [];
+      $("#gift-options-ul").children().each((i, e) => giftPrices.push({
+        'price': $(e).data('price') / 100,
+        id: $(e).data('variant'),
+        priceFormat: $(e).data('price-format')
+      }));
+      var position = giftPrices.findIndex(s => s.priceFormat == value);
+
+      if (position > -1) {
+        position++
+        if (cprices[position] !== undefined) {
+          document.getElementById('numbergift').value = giftPrices[position].priceFormat;
+          document.getElementById('add_bag').setAttribute("data-id", giftPrices[position].id);
+        }
+      }
+    }
+
+    function decreaseValue() {
+
+      var value = document.getElementById('numbergift').value;
+      let giftPrices = [];
+      $("#gift-options-ul").children().each((i, e) => giftPrices.push({
+        'price': $(e).data('price') / 100,
+        id: $(e).data('variant'),
+        priceFormat: $(e).data('price-format')
+      }));
+      var position = giftPrices.findIndex(s => s.priceFormat == value);
+
+      if (position > -1) {
+        position--
+        if (giftPrices[position] !== undefined) {
+          document.getElementById('numbergift').value = giftPrices[position].priceFormat;
+          document.getElementById('add_bag').setAttribute("data-id", giftPrices[position].id);
+        }
+
+      }
+    }
+
+
+    $(document).on('click', '#add_bag', function(e) {
+      var id = $('#add_bag').attr('data-id');
+      console.log("Cart Js",CartJS);
+      let giftId = document.getElementById('productId').value;
+      let giftImage = document.getElementById('productImage').value;
+
+
+console.log("Cart Js After",CartJS);
+      document.get
+      if (id.length !== 0) {
+        console.log("ID",id)
+        e.preventDefault();
+        $.ajax({
+          type: 'POST',
+          url: '/cart/add.js',
+          dataType: 'json',
+          data: {
+            id: id,
+            properties: {
+              '_GiftCard': true,
+              '_SplMsg': false,
+              '_SortIndex': 1,
+              '_Id': giftId,
+              '_Image':giftImage
+            }
+          },
+          success: function(r) {
+           $.ajax({
+          type: 'POST',
+          url: '/cart/add.js',
+          dataType: 'json',
+          data: {
+            id: 43012589224112,
+         
+          },
+          success: function(r) {
+            window.location.href = '/cart'; 
+          },
+          error: function() {}
+            });
+          },
+          error: function() {}
+        });
+
+            
+      }
+
+    })
+</script>
+<!-- /Modal Checkout -->

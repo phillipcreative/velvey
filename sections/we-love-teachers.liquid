@@ -1,0 +1,515 @@
+<style>
+  
+  .vennon-icon{
+  padding:2.5px 0;
+  }
+  .banner-relative{
+  
+  position:relative;
+  }
+  
+  .banner-overlay-text{
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 3;
+    position: absolute;
+  }
+  
+  
+  
+  .bs-content{
+    display: table;
+    padding: 0.25em 0.4em;
+    font-weight: 700;
+    background-color: rgb(255, 255, 255);
+    color: rgb(47, 47, 47);
+    animation-delay: 1000ms;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    font-size: .55em;
+    line-height: 1em;
+
+  }
+  .bs-content span{
+  color: #e4aa44
+  }
+  .left-banner {
+    -ms-flex-align: start !important;
+    align-items: flex-start !important;
+    justify-content: flex-end !important;
+}
+  
+    .right-banner {
+    -ms-flex-align: end !important;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+}
+  
+  .bs-vert{
+    font-size:100px;
+  }
+  
+  .bs-vert{
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+ 
+  .banner-overlay-text .container {
+      padding: 15px;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+        padding-bottom: 40px;
+  }
+    @media (min-width: 1500px){
+.banner-overlay-text .container {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+  }
+     @media (min-width: 1280px){
+     .banner-overlay-text .container {
+    width: 1250px;
+}
+}
+  
+ @media screen and (max-width: 1199px){
+.bs-vert {
+    font-size: 80px;
+}
+ }
+  
+  @media screen and (max-width: 991px){
+.bs-vert {
+    font-size: 60px;
+}
+  }
+  
+  
+  @media (max-width: 1499px) and (min-width: 992px){
+.banner-overlay-text .container {
+    max-width: 1250px!important;
+    padding-left: 55px!important;
+    padding-right: 55px!important;
+  
+}
+  }
+  
+  
+  
+  @media screen and (max-width: 767px){
+.bs-vert {
+    font-size: 50px;
+}
+  }
+  
+  @media screen and (max-width: 768px) {
+
+    
+      .banner-overlay-text .container {
+            padding-bottom: 20px;
+      }
+    
+    
+}
+  
+  @media screen and (max-width: 490px){
+.bs-vert {
+    font-size: 40px;
+}
+  }
+</style>
+
+<div class="banner-bg banner-relative">
+    <img src="{{ section.settings.imgbanner | img_url: 'master' }}" />
+         <div class="banner-overlay-text">
+             <div class="container right-banner">
+                    <div class="bs-vert">
+                        <div class="bs-content">{{ section.settings.bannername }}</div>
+                    </div>
+            </div>  
+         </div>
+       
+</div>
+<div class="bg-story">
+    <div class="container">
+        <div class="story-content">
+            <h3 class="text-center h-big">{{ section.settings.heading_belwbanner }}</h3>
+            <p class="big-info">{{ section.settings.heading_text_belwbanner }}</p>
+
+            <div class="row item-banner">
+                <div class="col-md-12"></div>
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p style="font-size: 14px; line-height: 1.5; margin-bottom:20px;">
+                              {{ section.settings.left_text_right_image }}</p>
+                        </div>
+
+                        <div class="col-md-6">
+                          
+                            <img class="img-responsive" src="{{ section.settings.right_image | img_url: 'master' }}" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <img  class="img-responsive" src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/Down_Arrow.png?v=1709798996">
+            <div class="row item-banner">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h3 style="text-align: center;">
+                                <br />
+
+                                <br />
+                                <p class="d-big">{{ section.settings.knowteachr_heading }} </p>
+                                <p class="s-big">{{ section.settings.knowteachr_text }}</p>
+                            </h3>
+                        </div>
+                  <div class="col-md-4 ">
+                            <img class="img-responsive" width="200" src="{{ section.settings.knowteachr_img | img_url:'master' }}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+              <div class="row item-banner">
+                <div class="col-md-12 text-left">
+                    <div class="row">
+                        <div class="col-md-8">
+                          <p>  {{ section.settings.step1 }}  </p>
+                        </div>
+
+                        <div class="col-md-4 ">
+                    <a href="{{ section.settings.img_text_step1_url }}" class="btn-velvey">
+                                    <img src="{{ section.settings.img_step1 | img_url: 'master' }}">
+                                    <span class="text-btn">
+                                      {{ section.settings.img_text_step1 }}
+                                
+                                    </span>
+                                </a>    
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+                        <div class="row item-banner">
+                <div class="col-md-12 text-left">
+                    <div class="row">
+                        <div class="col-md-8">
+                          <p>  {{ section.settings.step2 }}</p>
+                        </div>
+
+                        <div class="col-md-4 ">
+                    <a href="{{ section.settings.img_text_step2_url }}" class="btn-velvey">
+                                    <img src="{{ section.settings.img_step2 | img_url: 'master' }}">
+                                    <span class="text-btn">
+                                       {{ section.settings.img_text_step2 }}
+                                       
+                                    </span>
+                                </a>    
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+          
+                        <div class="row item-banner">
+                <div class="col-md-12 text-left">
+                    <div class="row">
+                        <div class="col-md-8">
+                          <p>  {{ section.settings.step3 }}
+                        
+                          </p>
+                        </div>
+
+                        <div class="col-md-4 ">
+                    <a target="_blank"href="   {{ section.settings.img_text_step3_url }}" class="btn-velvey">
+      <img src="{{ section.settings.img_step3 | img_url: 'master' }}">                             
+                      <span class="text-btn">
+                                       {{ section.settings.img_text_step3 }}
+                                       
+                                    </span>
+                                </a>    
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+                   
+        </div>
+    </div>
+</div>
+
+
+<style>
+  
+  .btn-velvey img {
+    max-width:100%;
+    float: left;
+    margin-right: 5px;
+    width: 30px;
+}
+  
+  .btn-velvey .text-btn {
+    font-size: 13px;
+    float: right;
+    text-align: left;
+    font-weight: 600 !important;
+    min-width: 85px;
+    line-height: 1.2;
+    position: relative;
+    top: 3px;
+}
+    .btn-velvey{
+      margin-top: 10px;
+    display: inline-block;
+    max-width: 100%;
+    background: #eea822;
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 18px;
+    text-align: left;
+    text-transform: inherit;
+    text-decoration: none !important;
+    text-align: center;
+}
+  
+  .s-big{
+    font-size:16px;
+   font-weight:500;
+        line-height: 1;
+  }
+  .d-big{
+  font-size:26px;
+  color:#eea822 !important;
+   font-weight:900;
+        line-height: 1;
+  }
+  
+  .big-info{
+  
+    color: #E4AA43 !important;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 30px;
+  } 
+  .img-responsive{
+  margin:0 auto;
+  
+  }
+  .italic-big{
+ font-family: 'MonteCarlo', cursive;
+    font-size: 40px;
+    color: #db8f16;
+    line-height: 1;
+    text-align: center;
+    font-weight: 400;
+  }
+  .item-banner{
+
+        margin-bottom: 30px;
+  }
+  .nopadding{
+  padding:0 !important;
+  }
+  .h-big{
+  font-size: 40px;
+    font-weight:500;
+  color:#E4AA43;
+    line-height:1;
+    margin-bottom:25px;
+  } 
+  .banner-bg img{
+  display:block;
+    margin:0 auto;
+    max-width:100%;
+  }
+  
+  /* .bg-story{
+  background: url(https://cdn.shopify.com/s/files/1/0447/4047/7095/files/GOLD_GRADIENT.jpg?v=1598557572);
+    background-repeat: no-repeat;
+        background-size: contain;
+  } */
+  
+  .story-content{
+  display: block;
+    max-width:750px;
+    margin: 50px auto;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .footer-logo{
+  padding: 0 15px;
+  }
+    
+    .col-md-8,.col-md-4,.col-md-12{
+    padding: 0 30px!important;
+    }
+    .h-big{
+            max-width: 260px;
+    margin: 0 auto;
+         margin-bottom:25px;
+    }
+    .big-info{
+      font-size:19px;
+        padding: 0px 25px;
+    text-align: center;
+    }
+  .story-content{
+  display: block;
+    width: 100%;
+  }
+}
+</style>
+{% schema %}
+{
+  "name": "We Love Teacher",
+"settings": [
+      {
+        "type":"image_picker",
+        "id":"imgbanner",
+        "label":"Add image Banner"
+      },
+      {
+        "type":"html",
+        "id":"bannername",
+        "label":"Enter Heading Of Banner"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"heading_belwbanner",
+        "label":"Enter Heading Of Banner bellow Heading"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"heading_text_belwbanner",
+        "label":"Enter Heading Of Banner bellow Heading text"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"left_text_right_image",
+        "label":"Enter Text Of right image"
+      }
+  ,
+      {
+        "type":"image_picker",
+        "id":"right_image",
+        "label":"Add Image of left Text"
+      },
+      {
+        "type":"html",
+        "id":"knowteachr_heading",
+        "label":"Enter Know A teacher heading"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"knowteachr_text",
+        "label":"Enter Know A teacher heading"
+      }
+  ,
+      {
+        "type":"image_picker",
+        "id":"knowteachr_img",
+        "label":"Add a  image Know A teacher "
+      }
+  ,
+      {
+        "type":"html",
+        "id":"step1",
+        "label":"Add Html of Step1"
+      }
+  ,
+   {
+        "type":"url",
+        "id":"img_text_step1_url",
+        "label":"Add URL image of Ste1"
+      } ,
+  {
+        "type":"image_picker",
+        "id":"img_step1",
+        "label":"Add Image of Step1"
+      },
+  {
+        "type":"text",
+        "id":"img_text_step1",
+        "label":"Add TExt image of Step1"
+      },
+   {
+        "type":"url",
+        "id":"img_text_step2_url",
+        "label":"Add URL image of Step2"
+      } ,
+      {
+        "type":"html",
+        "id":"step2",
+        "label":"Add Html of Step2"
+      },
+    {
+        "type":"image_picker",
+        "id":"img_step2",
+        "label":"Add Image of Step2"
+      },
+  {
+        "type":"text",
+        "id":"img_text_step2",
+        "label":"Add TExt image of Step2"
+      }
+  ,
+    {
+        "type":"url",
+        "id":"img_text_step3_url",
+        "label":"Add URL image of Step3"
+      } ,
+      {
+        "type":"html",
+        "id":"step3",
+        "label":"Add Html of Step3"
+      }
+,
+    {
+        "type":"image_picker",
+        "id":"img_step3",
+        "label":"Add Image of Step3"
+      },
+  {
+        "type":"text",
+        "id":"img_text_step3",
+        "label":"Add TExt image of Step3"
+      } 
+],
+  "presets":[
+    {
+      "name":"We Love Teacher"
+    }
+  ]
+}
+{% endschema %}

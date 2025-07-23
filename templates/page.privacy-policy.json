@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "html_structure_ppyeTP": {
+      "type": "html_structure",
+      "settings": {
+        "main_heading": "Privacy Policy",
+        "html_content": "<div class=\"cstm_term\">\n    <div class=\"main_content\">\n<h3>Last updated: March 5, 2024<\/h3> \n<p> In this privacy policy, we, meaning Velvey, LLC, Velvey.com and Velvey, use terms that have been defined in our Terms of Use document. You can find the Terms of Use document by seeing our Terms of Use.<\/p>\n\n<p> In this privacy policy, we explain to you what information, if any, is collected about you.<\/p>\n<p> By your using the services offered on Velvey.com, you agree to this privacy policy and our terms of use. We may change this privacy policy from time to time. If we make a significant and material change, the last update date as shown near the top of this page will be revised. You should check back regularly to keep current with our policies. By continuing to use the Velvey.com services, after changes to this policy go into effect, you agree to be bound by any of the revised policy(ies).<\/p>\n<h3> Non-Personal Information:<\/h3>\n<p> This is information about you or your household that cannot be used, and is not stored, in a way that can identify you, personally. <\/p>\n\n<p>We will analyze non-personal usage information of the website services using Google Analytics. Please see their latest privacy policy for information they collect.<\/p>\n<h3>Personal Information:<\/h3>\n<p> This information may be used to identify you, personally, such as your name, address, email address, phone number, social media aliases, or usernames. If Personal Information and Non-personal Information are combined, it is treated as Personal Information. If you delete your optional account, we may retain certain information for future use, including for counting the number of user accounts that have been deactivated, unless prohibited by law.<\/p>\n\n<p> If you establish an account, we collect the information you provide in establishing, using and maintaining the account. Unless you choose to establish an account, we do not collect any personal information whatsoever about you.<\/p>\n\n<p> Whether you establish an account or not, we do not intentionally collect any personal information relating to your racial or ethnic origin, political opinions, religious or philosophical beliefs, trade-union membership, physical or mental health, or sexual life. We do not collect your personal directory data such as calendar, address book, phone\/text log or photo\/video data created by you and stored or accessed on your devices. <\/p>\n<p>We do not share any personal information with third parties.<\/p>\n<h3> Laws Governing Data<\/h3>\n<p> Velvey is based in the United States. International law including federal U.S. law, the laws of the various states of the U.S. and the General Data Protection Regulations of the European Union and the equivalent rules of the United Kingdom and Switzerland, as applicable, govern the information collected. By using the website and providing us personal data, you agree to the processing and transfer of information in and to the U.S. and other countries for the purposes stated in the Terms of Use and Privacy Policy.<\/p>\n<h3> Disclosure of Information<\/h3>\n<p> We reserve the right to access, use, preserve, transfer or disclose, at any time without notice to you, any information (including Personal Information) as reasonably necessary to:<\/p>\n<p> Comply with any applicable law, regulation, subpoena or legal process, or respond to any governmental and cooperate with law requests enforcement, if we believe such action is required or permitted by law;<\/p>\n<p> Enforce our Terms of Use, including investigating any potential violations;<\/p>\n<\/div>\n<\/div>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "html_structure_ppyeTP"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "gift_card_section_tCTkNb": {
+      "type": "gift_card_section",
+      "settings": {
+        "baner_image": "shopify:\/\/shop_images\/howiteworks.jpg",
+        "bannername": "<span>GIFT<\/span> CARDS",
+        "pupup_heading": "",
+        "bannerbelow_heading_text1": "Oh gifts cards. How we love them.",
+        "bannerbelow_heading_text2": "They're the backbone of modern gifting. Not sure what to send? Send a gift card! Best friend who lives to shop? She'll love a gift card! But we get that sometimes they can feel a little impersonal. Fall a little... flat. We get it.",
+        "bannerbelow_heading_text3": "That's where we can help! Choose from any of our fun featured Velveys or select an everyday pick. Your digital gift card will be delivered with style. And best of all, your recipient gets to choose where they want to shop. Can you imagine anything better?? Neither could we. A bougie pouch, treat, and personalized message—A Velvey is basically the ultimate make-over for your gift card.",
+        "image1": "shopify:\/\/shop_images\/GIFT_CARD_2x_fc79ee3e-8539-4dee-9d68-1c1f560d6edd.png",
+        "image2": "shopify:\/\/shop_images\/Lindor-Chocolate-Truffles-Blue-White_2x_19e59c81-5f08-4691-9c8f-234388e92326.png",
+        "image3": "shopify:\/\/shop_images\/Mask_Group_11_2x_be657086-a1f1-48e2-a3b7-f2e56eca6fdf.png",
+        "text_lastsection4": "Ready to give your gift card the Velvey touch?"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "gift_card_section_tCTkNb"
+  ]
+}
