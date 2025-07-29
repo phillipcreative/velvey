@@ -7031,7 +7031,7 @@ details-disclosure > details {
   cursor: pointer;
   background-color: #fafafa;
   cursor: pointer;
-  box-shadow: 0 0 11px rgba(33,33,33,.2);
+  box-shadow: 0 0 11px rgba(53, 101, 224, 0.2);
 }
 
 .step-el,
@@ -7076,6 +7076,10 @@ details-disclosure > details {
   margin-bottom: 20px !important;
 }
 
+.process h2.process-title {
+  margin-bottom: 50px !important;
+}
+
 .process select {
   -webkit-appearance: none;
   outline: none;
@@ -7089,15 +7093,20 @@ details-disclosure > details {
   background-position: calc(100% - 20px) calc(1em + 2px),calc(100% - 15px) calc(1em + 2px),calc(100% - 2.5em) .5em;
   background-size: 5px 5px, 5px 5px, 1px 1.5em;
   background-repeat: no-repeat;
-  width: 500px;
+  width: 100%;
   height: 50px;
   font-weight: bolder;
   margin: 0 auto;
   display: block;
+  margin-bottom: 15px;
 }
 
 .process select {
   color: black;
+}
+
+.form-group label {
+  font-weight: bold;
 }
 
 .process.process-two {
@@ -7191,11 +7200,12 @@ fieldset {
 #business-info input[type="email"],
 #business-info input[type="tel"],
 #business-info input[type="url"],
-#business-info textarea {
+#business-info textarea,
+#business-info select {
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   background: #FFF;
-  margin: 0 0 5px;
+  margin: 0 0 15px;
   padding: 10px;
 }
 
@@ -7450,7 +7460,7 @@ fieldset {
   align-items: center;
   height: 200px;
   width: 350px;
-  border: 1px solid black;
+  border: 3px solid #3565E0;
   border-radius: 9px;
   padding: 2rem;
   background-color: #ffffff;
@@ -7461,7 +7471,7 @@ fieldset {
 .lease-transaction-process .step-el:hover {
   cursor: pointer;
   background-color: #fafafa;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: 0 0 11px rgba(53, 101, 224, 0.2);
 }
 
 .property-process .step-el h2,
@@ -7498,8 +7508,10 @@ fieldset {
   border-radius: 10px;
   padding: 25px;
   margin: 50px 0;
-  border: 1px solid #000;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+  border: 3px solid #3565E0;
+  box-shadow: 0 0 11px rgba(53, 101, 224, 0.2);
+  width: 100%;
+  max-width: 500px;
 }
 
 .property-process #pmc-info {
@@ -7516,7 +7528,7 @@ fieldset {
 .property-process #business-info textarea,
 .lease-transaction-process #business-info textarea {
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   background: #fff;
   margin-bottom: 5px;
   padding: 10px;
@@ -7527,7 +7539,7 @@ fieldset {
 .lease-transaction-process #business-info .form-submit-btn {
   outline: none;
   border: 0;
-  background: black;
+  background: #3565E0;
   color: white;
   font-size: 18px;
   text-transform: uppercase;
@@ -7661,7 +7673,7 @@ fieldset {
   width: 100% !important;
   opacity: 1;
   transition: width 0.6s ease-in-out, opacity 0.6s ease-in-out;
-  background-color: #58bb58;
+  background-color: #3565E0;
 }
 
 .step__icon {
@@ -7693,8 +7705,8 @@ fieldset {
 .step--complete .step__icon {
   -webkit-animation: bounce 0.5s ease-in-out;
           animation: bounce 0.5s ease-in-out;
-  background-color: #58bb58;
-  border-color: #58bb58 !important;
+  background-color: #3565E0;
+  border-color: #3565E0 !important;
   color: #fff;
   transform: scale(1.1);
 }
@@ -7741,7 +7753,7 @@ fieldset {
   width: 200px;
   /* height: 200px; */
   height: auto;
-  border: 1px solid black;
+  border: 2px solid #3565E0;
   border-radius: 9px;
   padding: 2rem;
   background-color: #fff;
@@ -7895,7 +7907,7 @@ fieldset {
 
 .process-one-tip {
   position: absolute;
-  bottom: -57px;
+  bottom: -105px;
   left: 0;
   right: 0;
   margin: auto;
@@ -7905,6 +7917,7 @@ fieldset {
   align-items: center;
   font-size: 18px;
   font-weight: bold;
+  flex-direction: column;
 }
 
 .process-one-tip svg {
@@ -8035,9 +8048,9 @@ fieldset {
 #pmc-info input[type="url"],
 #pmc-info textarea {
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   background: #FFF;
-  margin: 0 0 5px;
+  margin: 0 0 15px;
   padding: 10px;
 }
 
@@ -8089,7 +8102,7 @@ fieldset {
 #pmc-info .form-submit-btn {
     outline: none;
     border: 0;
-    background: black;
+    background: #3565E0;
     color: #fff;
     font-size: 18px;
     text-transform: uppercase;
@@ -8173,4 +8186,16 @@ fieldset {
 
 .final-process {
   margin-top: 0px !important;
+}
+
+/* Table Updates */
+.pmc-overview table {
+  border: 1px solid;
+}
+
+.address-overview table {
+  width: auto !important;
+  border-collapse: collapse !important;
+  margin: auto !important;
+  margin-bottom: 24px !important;
 }

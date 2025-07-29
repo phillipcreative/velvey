@@ -14,6 +14,7 @@
 {{ 'component-card-horizontal.css' | asset_url | stylesheet_tag }}
 {{ 'component-article-card-small.css' | asset_url | stylesheet_tag }}
 {{ 'component-predictive-search.css' | asset_url | stylesheet_tag }}
+{{ 'mega-menu-custom.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
 
@@ -262,6 +263,13 @@
 	"max_blocks": 7,
 	"class": "shopify-section-header",
 	"settings": [
+		{
+			"type": "checkbox",
+			"id": "enable_custom_broker_layout",
+			"default": true,
+			"label": "Enable Custom Broker Layout",
+			"info": "Enable this to show the custom broker layout in the dropdown for transactions."
+		},
 		{
 			"type": "select",
 			"id": "header_type",
@@ -904,6 +912,200 @@
 				{
 					"type": "text",
 					"id": "text_accent_3",
+					"label": "Accent text"
+				},
+				{
+					"type": "header",
+					"content": "Promo Block 4"
+				},
+				{
+					"type": "checkbox",
+					"id": "show_promo_4",
+					"default": false,
+					"label": "Show promo block 4"
+				},
+				{
+					"type": "select",
+					"id": "color_scheme_4",
+					"options": [
+						{
+							"value": "light",
+							"label": "Light"
+						},
+						{
+							"value": "dark",
+							"label": "Dark"
+						}
+					],
+					"default": "dark",
+					"label": "Color scheme"
+				},
+				{
+					"type": "text",
+					"id": "heading_4",
+					"label": "Heading",
+					"info": "The main heading displayed on the promo block"
+				},
+				{
+					"type": "text",
+					"id": "description_4",
+					"label": "Description"
+				},
+				{
+					"type": "image_picker",
+					"id": "image_4",
+					"label": "Promo image"
+				},
+				{
+					"type": "range",
+					"id": "overlay_opacity_4",
+					"min": 0,
+					"max": 1,
+					"step": 0.1,
+					"default": 0,
+					"label": "Overlay opacity"
+				},
+				{
+					"type": "checkbox",
+					"id": "show_button_4",
+					"label": "Show button"
+				},
+				{
+					"type": "url",
+					"id": "button_link_4",
+					"label": "Button link"
+				},
+				{
+					"type": "text",
+					"id": "button_label_4",
+					"default": "Learn More",
+					"label": "Button label"
+				},
+				{
+					"type": "select",
+					"id": "button_style_4",
+					"options": [
+						{
+							"value": "primary",
+							"label": "Primary"
+						},
+						{
+							"value": "secondary",
+							"label": "Secondary"
+						},
+						{
+							"value": "tertiary",
+							"label": "Tertiary"
+						}
+					],
+					"default": "primary",
+					"label": "Button style"
+				},
+				{
+					"type": "text",
+					"id": "text_4",
+					"label": "Text"
+				},
+				{
+					"type": "text",
+					"id": "text_accent_4",
+					"label": "Accent text"
+				},
+				{
+					"type": "header",
+					"content": "Promo Block 5"
+				},
+				{
+					"type": "checkbox",
+					"id": "show_promo_5",
+					"default": false,
+					"label": "Show promo block 5"
+				},
+				{
+					"type": "select",
+					"id": "color_scheme_5",
+					"options": [
+						{
+							"value": "light",
+							"label": "Light"
+						},
+						{
+							"value": "dark",
+							"label": "Dark"
+						}
+					],
+					"default": "dark",
+					"label": "Color scheme"
+				},
+				{
+					"type": "text",
+					"id": "heading_5",
+					"label": "Heading",
+					"info": "The main heading displayed on the promo block"
+				},
+				{
+					"type": "text",
+					"id": "description_5",
+					"label": "Description"
+				},
+				{
+					"type": "image_picker",
+					"id": "image_5",
+					"label": "Promo image"
+				},
+				{
+					"type": "range",
+					"id": "overlay_opacity_5",
+					"min": 0,
+					"max": 1,
+					"step": 0.1,
+					"default": 0,
+					"label": "Overlay opacity"
+				},
+				{
+					"type": "checkbox",
+					"id": "show_button_5",
+					"label": "Show button"
+				},
+				{
+					"type": "url",
+					"id": "button_link_5",
+					"label": "Button link"
+				},
+				{
+					"type": "text",
+					"id": "button_label_5",
+					"default": "Learn More",
+					"label": "Button label"
+				},
+				{
+					"type": "select",
+					"id": "button_style_5",
+					"options": [
+						{
+							"value": "primary",
+							"label": "Primary"
+						},
+						{
+							"value": "secondary",
+							"label": "Secondary"
+						},
+						{
+							"value": "tertiary",
+							"label": "Tertiary"
+						}
+					],
+					"default": "primary",
+					"label": "Button style"
+				},
+				{
+					"type": "text",
+					"id": "text_5",
+					"label": "Text"
+				},
+				{
+					"type": "text",
+					"id": "text_accent_5",
 					"label": "Accent text"
 				}
 			]

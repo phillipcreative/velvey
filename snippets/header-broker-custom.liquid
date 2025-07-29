@@ -1,3 +1,5 @@
+{% assign enable_custom_broker_layout = section.settings.enable_custom_broker_layout %}
+
 <div class="header__overlay"></div>
 <div class="header__top color-{{ section.settings.color_scheme }}">
 	<div class="header__top-inner container">
@@ -164,7 +166,7 @@
 		{% for block in section.blocks %}
 			{% case block.type %}
 				{% when "dropdown" %}
-					{% render 'shop-button', block: block %}
+					{% render 'shop-button', block: block, enable_custom_broker_layout: enable_custom_broker_layout %}
 			{% endcase %}
 		{% endfor %}
 

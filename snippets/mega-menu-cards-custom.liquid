@@ -1,0 +1,248 @@
+{% if block.settings.show_promo_1 %}
+  <div class="mega-menu__item mega-menu__item--{{ block.settings.color_scheme_1 }}">
+    {% if block.settings.heading_1 != blank %}
+      <div class="mega-menu__item-heading h3">
+        {{ block.settings.heading_1 }}
+      </div>
+    {%- endif -%}
+    {% if block.settings.description_1 != blank %}
+      <div class="mega-menu__item-description">
+        {{ block.settings.description_1 }}
+      </div>
+    {%- endif -%}
+    {%- if block.settings.show_button_1 and block.settings.button_label_1 != blank -%}
+      <div class="mega-menu__item-button-wrapper">
+        <a
+          data-sales-trans-btn
+          {% if block.settings.button_link_1.url != blank %}
+            href="{{ block.settings.button_link_1 }}"
+          {% endif %}
+          class="mega-menu__item-button button button--arrow button--{{ block.settings.button_style_1 }}"
+          {% if block.settings.button_link_1.url == blank %}
+            aria-disabled="true"
+          {% endif %}
+        >
+          <span>
+            {{ block.settings.button_label_1 | escape }}
+          </span>
+          <span>
+            {% render 'icon-button-arrow' %}
+          </span>
+        </a>
+        {% if block.settings.text_1 or block.settings.text_accent_1 != blank %}
+          <div class="mega-menu__item-text-wrapper">
+            {% if block.settings.text_1 != blank %}
+              <div class="mega-menu__item-text">
+                {{ block.settings.text_1 }}
+              </div>
+            {% endif %}
+            {% if block.settings.text_accent_1 != blank %}
+              <div class="mega-menu__item-text mega-menu__item-text--accent">
+                {{ block.settings.text_accent_1 }}
+              </div>
+            {% endif %}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+{% endif %}
+{% if block.settings.show_promo_2 %}
+  <div class="mega-menu__item mega-menu__item--{{ block.settings.color_scheme_2 }} ">
+    {% if block.settings.heading_2 != blank %}
+      <div class="mega-menu__item-heading h3">
+        {{ block.settings.heading_2 }}
+      </div>
+    {%- endif -%}
+    {% if block.settings.description_2 != blank %}
+      <div class="mega-menu__item-description">
+        {{ block.settings.description_2 }}
+      </div>
+    {%- endif -%}
+    {%- if block.settings.show_button_2 and block.settings.button_label_2 != blank -%}
+      <div class="mega-menu__item-button-wrapper">
+        <a
+          data-lease-sales-btn
+          {% if block.settings.button_link_2.url != blank %}
+            href="#"
+          {% endif %}
+          class="mega-menu__item-button button button--arrow button--{{ block.settings.button_style_2 }}"
+          {% if block.settings.button_link_2.url == blank %}
+            aria-disabled="true"
+          {% endif %}
+        >
+          <span>
+            {{ block.settings.button_label_2 | escape }}
+          </span>
+          <span>
+            {% render 'icon-button-arrow' %}
+          </span>
+        </a>
+        {% if block.settings.text_2 or block.settings.text_accent_2 != blank %}
+          <div class="mega-menu__item-text-wrapper">
+            {% if block.settings.text_2 != blank %}
+              <div class="mega-menu__item-text">
+                {{ block.settings.text_2 }}
+              </div>
+            {% endif %}
+            {% if block.settings.text_accent_2 != blank %}
+              <div class="mega-menu__item-text mega-menu__item-text--accent">
+                {{ block.settings.text_accent_2 }}
+              </div>
+            {% endif %}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+{% endif %}
+{% if block.settings.show_promo_3 %}
+  <div class="mega-menu__item mega-menu__item--{{ block.settings.color_scheme_3 }} ">
+    {% if block.settings.heading_3 != blank %}
+      <div class="mega-menu__item-heading h3">
+        {{ block.settings.heading_3 }}
+      </div>
+    {% endif %}
+    {% if block.settings.description_3 != blank %}
+      <div class="mega-menu__item-description">
+        {{ block.settings.description_3 }}
+      </div>
+    {% endif %}
+    {% if block.settings.show_button_3 and block.settings.button_label_3 != blank %}
+      <div class="mega-menu__item-button-wrapper">
+        <a
+          data-property-management-btn
+          {% if block.settings.button_link_3 != blank %}
+            href="#"
+          {% endif %}
+          class="mega-menu__item-button button button--arrow button--{{ block.settings.button_style_3 }}"
+          {% if block.settings.button_link_3 == blank %}
+            aria-disabled="true"
+          {% endif %}
+          onclick="event.preventDefault();"
+        >
+          <span>
+            {{ block.settings.button_label_3 | escape }}
+          </span>
+          <span>
+            {% render 'icon-button-arrow' %}
+          </span>
+        </a>
+        {% if block.settings.text_3 or block.settings.text_accent_3 != blank %}
+          <div class="mega-menu__item-text-wrapper">
+            {% if block.settings.text_3 != blank %}
+              <div class="mega-menu__item-text">
+                {{ block.settings.text_3 }}
+              </div>
+            {% endif %}
+            {% if block.settings.text_accent_3 != blank %}
+              <div class="mega-menu__item-text mega-menu__item-text--accent">
+                {{ block.settings.text_accent_3 }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+{% if block.settings.show_promo_4 %}
+  <div class="mega-menu__item mega-menu__item--{{ block.settings.color_scheme_4 }} ">
+    {% if block.settings.heading_4 != blank %}
+      <div class="mega-menu__item-heading h3">
+        {{ block.settings.heading_4 }}
+      </div>
+    {% endif %}
+    {% if block.settings.description_4 != blank %}
+      <div class="mega-menu__item-description">
+        {{ block.settings.description_4 }}
+      </div>
+    {% endif %}
+    {% if block.settings.show_button_4 and block.settings.button_label_4 != blank %}
+      <div class="mega-menu__item-button-wrapper">
+        <a
+          data-promo-4-btn
+          {% if block.settings.button_link_4 != blank %}
+            href="#"
+          {% endif %}
+          class="mega-menu__item-button button button--arrow button--{{ block.settings.button_style_4 }}"
+          {% if block.settings.button_link_4 == blank %}
+            aria-disabled="true"
+          {% endif %}
+          onclick="event.preventDefault();"
+        >
+          <span>
+            {{ block.settings.button_label_4 | escape }}
+          </span>
+          <span>
+            {% render 'icon-button-arrow' %}
+          </span>
+        </a>
+        {% if block.settings.text_4 or block.settings.text_accent_4 != blank %}
+          <div class="mega-menu__item-text-wrapper">
+            {% if block.settings.text_4 != blank %}
+              <div class="mega-menu__item-text">
+                {{ block.settings.text_4 }}
+              </div>
+            {% endif %}
+            {% if block.settings.text_accent_4 != blank %}
+              <div class="mega-menu__item-text mega-menu__item-text--accent">
+                {{ block.settings.text_accent_4 }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+{% if block.settings.show_promo_5 %}
+  <div class="mega-menu__item mega-menu__item--{{ block.settings.color_scheme_5 }} ">
+    {% if block.settings.heading_5 != blank %}
+      <div class="mega-menu__item-heading h3">
+        {{ block.settings.heading_5 }}
+      </div>
+    {% endif %}
+    {% if block.settings.description_5 != blank %}
+      <div class="mega-menu__item-description">
+        {{ block.settings.description_5 }}
+      </div>
+    {% endif %}
+    {% if block.settings.show_button_5 and block.settings.button_label_5 != blank %}
+      <div class="mega-menu__item-button-wrapper">
+        <a
+          data-promo-5-btn
+          {% if block.settings.button_link_5 != blank %}
+            href="#"
+          {% endif %}
+          class="mega-menu__item-button button button--arrow button--{{ block.settings.button_style_5 }}"
+          {% if block.settings.button_link_5 == blank %}
+            aria-disabled="true"
+          {% endif %}
+          onclick="event.preventDefault();"
+        >
+          <span>
+            {{ block.settings.button_label_5 | escape }}
+          </span>
+          <span>
+            {% render 'icon-button-arrow' %}
+          </span>
+        </a>
+        {% if block.settings.text_5 or block.settings.text_accent_5 != blank %}
+          <div class="mega-menu__item-text-wrapper">
+            {% if block.settings.text_5 != blank %}
+              <div class="mega-menu__item-text">
+                {{ block.settings.text_5 }}
+              </div>
+            {% endif %}
+            {% if block.settings.text_accent_5 != blank %}
+              <div class="mega-menu__item-text mega-menu__item-text--accent">
+                {{ block.settings.text_accent_5 }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

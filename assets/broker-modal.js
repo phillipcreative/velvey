@@ -277,6 +277,98 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Stepper navigation logic: allow clicking on completed/active steps to revisit steps and retain data
+  const stepToProcessMap = {
+    'process-icon-one': {
+      process: '.process-one',
+      header: 'Property Management Process',
+      progress: '25%',
+      restore: () => {
+        // No form to restore for step 1
+      }
+    },
+    'process-icon-pmc': {
+      process: '.process-pmc',
+      header: 'Property Management Company',
+      progress: '33%',
+      restore: () => {
+        // Restore PMC form fields
+        if (window.pmcInfo) {
+          const pmcForm = document.querySelector('.process-pmc .pmc-info');
+          if (pmcForm) {
+            pmcForm.querySelector('[name="pmcName"]').value = window.pmcInfo.name || '';
+            pmcForm.querySelector('[name="pmcStreet"]').value = window.pmcInfo.street || '';
+            pmcForm.querySelector('[name="pmcCity"]').value = window.pmcInfo.city || '';
+            pmcForm.querySelector('[name="pmcState"]').value = window.pmcInfo.state || '';
+            pmcForm.querySelector('[name="pmcZipcode"]').value = window.pmcInfo.zipcode || '';
+          }
+        }
+      }
+    },
+    'process-icon-two': {
+      process: '.process-two',
+      header: 'Property Address Information',
+      progress: '50%',
+      restore: () => {
+        // Restore business info form fields (first address)
+        if (window.businessInfoList && window.businessInfoList[0]) {
+          const info = window.businessInfoList[0];
+          const businessForm = document.querySelector('.process-two .business-info');
+          if (businessForm) {
+            businessForm.querySelector('[name="businessName"]').value = info.businessName || '';
+            businessForm.querySelector('[name="street"]').value = info.street || '';
+            businessForm.querySelector('[name="city"]').value = info.city || '';
+            businessForm.querySelector('[name="state"]').value = info.state || '';
+            businessForm.querySelector('[name="zipcode"]').value = info.zipcode || '';
+          }
+        }
+      }
+    },
+    'process-icon-three': {
+      process: '.process-three',
+      header: 'How Many Units Does The Property Have?',
+      progress: '75%',
+      restore: () => {
+        // No form to restore for step 3
+      }
+    },
+    'process-icon-four': {
+      process: '.final-process',
+      header: 'Review',
+      progress: '100%',
+      restore: () => {
+        renderFinalOverview();
+      }
+    }
+  };
+
+  document.querySelectorAll('.steps .step').forEach(step => {
+    step.addEventListener('click', function () {
+      // Only allow navigation to completed or active steps
+      if (!step.classList.contains('step--complete') && !step.classList.contains('step--active')) return;
+      // Find which step this is
+      const stepClasses = Array.from(step.classList);
+      const stepKey = stepClasses.find(cls => stepToProcessMap[cls]);
+      if (!stepKey) return;
+      // Hide all process containers
+      document.querySelectorAll('.process').forEach(proc => proc.classList.add('hide'));
+      // Show the relevant process container
+      const processSelector = stepToProcessMap[stepKey].process;
+      document.querySelector(processSelector)?.classList.remove('hide');
+      // Update header
+      document.querySelector('.process-header h1').textContent = stepToProcessMap[stepKey].header;
+      // Update progress bar
+      const progress = document.querySelector('.progress-container .progress');
+      if (progress) progress.style.width = stepToProcessMap[stepKey].progress;
+      // Update stepper UI
+      setActiveStep(stepKey);
+      // Restore form data if needed
+      if (typeof stepToProcessMap[stepKey].restore === 'function') {
+        stepToProcessMap[stepKey].restore();
+      }
+    });
+  });
+
 });
 
 // Edit Address Button
@@ -466,7 +558,6 @@ function renderFinalOverview() {
               </th>
             </tr>
             <tr style="background:#f5f5f5;">
-              <th>State</th>
               <th>Building Name</th>
               <th>Property Address</th>
               <th>Units</th>
@@ -475,7 +566,6 @@ function renderFinalOverview() {
               <th>Address Action</th>
             </tr>
             <tr>
-              <td>${address.state || 'Georgia'}</td>
               <td>${address.businessName || 'ABC Apartments'}</td>
               <td style="color:#0074d9;">${address.street || '123 Main Street'}, ${address.city || 'Atlanta'}, ${address.state || 'GA'} ${address.zipcode || '30309'}</td>
               <td>${addressItem && addressItem.properties.Units ? addressItem.properties.Units : units[0].range}</td>

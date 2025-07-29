@@ -1,0 +1,32 @@
+.mega-menu__items {
+  flex-wrap: wrap;
+  row-gap: 3rem;
+  justify-content: center;
+}
+
+.mega-menu__item {
+  padding: 0px !important;
+  height: auto !important;
+  min-height: auto !important;
+  flex-direction: row;
+  align-items: center;
+  min-width: auto !important;
+  width: 25%;
+  justify-content: center;
+}
+
+.mega-menu__item-heading.h3 {
+  color: #000 !important;
+  margin-right: 20px;
+  font-size: 19px;
+  letter-spacing: normal;
+}
+
+.mega-menu__item-button-wrapper {
+  margin: 0px;
+}
+
+.header__shop-wrapper {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
