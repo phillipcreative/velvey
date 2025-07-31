@@ -892,6 +892,13 @@ function renderFinalOverview() {
         overallTotal += todayCharge;
         const addressServiceType = address.serviceType || serviceType;
         console.log('Units for address:', addressItem && addressItem.properties.Units);
+
+        // Skip rendering if no uniqueId is found (address not in cart)
+        if (!uniqueId) {
+          console.warn('No uniqueId found for address:', address);
+          return;
+        }
+
         addressHtml += `
           <table style="width:100%; border-collapse:collapse; margin-bottom:24px;">
             <tr>
@@ -916,7 +923,7 @@ function renderFinalOverview() {
               <td style="text-align:center;">
                 <button class="edit-address-btn" data-address-index="${idx}" style="color:blue; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Address</button>
                 <button class="edit-units-btn" data-address-index="${idx}" style="color:green; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Units</button>
-                <button class="remove-address-btn" data-unique="${uniqueId || ''}" style="color:red; background:none; border:none; cursor:pointer; font-weight:bold;">Remove Address</button>
+                <button class="remove-address-btn" data-unique="${uniqueId}" style="color:red; background:none; border:none; cursor:pointer; font-weight:bold;">Remove Address</button>
               </td>
             </tr>
           </table>
@@ -936,40 +943,64 @@ function renderFinalOverview() {
       document.querySelectorAll('.remove-address-btn').forEach(btn => {
         btn.addEventListener('click', function() {
           const uniqueId = this.getAttribute('data-unique');
-          if (!uniqueId) return;
+          if (!uniqueId || uniqueId === '') {
+            console.error('No uniqueId found for remove button');
+            return;
+          }
 
-          console.log('remove btn clicked', uniqueId)
+          console.log('remove btn clicked, uniqueId:', uniqueId);
           // Remove all cart items with this _unique value
           fetch('/cart.js')
             .then(res => res.json())
             .then(cart => {
+              console.log('Current cart items:', cart.items);
               const updates = {};
+              let foundItems = false;
+
               cart.items.forEach(item => {
-                console.log('line item: ', item.properties._unique)
-                if (item.properties && item.properties._unique === parseInt(uniqueId)) {
+                console.log('Checking item:', item.key, 'with _unique:', item.properties?._unique);
+                if (item.properties && item.properties._unique && item.properties._unique.toString() === uniqueId.toString()) {
                   updates[item.key] = 0;
+                  foundItems = true;
+                  console.log('Marking item for removal:', item.key);
                 }
               });
+
+              if (!foundItems) {
+                console.error('No items found with uniqueId:', uniqueId);
+                return;
+              }
+
+              console.log('Items to remove:', updates);
+
               fetch('/cart/update.js', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ updates })
               })
-              .then(() => {
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Failed to update cart');
+                }
+                console.log('Cart update successful');
                 // After update, check if cart is empty
-                fetch('/cart.js')
-                  .then(res => res.json())
-                  .then(newCart => {
-                    if (newCart.items.length === 0) {
-                      // Close the modal and reset UI
-                      // document.querySelector('.property-process')?.classList.remove('show');
-                      // document.body.classList.remove('no-scroll');
-                      window.location.reload();
-                      // Optionally, reset steps or redirect as needed
-                    } else {
-                      renderFinalOverview();
-                    }
-                  });
+                return fetch('/cart.js');
+              })
+              .then(res => res.json())
+              .then(newCart => {
+                console.log('Updated cart:', newCart);
+                if (newCart.items.length === 0) {
+                  // Close the modal and reset UI
+                  // document.querySelector('.property-process')?.classList.remove('show');
+                  // document.body.classList.remove('no-scroll');
+                  window.location.reload();
+                  // Optionally, reset steps or redirect as needed
+                } else {
+                  renderFinalOverview();
+                }
+              })
+              .catch(error => {
+                console.error('Error updating cart:', error);
               });
             });
         });
