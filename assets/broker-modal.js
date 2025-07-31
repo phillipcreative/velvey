@@ -989,13 +989,54 @@ function renderFinalOverview() {
               .then(res => res.json())
               .then(newCart => {
                 console.log('Updated cart:', newCart);
-                if (newCart.items.length === 0) {
-                  // Close the modal and reset UI
-                  // document.querySelector('.property-process')?.classList.remove('show');
-                  // document.body.classList.remove('no-scroll');
-                  window.location.reload();
-                  // Optionally, reset steps or redirect as needed
+
+                // Parse addresses from updated cart items
+                const cartAddresses = newCart.items.filter(item =>
+                  item.properties &&
+                  (item.properties.BusinessName || item.properties.Street || item.properties.City || item.properties.State || item.properties.ZIP)
+                ).map(item => ({
+                  businessName: item.properties.BusinessName || '',
+                  street: item.properties.Street || '',
+                  city: item.properties.City || '',
+                  state: item.properties.State || '',
+                  zipcode: item.properties.ZIP || ''
+                }));
+
+                console.log('Remaining addresses after removal:', cartAddresses);
+
+                if (cartAddresses.length === 0) {
+                  // Reset to step one when all addresses are removed
+                  document.querySelectorAll('.process').forEach(step => step.classList.add('hide'));
+                  document.querySelector('.process-one').classList.remove('hide');
+                  document.querySelector('.process-header h1').textContent = 'Property Management Process';
+                  document.querySelector('.progress-container .progress').style.width = '25%';
+
+                  // Reset step indicators
+                  document.querySelectorAll('.steps .step').forEach((step, idx) => {
+                    step.classList.remove('step--active', 'step--complete', 'step--inactive');
+                    if (idx === 0) {
+                      step.classList.add('step--active');
+                    }
+                  });
+
+                  // Clear any stored data
+                  window.businessInfoList = [];
+                  window.pmcInfo = null;
+                  window.selectedServiceVariantId = null;
+                  window.selectedServiceType = '';
+                  window.currentEditingStep = null;
+                  window.currentEditingAddressIndex = null;
+                  window.addingAnotherAddress = false;
+
+                  // Hide selected service wrapper
+                  document.querySelector('.selected-service-wrapper')?.classList.add('hide');
+
+                  // Remove modal overlay
+                  document.querySelector('.property-process')?.classList.remove('show');
+                  document.body.classList.remove('no-scroll');
                 } else {
+                  // Update the businessInfoList with remaining addresses
+                  window.businessInfoList = cartAddresses;
                   renderFinalOverview();
                 }
               })
