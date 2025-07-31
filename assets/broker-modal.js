@@ -257,8 +257,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     unitsInput?.addEventListener('input', function() {
       const unitCount = parseInt(this.value);
+      console.log('Units input changed:', unitCount);
       if (unitCount && unitCount > 0) {
         const unitRange = getUnitRangeAndPricing(unitCount);
+        console.log('Unit range determined:', unitRange);
         selectedRangeSpan.textContent = unitRange.range;
         todayChargeSpan.textContent = `$${unitRange.today.toFixed(2)}`;
         monthlyChargeSpan.textContent = `$${unitRange.monthly.toFixed(2)}`;
