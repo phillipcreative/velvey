@@ -7642,7 +7642,7 @@ fieldset {
   flex-direction: column;
   flex: 1;
   position: relative;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 .step--active, .step--complete {
   /* cursor: pointer; */
@@ -7690,6 +7690,11 @@ fieldset {
   font-size: 2rem;
   transition: all 0.3s ease-in-out;
 }
+.step__icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 .step__icon:before {
   display: block;
   content: "✓";
