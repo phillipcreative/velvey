@@ -7571,7 +7571,7 @@ fieldset {
 .lease-transaction-process .property-number-el {
   width: 180px;
   height: 180px;
-  border: 1px solid;
+  border: 2px solid #3565E0;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -7583,10 +7583,10 @@ fieldset {
 
 .property-process .property-number-el:hover,
 .lease-transaction-process .property-number-el:hover {
-  background-color: #fafafa;
-  border: 2px solid;
+  background-color: #ffffff;
+  border: 2px solid #3565E0;
   cursor: pointer;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: 0 0 11px rgba(53, 101, 224, 0.2);
 }
 
 .property-process .property-number-el img,
