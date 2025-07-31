@@ -5385,11 +5385,6 @@ details-disclosure > details {
   padding-inline: 1.2rem;
 }
 @media screen and (min-width: 1440px) {
-  .header__localization:last-of-type .disclosure__list {
-    right: 0.8rem !important;
-  }
-}
-@media screen and (min-width: 1440px) {
   .header__localization:last-of-type {
     padding-right: 2rem;
   }
@@ -7308,6 +7303,74 @@ fieldset {
 
 .property-number-el .variant-title {
   font-weight: 500;
+}
+
+/* Units Form Styles */
+.units-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.units-info {
+  margin-bottom: 10px;
+}
+
+.units-form .form-group {
+  margin-bottom: 20px;
+}
+
+.units-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.units-form input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.units-form input[type="number"]:focus {
+  outline: none;
+  border-color: #4255e8;
+}
+
+.units-form .form-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4255e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.units-form .form-submit-btn:hover {
+  background: #2d3a8c;
+}
+
+.units-info {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.units-info strong {
+  color: #4255e8;
 }
 
 /* Progress Bar */

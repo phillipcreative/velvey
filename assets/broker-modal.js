@@ -83,6 +83,53 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFinalOverview();
   }
 
+  // Function to determine unit range and pricing based on input value
+  function getUnitRangeAndPricing(unitCount) {
+    const units = [
+      { range: '0-250', today: 0, monthly: 0, min: 0, max: 250 },
+      { range: '251-300', today: 25, monthly: 50, min: 251, max: 300 },
+      { range: '301-350', today: 37.5, monthly: 75, min: 301, max: 350 },
+      { range: '351-400', today: 50, monthly: 100, min: 351, max: 400 },
+      { range: '401-450', today: 62.5, monthly: 125, min: 401, max: 450 },
+      { range: '451+', today: 75, monthly: 150, min: 451, max: Infinity },
+    ];
+
+    for (const unitRange of units) {
+      if (unitCount >= unitRange.min && unitCount <= unitRange.max) {
+        return unitRange;
+      }
+    }
+
+    // Default to first range if no match
+    return units[0];
+  }
+
+  // Function to get variant ID based on unit range
+  function getVariantIdForRange(range) {
+    // Get variant data from the hidden DOM elements
+    const variantData = document.getElementById('variant-data');
+    if (variantData) {
+      const variantInfo = variantData.querySelector(`[data-range="${range}"]`);
+      if (variantInfo) {
+        return variantInfo.getAttribute('data-variant-id');
+      }
+    }
+
+    // Fallback: try to find a close match
+    const allVariants = variantData?.querySelectorAll('.variant-info');
+    if (allVariants) {
+      for (const variant of allVariants) {
+        const variantRange = variant.getAttribute('data-range');
+        if (variantRange === range) {
+          return variant.getAttribute('data-variant-id');
+        }
+      }
+    }
+
+    console.warn('No variant found for range:', range);
+    return null;
+  }
+
   // Step 1: Service Selection
   const stepEls = document.querySelectorAll('.step-el');
   stepEls.forEach(step => {
@@ -199,11 +246,52 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Step 3: Property Selection (final step to add to cart)
-  const propertyOptions = document.querySelectorAll('.property-number-el');
-  propertyOptions.forEach(option => {
-    option.addEventListener('click', async () => {
-      const recipientVariantId = option.getAttribute('data-variant-id');
-      const recipientAmount = option.getAttribute('data-recipient-amount');
+  const unitsForm = document.querySelector('.units-form');
+  if (unitsForm) {
+    // Handle units input change to show pricing info
+    const unitsInput = document.getElementById('units-input');
+    const unitsInfo = document.querySelector('.units-info');
+    const selectedRangeSpan = document.getElementById('selected-range');
+    const todayChargeSpan = document.getElementById('today-charge');
+    const monthlyChargeSpan = document.getElementById('monthly-charge');
+
+    unitsInput?.addEventListener('input', function() {
+      const unitCount = parseInt(this.value);
+      if (unitCount && unitCount > 0) {
+        const unitRange = getUnitRangeAndPricing(unitCount);
+        selectedRangeSpan.textContent = unitRange.range;
+        todayChargeSpan.textContent = `$${unitRange.today.toFixed(2)}`;
+        monthlyChargeSpan.textContent = `$${unitRange.monthly.toFixed(2)}`;
+        unitsInfo.style.display = 'block';
+      } else {
+        unitsInfo.style.display = 'none';
+      }
+    });
+
+    // Handle form submission
+    unitsForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const unitCount = parseInt(unitsInput.value);
+      if (!unitCount || unitCount <= 0) {
+        alert('Please enter a valid number of units');
+        return;
+      }
+
+      if (unitCount > 1000) {
+        alert('Please enter a number of units between 1 and 1000');
+        return;
+      }
+
+      const unitRange = getUnitRangeAndPricing(unitCount);
+      const recipientVariantId = getVariantIdForRange(unitRange.range);
+      const recipientAmount = unitRange.range;
+
+      if (!recipientVariantId) {
+        alert('Unable to find product variant for the selected unit range. Please try again or contact support.');
+        return;
+      }
+
       window.recipientVariantId = recipientVariantId;
 
       const serviceVariantId = window.selectedServiceVariantId;
@@ -517,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error processing cart items:', error);
       }
     });
-  });
+  }
 
   // Final review: Add Another Address logic
   const addAddressBtn = document.getElementById('add-address-btn');
@@ -660,6 +748,44 @@ document.addEventListener('DOMContentLoaded', () => {
         if (processThreeServiceWrapper) {
           processThreeServiceWrapper.classList.remove('hide');
           processThreeServiceWrapper.querySelector('.selected-service').innerHTML = selectedServiceHTML;
+        }
+
+        // If editing an existing address, try to restore the units value
+        if (window.currentEditingAddressIndex !== null && window.businessInfoList) {
+          // Try to get the units from cart for this specific address
+          fetch('/cart.js')
+            .then(res => res.json())
+            .then(cart => {
+              const addressInfo = window.businessInfoList[window.currentEditingAddressIndex];
+              if (addressInfo) {
+                const addressItem = cart.items.find(item =>
+                  item.properties &&
+                  item.properties.BusinessName === addressInfo.businessName &&
+                  item.properties.Street === addressInfo.street &&
+                  item.properties.City === addressInfo.city &&
+                  item.properties.State === addressInfo.state &&
+                  item.properties.ZIP === addressInfo.zipcode &&
+                  item.properties.Units
+                );
+
+                if (addressItem && addressItem.properties.Units) {
+                  const unitsInput = document.getElementById('units-input');
+                  if (unitsInput) {
+                    // Extract the number from the range (e.g., "251-300" -> 251)
+                    const range = addressItem.properties.Units;
+                    const unitNumber = parseInt(range.split('-')[0]);
+                    if (!isNaN(unitNumber)) {
+                      unitsInput.value = unitNumber;
+                      // Trigger the input event to show pricing info
+                      unitsInput.dispatchEvent(new Event('input'));
+                    }
+                  }
+                }
+              }
+            })
+            .catch(error => {
+              console.error('Error restoring units value:', error);
+            });
         }
       }
     },
@@ -911,7 +1037,7 @@ function renderFinalOverview() {
               <th>Property Address</th>
               <th>Units</th>
               <th>Service Type</th>
-              <th style="background:#e00; color:white;">Today's Charges</th>
+              <th>Today's Charges</th>
               <th>Address Action</th>
             </tr>
             <tr>

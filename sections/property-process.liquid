@@ -241,13 +241,24 @@
         <span class="go-back-process-text">Need To Edit? <a href="#" class="selected--service-back-button">← Back</a></span>
       </div>
       <div class="property-options">
-        <h2>Select Unit Amount</h2>
-        <div class="property-options-wrapper">
+        <h2>How Many Units Does The Property Have?</h2>
+        <form class="units-form">
+          <div class="form-group">
+            <label for="units-input">Number of Units:</label>
+            <input type="number" id="units-input" name="units" min="1" max="1000" required placeholder="Enter number of units">
+          </div>
+          <div class="units-info" style="margin-top: 10px; padding: 10px; background: #f5f5f5; border-radius: 5px; display: none;">
+            <strong>Selected Range: </strong><span id="selected-range"></span><br>
+            <strong>Today's Charge: </strong><span id="today-charge"></span><br>
+            <strong>Monthly Charge: </strong><span id="monthly-charge"></span>
+          </div>
+          <input class="form-submit-btn" type="submit" value="Continue">
+        </form>
+
+        <!-- Hidden variant data for JavaScript -->
+        <div id="variant-data" style="display: none;">
           {% for variant in property_product.variants %}
-            <div class="property-number-el" data-variant-id="{{ variant.id }}" data-recipient-amount="{{ variant.title }}">
-              {% comment %} <img src="{{ variant.featured_image |  image_url: width: '80x' }}"> {% endcomment %}
-              <span class="variant-title">{{ variant.title }}</span>
-            </div>
+            <div class="variant-info" data-range="{{ variant.title }}" data-variant-id="{{ variant.id }}"></div>
           {% endfor %}
         </div>
 
