@@ -133,11 +133,115 @@ document.addEventListener('DOMContentLoaded', () => {
   // Step 1: Service Selection
   const stepEls = document.querySelectorAll('.step-el');
   stepEls.forEach(step => {
-    step.addEventListener('click', () => {
+    step.addEventListener('click', async () => {
       const variantId = step.getAttribute('data-variant-id');
       window.selectedServiceVariantId = variantId;
       window.selectedServiceType = step.querySelector('h2')?.textContent?.trim() || '';
       const selectedServiceHTML = step.innerHTML;
+
+      // Check if we're editing from review step
+      const isEditingFromReview = window.currentEditingStep === 'service';
+
+      if (isEditingFromReview) {
+        // Update all existing addresses in cart with new service type
+        try {
+          const cart = await fetch('/cart.js').then(res => res.json());
+          console.log('Current cart before service update:', cart);
+
+          // Find all address items that need service type updates
+          const addressItems = cart.items.filter(item =>
+            item.properties &&
+            item.properties.Units &&
+            item.properties.BusinessName &&
+            item.properties.Street &&
+            item.properties.City &&
+            item.properties.State &&
+            item.properties.ZIP
+          );
+
+          console.log('Address items to update:', addressItems);
+
+          if (addressItems.length > 0) {
+            // Remove all existing items and add them back with updated service type
+            const removeUpdates = {};
+            cart.items.forEach(item => {
+              removeUpdates[item.key] = 0;
+            });
+
+            // Remove all items
+            const removeResponse = await fetch('/cart/update.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ updates: removeUpdates })
+            });
+
+            if (!removeResponse.ok) {
+              throw new Error('Failed to remove existing cart items');
+            }
+
+            console.log('All existing items removed successfully');
+
+            // Add back all items with updated service type
+            const newItems = [];
+            addressItems.forEach(addressItem => {
+              // Add service item
+              newItems.push({
+                id: variantId,
+                quantity: 1,
+                properties: {
+                  ServiceType: window.selectedServiceType,
+                  _unique: addressItem.properties._unique
+                }
+              });
+
+              // Add address item with updated service type
+              newItems.push({
+                id: addressItem.variant_id,
+                quantity: 1,
+                properties: {
+                  Units: addressItem.properties.Units,
+                  BusinessName: addressItem.properties.BusinessName,
+                  Street: addressItem.properties.Street,
+                  City: addressItem.properties.City,
+                  State: addressItem.properties.State,
+                  ZIP: addressItem.properties.ZIP,
+                  ServiceType: window.selectedServiceType,
+                  PMCName: addressItem.properties.PMCName || '',
+                  PMCStreet: addressItem.properties.PMCStreet || '',
+                  PMCCity: addressItem.properties.PMCCity || '',
+                  PMCState: addressItem.properties.PMCState || '',
+                  PMCZipcode: addressItem.properties.PMCZipcode || '',
+                  _unique: addressItem.properties._unique
+                }
+              });
+            });
+
+            const addResponse = await fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ items: newItems })
+            });
+
+            if (!addResponse.ok) {
+              throw new Error('Failed to add updated items to cart');
+            }
+
+            console.log('All items updated with new service type successfully');
+          }
+
+          // Clear editing state
+          window.currentEditingStep = null;
+          window.currentEditingAddressIndex = null;
+
+          // Return to review screen
+          returnToReview();
+          return;
+        } catch (error) {
+          console.error('Error updating service type:', error);
+          alert('Failed to update service type. Please try again.');
+          return;
+        }
+      }
 
       // Clear editing state when starting fresh
       window.currentEditingStep = null;
@@ -218,12 +322,100 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!window.businessInfoList) window.businessInfoList = [];
       window.businessInfoList[window.currentEditingAddressIndex] = businessInfo;
 
-      // Clear editing state
-      window.currentEditingStep = null;
-      window.currentEditingAddressIndex = null;
+      // Update the cart with the new address information
+      fetch('/cart.js')
+        .then(res => res.json())
+        .then(async cart => {
+          // Find the address item to update
+          const addressItem = cart.items.find(item =>
+            item.properties &&
+            item.properties.Units &&
+            item.properties.BusinessName &&
+            item.properties.Street &&
+            item.properties.City &&
+            item.properties.State &&
+            item.properties.ZIP
+          );
 
-      // Return to review screen
-      returnToReview();
+          if (addressItem) {
+            // Remove the old address item
+            const removeUpdates = {};
+            removeUpdates[addressItem.key] = 0;
+
+            // Also remove the associated service item
+            const serviceItem = cart.items.find(item =>
+              item.properties &&
+              !item.properties.Units &&
+              item.properties.ServiceType &&
+              item.properties._unique === addressItem.properties._unique
+            );
+
+            if (serviceItem) {
+              removeUpdates[serviceItem.key] = 0;
+            }
+
+            // Remove old items
+            await fetch('/cart/update.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ updates: removeUpdates })
+            });
+
+            // Add updated items
+            const newItems = [];
+
+            // Add service item
+            if (serviceItem) {
+              newItems.push({
+                id: serviceItem.variant_id,
+                quantity: 1,
+                properties: {
+                  ServiceType: serviceItem.properties.ServiceType,
+                  _unique: Date.now()
+                }
+              });
+            }
+
+            // Add updated address item
+            newItems.push({
+              id: addressItem.variant_id,
+              quantity: 1,
+              properties: {
+                Units: addressItem.properties.Units,
+                BusinessName: businessInfo.businessName,
+                Street: businessInfo.street,
+                City: businessInfo.city,
+                State: businessInfo.state,
+                ZIP: businessInfo.zipcode,
+                ServiceType: serviceItem ? serviceItem.properties.ServiceType : '',
+                PMCName: addressItem.properties.PMCName || '',
+                PMCStreet: addressItem.properties.PMCStreet || '',
+                PMCCity: addressItem.properties.PMCCity || '',
+                PMCState: addressItem.properties.PMCState || '',
+                PMCZipcode: addressItem.properties.PMCZipcode || '',
+                _unique: Date.now()
+              }
+            });
+
+            await fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ items: newItems })
+            });
+          }
+
+          // Clear editing state
+          window.currentEditingStep = null;
+          window.currentEditingAddressIndex = null;
+
+          // Return to review screen
+          returnToReview();
+        })
+        .catch(error => {
+          console.error('Error updating address in cart:', error);
+          alert('Failed to update address. Please try again.');
+        });
+
       return;
     } else {
       // Creating first address
@@ -901,7 +1093,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function renderFinalOverview() {
   const pmc = window.pmcInfo || {};
-  const addresses = window.businessInfoList || [];
 
   // Mock data for demonstration (replace with real data as needed)
   const numberOfStates = 2;
@@ -984,16 +1175,39 @@ function renderFinalOverview() {
     .then(res => res.json())
     .then(cart => {
       console.log('Cart data in renderFinalOverview:', cart);
+
+      // Parse addresses from cart items instead of using window.businessInfoList
+      const cartAddresses = cart.items.filter(item =>
+        item.properties &&
+        item.properties.Units &&
+        item.properties.BusinessName &&
+        item.properties.Street &&
+        item.properties.City &&
+        item.properties.State &&
+        item.properties.ZIP
+      ).map(item => ({
+        businessName: item.properties.BusinessName,
+        street: item.properties.Street,
+        city: item.properties.City,
+        state: item.properties.State,
+        zipcode: item.properties.ZIP
+      }));
+
+      console.log('Addresses from cart:', cartAddresses);
+
+      // Update window.businessInfoList with cart addresses for consistency
+      window.businessInfoList = cartAddresses;
+
       let overallTotal = 0;
       let addressHtml = '';
-      // if (addresses.length > 0) {
+      // if (cartAddresses.length > 0) {
       //   addressHtml += `
       //     <div style="margin-bottom: 12px; font-size: 1.1em;">
       //       <strong>Property Overview</strong>
       //     </div>
       //   `;
       // }
-      addresses.forEach((address, idx) => {
+      cartAddresses.forEach((address, idx) => {
         console.log('Processing address:', address);
         // Find the address and service type cart items for this address by shared _unique property
         const addressItem = cart.items.find(item =>
@@ -1018,7 +1232,7 @@ function renderFinalOverview() {
         const serviceTypePrice = serviceTypeItem ? serviceTypeItem.price : 0;
         const todayCharge = (addressPrice + serviceTypePrice) / 100;
         overallTotal += todayCharge;
-        const addressServiceType = address.serviceType || serviceType;
+        const addressServiceType = serviceTypeItem ? serviceTypeItem.properties.ServiceType : (address.serviceType || serviceType);
         console.log('Units for address:', addressItem && addressItem.properties.Units);
 
         // Skip rendering if no uniqueId is found (address not in cart)
@@ -1051,6 +1265,7 @@ function renderFinalOverview() {
               <td style="text-align:center;">
                 <button class="edit-address-btn" data-address-index="${idx}" style="color:blue; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Address</button>
                 <button class="edit-units-btn" data-address-index="${idx}" style="color:green; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Units</button>
+                <button class="edit-service-btn" data-address-index="${idx}" style="color:orange; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Service</button>
                 <button class="remove-address-btn" data-unique="${uniqueId}" style="color:red; background:none; border:none; cursor:pointer; font-weight:bold;">Remove Address</button>
               </td>
             </tr>
@@ -1058,7 +1273,7 @@ function renderFinalOverview() {
         `;
       });
       // Add overall total due at the bottom
-      if (addresses.length > 0) {
+      if (cartAddresses.length > 0) {
         addressHtml += `
           <div style="margin-top: 24px; font-size: 1.2em; text-align: right;">
             <strong style="color:#0033cc;">Overall Total Due: $${overallTotal.toFixed(2)}</strong>
@@ -1227,6 +1442,22 @@ function renderFinalOverview() {
             processThreeServiceWrapper.classList.remove('hide');
             processThreeServiceWrapper.querySelector('.selected-service').innerHTML = selectedServiceHTML;
           }
+        });
+      });
+
+      // Attach edit service button listeners
+      document.querySelectorAll('.edit-service-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          window.currentEditingStep = 'service';
+          window.currentEditingAddressIndex = null;
+
+          // Hide all process steps
+          document.querySelectorAll('.process').forEach(step => step.classList.add('hide'));
+          // Show the service selection step
+          document.querySelector('.process-one').classList.remove('hide');
+          document.querySelector('.process-header h1').textContent = 'Property Management Process';
+          document.querySelector('.progress-container .progress').style.width = '25%';
+          window.setActiveStep('process-icon-one');
         });
       });
   });

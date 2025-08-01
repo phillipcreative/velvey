@@ -7811,6 +7811,37 @@ fieldset {
 .selected-service-wrapper h3 {
   font-size: 18px;
   text-align: center;
+  margin-bottom: 15px;
+  color: #0033cc;
+  font-weight: bold;
+}
+
+.selected-items-container {
+  width: 250px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: #fff;
+  border: 2px solid #3565E0;
+  border-radius: 9px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.selected-service-section,
+.selected-pmc-section,
+.selected-addresses-section {
+  margin-bottom: 15px;
+}
+
+.selected-service-section h4,
+.selected-pmc-section h4,
+.selected-addresses-section h4 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #0033cc;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .selected-service {
