@@ -8075,7 +8075,7 @@ fieldset {
   cursor: pointer;
   overflow: hidden;
   z-index: 1;
-  background-color: green !important;
+  background-color: #3565E0 !important;
   padding: 1rem;
   display: block;
   margin: auto;

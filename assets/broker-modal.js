@@ -1249,18 +1249,18 @@ function renderFinalOverview() {
               </th>
             </tr>
             <tr style="background:#f5f5f5;">
+              <th>Service Type</th>
               <th>Building Name</th>
               <th>Property Address</th>
               <th>Units</th>
-              <th>Service Type</th>
               <th>Today's Charges</th>
               <th>Address Action</th>
             </tr>
             <tr>
+              <td style="color:#e00; font-weight:bold;">${addressServiceType}</td>
               <td>${address.businessName || 'ABC Apartments'}</td>
               <td style="color:#0074d9;">${address.street || '123 Main Street'}, ${address.city || 'Atlanta'}, ${address.state || 'GA'} ${address.zipcode || '30309'}</td>
               <td>${addressItem && addressItem.properties.Units ? addressItem.properties.Units : units[0].range}</td>
-              <td style="color:#e00; font-weight:bold;">${addressServiceType}</td>
               <td style="color:#e00; font-weight:bold;">$${todayCharge.toFixed(2)}</td>
               <td style="text-align:center;">
                 <button class="edit-address-btn" data-address-index="${idx}" style="color:blue; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Address</button>
