@@ -1,0 +1,471 @@
+{{ 'dedicated-broker-page-styles.css' | asset_url | stylesheet_tag }}
+
+{% comment %}
+  Dedicated Broker Process Section
+  A clean, modular section for displaying the broker process steps
+{% endcomment %}
+
+<div class="dedicated-broker-process">
+  <div class="page-width">
+
+    <!-- Header Section -->
+    {% if section.settings.show_header %}
+    <div class="process-header text-center" style="padding: {{ section.settings.header_padding }}px 0;">
+      <h2 class="process-title" style="color: {{ section.settings.title_color }}; font-size: {{ section.settings.title_size }}px;">
+        {{ section.settings.title | default: 'Dedicated Broker Process' }}
+      </h2>
+      {% if section.settings.subtitle != blank %}
+        <p class="process-subtitle" style="color: {{ section.settings.subtitle_color }}; font-size: {{ section.settings.subtitle_size }}px;">
+          {{ section.settings.subtitle }}
+        </p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Process Steps Grid -->
+    <div class="process-steps-grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'process_step' %}
+            <div class="process-step" {{ block.shopify_attributes }}>
+              <div class="step-card" style="background-color: {{ block.settings.card_background }}; border-color: {{ block.settings.border_color }};">
+                <div class="step-icon">
+                  {% if block.settings.icon != blank %}
+                    <i class="{{ block.settings.icon }}" style="color: {{ block.settings.icon_color }}; font-size: {{ block.settings.icon_size }}px;"></i>
+                  {% else %}
+                    <div class="step-number" style="background-color: {{ block.settings.icon_color }}; color: {{ block.settings.card_background }};">
+                      {{ forloop.index }}
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="step-content">
+                  {% if block.settings.step_title != blank %}
+                    <h3 class="step-title" style="color: {{ block.settings.title_color }}; font-size: {{ block.settings.title_size }}px;">
+                      {{ block.settings.step_title }}
+                    </h3>
+                  {% endif %}
+
+                  {% if block.settings.step_description != blank %}
+                    <div class="step-description" style="color: {{ block.settings.description_color }}; font-size: {{ block.settings.description_size }}px;">
+                      {{ block.settings.step_description }}
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.link_text != blank and block.settings.link_url != blank %}
+                    <a href="{{ block.settings.link_url }}" class="step-link" style="color: {{ block.settings.link_color }};">
+                      {{ block.settings.link_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    <!-- Footer Note -->
+    {% if section.settings.show_footer_note and section.settings.footer_note != blank %}
+      <div class="process-footer-note text-center" style="padding: {{ section.settings.footer_padding }}px 0;">
+        <p style="color: {{ section.settings.footer_note_color }}; font-size: {{ section.settings.footer_note_size }}px;">
+          {{ section.settings.footer_note }}
+        </p>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Dedicated Broker Process",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show Header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Dedicated Broker Process"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Size",
+      "default": 32
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle Size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "header_padding",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Header Padding",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "header",
+      "content": "Footer Note Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_footer_note",
+      "label": "Show Footer Note",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "footer_note",
+      "label": "Footer Note",
+      "default": "* In most situations, Steps 5, 6, and 7 can be completed simultaneously."
+    },
+    {
+      "type": "color",
+      "id": "footer_note_color",
+      "label": "Footer Note Color",
+      "default": "#e91e63"
+    },
+    {
+      "type": "range",
+      "id": "footer_note_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Footer Note Size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "footer_padding",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Footer Padding",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Contact Form Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact_form",
+      "label": "Show Contact Form",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "contact_title_color",
+      "label": "Contact Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "contact_title_size",
+      "min": 20,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Contact Title Size",
+      "default": 28
+    },
+    {
+      "type": "textarea",
+      "id": "contact_description",
+      "label": "Contact Description",
+      "default": "Submit your questions in the form, we'll get back to you within an hour."
+    },
+    {
+      "type": "color",
+      "id": "contact_description_color",
+      "label": "Contact Description Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "contact_description_size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Contact Description Size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "contact_background",
+      "label": "Contact Background",
+      "default": "#3565e0"
+    },
+    {
+      "type": "range",
+      "id": "contact_padding",
+      "min": 40,
+      "max": 120,
+      "step": 20,
+      "unit": "px",
+      "label": "Contact Padding",
+      "default": 100
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Send Message"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#3565e0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "process_step",
+      "name": "Process Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "Step #1"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#3565e0"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 14,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Title Size",
+          "default": 18
+        },
+        {
+          "type": "textarea",
+          "id": "step_description",
+          "label": "Step Description",
+          "default": "Check if we're licensed in the transaction state. We are always working on adding new states to our licensing footprint!"
+        },
+        {
+          "type": "color",
+          "id": "description_color",
+          "label": "Description Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "description_size",
+          "min": 12,
+          "max": 18,
+          "step": 1,
+          "unit": "px",
+          "label": "Description Size",
+          "default": 15
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "color",
+          "id": "link_color",
+          "label": "Link Color",
+          "default": "#3565e0"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon Class (FontAwesome)",
+          "info": "Leave empty to show step number"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon Color",
+          "default": "#3565e0"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "min": 20,
+          "max": 60,
+          "step": 5,
+          "unit": "px",
+          "label": "Icon Size",
+          "default": 40
+        },
+        {
+          "type": "color",
+          "id": "card_background",
+          "label": "Card Background",
+          "default": "#f8f9fa"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border Color",
+          "default": "#3565e0"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dedicated Broker Process",
+      "blocks": [
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #1",
+            "step_description": "Check if we're licensed in the transaction state. We are always working on adding new states to our licensing footprint!"
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #2",
+            "step_description": "Have you worked with us before? Yes: Go to Step #3. No: Go to our Onboarding Page. Once approved, go to Step #3."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #3",
+            "step_description": "Fill out and sign a Broker Affiliation Agreement. First, you'll complete this form and sign. Next, it will be sent to us to sign."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #4",
+            "step_description": "Submit your license transfer request with the regulatory agency. You cannot broker transactions with us until this process is complete."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #5 *",
+            "step_description": "Fill out an Agency Disclosure Summary. First, you'll complete this form and sign. Next, it will be sent to us for approval."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #6 *",
+            "step_description": "Fill out a Transaction State Agency Disclosure (TSAD). First, you'll complete this form and sign. Next, it will be sent to us for approval."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #7 *",
+            "step_description": "Fill out a Listing Agreement or Buyer Service Agreement. First, you'll complete the form only. Next, it will be sent to us for approval."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #8",
+            "step_description": "Send us your advertising materials for approval. We'll approve them or request revisions."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #9",
+            "step_description": "Let us know when you're expecting an LOI or PA. Some states require us to request that certain terms be included in these documents."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #10",
+            "step_description": "Send us copies of executed LOIs, PAs, and amendments. We are required to maintain a complete transaction file for any regulatory audits."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #11",
+            "step_description": "Send us all earnest money receipts. We are required to maintain earnest money receipts for regulatory audits."
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "step_title": "Step #12",
+            "step_description": "After closing, send us the settlement statement. We are required to maintain final, signed settlement statements for regulatory audits."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

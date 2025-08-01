@@ -1,0 +1,422 @@
+{% comment %}
+  Dedicated Broker Pricing Section
+  A clean, modular section for displaying broker pricing information
+{% endcomment %}
+
+{%- liquid
+  assign section_id = section.id
+  assign section_title = section.settings.title
+  assign section_subtitle = section.settings.subtitle
+  assign background_color = section.settings.background_color
+  assign text_color = section.settings.text_color
+  assign accent_color = section.settings.accent_color
+  assign show_pricing_cards = section.settings.show_pricing_cards
+  assign show_additional_fees = section.settings.show_additional_fees
+  assign show_contact_form = section.settings.show_contact_form
+-%}
+
+<section
+  id="dedicated-broker-pricing-{{ section_id }}"
+  class="dedicated-broker-pricing"
+  style="
+    background-color: {{ background_color }};
+    color: {{ text_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px 0;
+  "
+>
+  <div class="container">
+    {%- if section_title != blank -%}
+      <div class="section-header text-center">
+        <h2 class="section-title" style="color: {{ text_color }};">
+          {{ section_title }}
+        </h2>
+        {%- if section_subtitle != blank -%}
+          <p class="section-subtitle" style="color: {{ text_color }};">
+            {{ section_subtitle }}
+          </p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if show_pricing_cards -%}
+      <div class="pricing-cards">
+        <div class="row">
+          <!-- Home State Affiliation Card -->
+          <div class="col-md-6">
+            <div class="pricing-card">
+              <div class="card-header">
+                <h3 class="card-title" style="color: {{ accent_color }};">Home State Affiliation</h3>
+              </div>
+              <div class="card-body">
+                <ul class="feature-list">
+                  <li>1 dedicated <a href="/our-firm/our-broker/" target="_blank" style="color: {{ accent_color }};">broker of record</a> for your transactions (20+ years of experience)</li>
+                  <li>1 broker or salesperson may affiliate</li>
+                  <li>1 Broker Affiliation Agreement ("BAA") is executed</li>
+                  <li>State-specific regulatory compliance guidance</li>
+                  <li>State-specific regulatory compliance change alerts</li>
+                  <li>Compliance assessments</li>
+                  <li>Audit defense assistance</li>
+                  <li>Violation defense assistance</li>
+                  <li>Full access to our forms library compliant with state laws</li>
+                  <li>Broker of Record initiates the transfer process with the applicable regulatory agency</li>
+                  <li>3 home state transactions included</li>
+                  <li>24-7 support, responses within 30-60 minutes</li>
+                  <li>1-2 hour turnaround time on contracts</li>
+                  <li>100% regulatory compliance <a href="/our-firm/regulatory-compliance-guarantee/" target="_blank" style="color: {{ accent_color }};">guarantee</a></li>
+                </ul>
+                <div class="price" style="color: {{ accent_color }};">
+                  <strong>$1,000.00 per month</strong>
+                </div>
+                <div class="card-actions">
+                  <a href="/our-process/dedicated-broker-process/" class="btn btn-primary" style="background-color: {{ accent_color }};">
+                    Get Started
+                  </a>
+                  <a href="/custom-db-solutions/" class="btn btn-outline" style="border-color: {{ accent_color }}; color: {{ accent_color }};">
+                    Need a custom solution?
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Out-of-State Transactions Card -->
+          <div class="col-md-6">
+            <div class="pricing-card">
+              <div class="card-header">
+                <h3 class="card-title" style="color: {{ accent_color }};">Out-of-State Transactions</h3>
+              </div>
+              <div class="card-body">
+                <ul class="feature-list">
+                  <li>1 <a href="/our-firm/our-broker/" target="_blank" style="color: {{ accent_color }};">broker of record</a> for your out-of-state transactions (20+ years of experience and extensive knowledge of license portability laws)</li>
+                  <li>All affiliated licensees may work on the transaction</li>
+                  <li>State-specific regulatory compliance guidance</li>
+                  <li>State-specific regulatory compliance change alerts</li>
+                  <li>Compliance assessments</li>
+                  <li>Audit defense assistance</li>
+                  <li>Violation defense assistance</li>
+                  <li>Access to our <a href="/our-firm/licenses/" target="_blank" style="color: {{ accent_color }};">licensing footprint</a>*</li>
+                  <li>Full access to our forms library compliant with state laws</li>
+                  <li>Access to our net lease broker database to market properties</li>
+                  <li>5 out-of-state transactions included (with our license)</li>
+                  <li>3 out-of-state transactions included (with another BOR's license)</li>
+                  <li>24-7 support, responses within 30-60 minutes</li>
+                  <li>1-2 hour turnaround time on contracts</li>
+                  <li>100% regulatory compliance <a href="/our-firm/regulatory-compliance-guarantee/" target="_blank" style="color: {{ accent_color }};">guarantee</a></li>
+                </ul>
+                <div class="price" style="color: {{ accent_color }};">
+                  <strong>$500.00 per month</strong>
+                </div>
+                <div class="card-actions">
+                  <a href="/our-process/dedicated-broker-process/" class="btn btn-primary" style="background-color: {{ accent_color }};">
+                    Get Started
+                  </a>
+                  <a href="/custom-db-solutions/" class="btn btn-outline" style="border-color: {{ accent_color }}; color: {{ accent_color }};">
+                    Need a custom solution?
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if show_additional_fees -%}
+      <div class="additional-fees">
+        <div class="space-block" style="height: 20px;"></div>
+        <div class="fees-table">
+          <table class="table">
+            <thead>
+              <tr style="background-color: {{ accent_color }}; color: white;">
+                <th>Other Potential Items</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #d1d1d1;">
+                <td><strong>Real Estate Firms</strong> - If you need to set up a real estate firm and want us to serve as the Broker of Record, an additional fee applies.</td>
+                <td style="color: {{ accent_color }};"><strong>$1,500.00 one-time fee</strong></td>
+              </tr>
+              <tr>
+                <td><strong>DBAs</strong> - If you want to operate using a DBA, an additional fee applies.</td>
+                <td style="color: {{ accent_color }};"><strong>$1,250.00 one-time fee</strong></td>
+              </tr>
+              <tr style="background-color: #d1d1d1;">
+                <td><strong>Additional Licensees</strong> - If you need more than one broker or salesperson to affiliate, an additional fee applies for each additional broker or salesperson.</td>
+                <td style="color: {{ accent_color }};"><strong>$1,000.00 one-time fee</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Additional Home State Transactions</strong> - If you complete more than 3 transactions in a given year, an additional fee applies for each additional transaction.</td>
+                <td style="color: {{ accent_color }};"><strong>$2,000.00 per closed transaction</strong></td>
+              </tr>
+              <tr style="background-color: #d1d1d1;">
+                <td><strong>Out-of-State Transactions (with us as BOR)</strong> - If you need to engage in out-of-state transactions, an additional fee applies for each transaction.</td>
+                <td style="color: {{ accent_color }};"><strong>$2,000.00 per closed transaction</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Out-of-State Transactions (with another BOR)</strong> - If you need to engage in out-of-state transactions, an additional fee applies for each transaction.</td>
+                <td style="color: {{ accent_color }};"><strong>$500.00 one-time fee</strong></td>
+              </tr>
+              <tr style="background-color: #d1d1d1;">
+                <td><strong>Higher Risk Affiliations</strong> - If the affiliation relationship presents unique risk factors, an additional fee may apply. Such risk factors may include; licensee's background, licensee's business model, transaction state, property types being brokered, complexity of licensee's objectives, and/or any other factor that could increase our legal or regulatory risk.</td>
+                <td style="color: {{ accent_color }};"><strong>Varies</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Time-Intensive Affiliations</strong> - If the affiliation results in a greater demand on our time, an additional fee may apply. Such additional time factors may include; higher than average assistance on transactions, client doc reviews (JVs, entities, TICs, POAs, etc.), contract changes requested by clients, and/or any other factors that could increase our time with the affiliation.</td>
+                <td style="color: {{ accent_color }};"><strong>Varies</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="disclaimer">
+          <p>*Subject to state laws and locations where we offer certain services.</p>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+.dedicated-broker-pricing {
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.pricing-cards {
+  margin-bottom: 40px;
+}
+
+.pricing-card {
+  background: #ffffff;
+  border: 3px solid #1e48b5;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  height: 100%;
+}
+
+.card-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.feature-list li {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.feature-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #1e48b5;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-actions {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 8px 8px 0;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  color: white;
+  border: none;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+.fees-table {
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border: 5px solid rgb(var(--preColor_complementary));
+  text-align: left;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.disclaimer {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #1e48b5;
+}
+
+.space-block {
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .pricing-card {
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Dedicated Broker Pricing",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Dedicated Broker Pricing"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "info": "Optional subtitle text"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "rgba(103, 58, 183, 0.75)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#1e48b5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 24
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pricing_cards",
+      "label": "Show Pricing Cards",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_additional_fees",
+      "label": "Show Additional Fees Table",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact_form",
+      "label": "Show Contact Form",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dedicated Broker Pricing",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

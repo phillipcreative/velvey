@@ -1,0 +1,479 @@
+{{ 'fema-broker-of-record.css' | asset_url | stylesheet_tag }}
+
+{% comment %}
+  FEMA Broker of Record Pricing Section
+  A clean, customizable section for displaying FEMA broker pricing information
+{% endcomment %}
+
+<div class="fema-broker-pricing" style="background: {{ section.settings.background_color }};">
+
+  <!-- Header Section -->
+  {% if section.settings.show_header %}
+  <div class="fema-header" style="padding: {{ section.settings.header_padding }}px 0;">
+    <div class="container">
+      <h2 class="fema-title" style="color: {{ section.settings.title_color }}; font-size: {{ section.settings.title_size }}px; text-align: center;">
+        {{ section.settings.title }}
+      </h2>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Main Content Section -->
+  <div class="fema-content">
+    <div class="container">
+
+      <!-- Broker Oversight Box -->
+      <div class="broker-oversight-box" style="border: {{ section.settings.border_width }}px solid {{ section.settings.border_color }}; background: {{ section.settings.box_background }};">
+        <div class="box-header">
+          <h3 class="box-title" style="color: {{ section.settings.box_title_color }}; text-align: center;">
+            {{ section.settings.box_title }}
+          </h3>
+        </div>
+
+        <div class="box-content">
+          <ul class="features-list">
+            {% for block in section.blocks %}
+              {% if block.type == 'feature' %}
+                <li class="feature-item" style="color: {{ section.settings.text_color }};">
+                  {{ block.settings.feature_text }}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="pricing-info">
+          <h4 class="price" style="color: {{ section.settings.price_color }};">
+            {{ section.settings.price_text }}
+          </h4>
+        </div>
+
+        {% if section.settings.show_cta_button %}
+        <div class="cta-section">
+          <a href="{{ section.settings.cta_link }}" class="cta-button" style="background: {{ section.settings.button_background }}; color: {{ section.settings.button_text_color }};">
+            {{ section.settings.cta_text }}
+          </a>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Add-ons Table -->
+      {% if section.settings.show_addons %}
+      <div class="addons-section">
+        <table class="addons-table">
+          <thead>
+            <tr>
+              <th style="background: {{ section.settings.table_header_background }}; color: {{ section.settings.table_header_text_color }};">
+                {{ section.settings.addons_header }}
+              </th>
+              <th style="background: {{ section.settings.table_header_background }}; color: {{ section.settings.table_header_text_color }};">
+                {{ section.settings.price_header }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              {% if block.type == 'addon' %}
+                <tr>
+                  <td>{{ block.settings.addon_name }}</td>
+                  <td>{{ block.settings.addon_price }}</td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+
+        {% if section.settings.show_disclaimer %}
+        <p class="disclaimer" style="color: {{ section.settings.disclaimer_color }};">
+          {{ section.settings.disclaimer_text }}
+        </p>
+        {% endif %}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "FEMA Broker Pricing",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show Header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "FEMA Broker of Record Pricing"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Size",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "header_padding",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Header Padding",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Broker Oversight Box"
+    },
+    {
+      "type": "text",
+      "id": "box_title",
+      "label": "Box Title",
+      "default": "Broker Oversight"
+    },
+    {
+      "type": "color",
+      "id": "box_title_color",
+      "label": "Box Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "box_background",
+      "label": "Box Background",
+      "default": "rgba(33, 100, 224, 0.3)"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Border Width",
+      "default": 3
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Pricing"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Price Text",
+      "default": "$1,500.00 per month, per contract"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta_button",
+      "label": "Show CTA Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Add-ons Table"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_addons",
+      "label": "Show Add-ons Table",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "addons_header",
+      "label": "Add-ons Header",
+      "default": "Add-Ons"
+    },
+    {
+      "type": "text",
+      "id": "price_header",
+      "label": "Price Header",
+      "default": "Price"
+    },
+    {
+      "type": "color",
+      "id": "table_header_background",
+      "label": "Table Header Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "table_header_text_color",
+      "label": "Table Header Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_disclaimer",
+      "label": "Show Disclaimer",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "disclaimer_text",
+      "label": "Disclaimer Text",
+      "default": "*Subject to state laws."
+    },
+    {
+      "type": "color",
+      "id": "disclaimer_color",
+      "label": "Disclaimer Color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Contact Form"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact_form",
+      "label": "Show Contact Form",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "contact_background",
+      "label": "Contact Section Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "contact_title_color",
+      "label": "Contact Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "contact_description",
+      "label": "Contact Description",
+      "default": "Submit your question using the form. We'll respond within 1 hour."
+    },
+    {
+      "type": "color",
+      "id": "contact_text_color",
+      "label": "Contact Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "submit_button_text",
+      "label": "Submit Button Text",
+      "default": "Send"
+    },
+    {
+      "type": "color",
+      "id": "submit_button_background",
+      "label": "Submit Button Background",
+      "default": "#2164e0"
+    },
+    {
+      "type": "color",
+      "id": "submit_button_text_color",
+      "label": "Submit Button Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_text",
+          "label": "Feature Text",
+          "default": "Broker of Record oversees FEMA-related contract activities for your company and advises on real estate compliance matters"
+        }
+      ]
+    },
+    {
+      "type": "addon",
+      "name": "Add-on",
+      "settings": [
+        {
+          "type": "text",
+          "id": "addon_name",
+          "label": "Add-on Name",
+          "default": "Higher Risk Affiliations"
+        },
+        {
+          "type": "text",
+          "id": "addon_price",
+          "label": "Add-on Price",
+          "default": "Varies"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FEMA Broker Pricing",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Broker of Record oversees FEMA-related contract activities for your company and advises on real estate compliance matters"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "1 broker of record (20+ years of experience) with email/phone/text access for each FEMA Contract located within our licensing footprint*"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "State-specific regulatory compliance guidance"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "State-specific regulatory compliance change alerts"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Compliance assessments"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Audit defense assistance"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Violation defense assistance"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "1 Broker Service Agreement (\"BSA\") is executed"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Payable monthly or annually"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Cancel any time"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "24-7 support, responses within 30-60 minutes"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "1-2 hour turnaround time on contracts"
+          }
+        },
+        {
+          "type": "addon",
+          "settings": {
+            "addon_name": "Higher Risk Affiliations - If the affiliation relationship presents unique risk factors, an additional fee may apply. Such risk factors may include; company's background, company's business model, transaction state, property types being managed, complexity of company's objectives, and/or any other factor that could increase our legal or regulatory risk.",
+            "addon_price": "Varies"
+          }
+        },
+        {
+          "type": "addon",
+          "settings": {
+            "addon_name": "Time-Intensive Affiliations - If the affiliation results in a greater demand on our time, an additional fee may apply. Such additional time factors may include; oversight requirement, transactional review, customer document reviews, contract changes requested by customer, and/or any other factors that could increase our time requirement during the affiliation.",
+            "addon_price": "Varies"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

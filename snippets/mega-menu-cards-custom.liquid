@@ -163,13 +163,12 @@
         <a
           data-promo-4-btn
           {% if block.settings.button_link_4 != blank %}
-            href="#"
+            href="{{ block.settings.button_link_4 }}"
           {% endif %}
           class="mega-menu__item-button button button--arrow button--{{ block.settings.button_style_4 }}"
           {% if block.settings.button_link_4 == blank %}
             aria-disabled="true"
           {% endif %}
-          onclick="event.preventDefault();"
         >
           <span>
             {{ block.settings.button_label_4 | escape }}
@@ -213,13 +212,12 @@
         <a
           data-promo-5-btn
           {% if block.settings.button_link_5 != blank %}
-            href="#"
+            href="{{ block.settings.button_link_5 }}"
           {% endif %}
           class="mega-menu__item-button button button--arrow button--{{ block.settings.button_style_5 }}"
           {% if block.settings.button_link_5 == blank %}
             aria-disabled="true"
           {% endif %}
-          onclick="event.preventDefault();"
         >
           <span>
             {{ block.settings.button_label_5 | escape }}

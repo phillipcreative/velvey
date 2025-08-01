@@ -1,0 +1,118 @@
+.dedicated-broker-process {
+  padding: 60px 0;
+}
+
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.step-card {
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.step-icon {
+  margin-bottom: 20px;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+.step-title {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.step-description {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.step-link {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.process-contact-section {
+  margin-top: 60px;
+  border-radius: 10px;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.contact-form {
+  max-width: 400px;
+}
+
+.form-row {
+  margin-bottom: 20px;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.btn-primary {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+}

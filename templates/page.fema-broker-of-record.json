@@ -1,0 +1,168 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "fema_broker_of_record_ipeWTY": {
+      "type": "fema-broker-of-record",
+      "blocks": {
+        "feature_8XCgq6": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Broker of Record oversees FEMA-related contract activities for your company and advises on real estate compliance matters"
+          }
+        },
+        "feature_Yidf8m": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "1 broker of record (20+ years of experience) with email/phone/text access for each FEMA Contract located within our licensing footprint*"
+          }
+        },
+        "feature_8rdyGe": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "State-specific regulatory compliance guidance"
+          }
+        },
+        "feature_JaT8fU": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "State-specific regulatory compliance change alerts"
+          }
+        },
+        "feature_BXYRiy": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Compliance assessments"
+          }
+        },
+        "feature_KC84Ya": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Audit defense assistance"
+          }
+        },
+        "feature_K8wMpQ": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Violation defense assistance"
+          }
+        },
+        "feature_tmGKzy": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "1 Broker Service Agreement (\"BSA\") is executed"
+          }
+        },
+        "feature_XGaYzk": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Payable monthly or annually"
+          }
+        },
+        "feature_VJHFir": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Cancel any time"
+          }
+        },
+        "feature_wT6xbi": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "24-7 support, responses within 30-60 minutes"
+          }
+        },
+        "feature_NkTgJR": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "1-2 hour turnaround time on contracts"
+          }
+        },
+        "addon_URqaxb": {
+          "type": "addon",
+          "settings": {
+            "addon_name": "Higher Risk Affiliations - If the affiliation relationship presents unique risk factors, an additional fee may apply. Such risk factors may include; company's background, company's business model, transaction state, property types being managed, complexity of company's objectives, and/or any other factor that could increase our legal or regulatory risk.",
+            "addon_price": "Varies"
+          }
+        },
+        "addon_FPNXp3": {
+          "type": "addon",
+          "settings": {
+            "addon_name": "Time-Intensive Affiliations - If the affiliation results in a greater demand on our time, an additional fee may apply. Such additional time factors may include; oversight requirement, transactional review, customer document reviews, contract changes requested by customer, and/or any other factors that could increase our time requirement during the affiliation.",
+            "addon_price": "Varies"
+          }
+        }
+      },
+      "block_order": [
+        "feature_8XCgq6",
+        "feature_Yidf8m",
+        "feature_8rdyGe",
+        "feature_JaT8fU",
+        "feature_BXYRiy",
+        "feature_KC84Ya",
+        "feature_K8wMpQ",
+        "feature_tmGKzy",
+        "feature_XGaYzk",
+        "feature_VJHFir",
+        "feature_wT6xbi",
+        "feature_NkTgJR",
+        "addon_URqaxb",
+        "addon_FPNXp3"
+      ],
+      "name": "FEMA Broker Pricing",
+      "settings": {
+        "background_color": "#ffffff",
+        "show_header": true,
+        "title": "FEMA Broker of Record Pricing",
+        "title_size": 32,
+        "title_color": "#000000",
+        "header_padding": 25,
+        "box_title": "Broker Oversight",
+        "box_title_color": "#000000",
+        "box_background": "rgba(33, 100, 224, 0.3)",
+        "border_color": "#000000",
+        "border_width": 3,
+        "text_color": "#000000",
+        "price_text": "$1,500.00 per month, per contract",
+        "price_color": "#000000",
+        "show_cta_button": true,
+        "cta_text": "Get Started",
+        "cta_link": "",
+        "button_background": "#000000",
+        "button_text_color": "#ffffff",
+        "show_addons": true,
+        "addons_header": "Add-Ons",
+        "price_header": "Price",
+        "table_header_background": "#000000",
+        "table_header_text_color": "#ffffff",
+        "show_disclaimer": true,
+        "disclaimer_text": "*Subject to state laws.",
+        "disclaimer_color": "#666666",
+        "show_contact_form": true,
+        "contact_background": "#000000",
+        "contact_title": "Questions on Pricing?",
+        "contact_title_color": "#ffffff",
+        "contact_description": "Submit your question using the form. We'll respond within 1 hour.",
+        "contact_text_color": "#ffffff",
+        "submit_button_text": "Send",
+        "submit_button_background": "#2164e0",
+        "submit_button_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "fema_broker_of_record_ipeWTY"
+  ]
+}
