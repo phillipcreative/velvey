@@ -7,7 +7,7 @@ function getFormData($form) {
     return indexed_array;
 }
 
- 
+
 
 /*---------------------End MODAL GiftCard-----------------------------*/
 
@@ -165,7 +165,7 @@ function checkoutModalRemoveItem(lineNumber) {
 function add_to() {
     _this = $(this);
     $form = _this.closest('form');
-    
+
 
     let splMsgItem = CartJS.cart.items.find(cartItem => cartItem.id == 42680631197872);
     if (!splMsgItem) {
@@ -183,9 +183,24 @@ function add_to() {
             }
         });
     }
+    // Check if packaging upsell is enabled and checked
+    var packagingUpsellChecked = $('#packaging-upsell-checkbox').length && $('#packaging-upsell-checkbox').is(':checked');
+    var packagingUpsellVariantId = $('.packaging-upsell-container').length ? $('.packaging-upsell-container').data('variant') : null;
+    var mainProductTitle = _this.closest('form').find('h1.product-name').text().trim() || 'Unknown Product';
+
+    // Update product title if packaging upsell is checked
+    if (packagingUpsellChecked) {
+        updateProductTitleWithPackaging();
+    }
+
     var line_properties = getFormData($('[name*=properties]', $form));
     CartJS.addItem(_this.data("variant-id"), 1, line_properties, {
         "success": function (data, textStatus, jqXHR) {
+            // If packaging upsell is checked, add it to cart
+            if (packagingUpsellChecked && packagingUpsellVariantId) {
+                addPackagingUpsellToCart(mainProductTitle);
+            }
+
             if (_this.length) {
                 if ($('body').hasClass('checkout-popup')) {
                     setTimeout(function () {
@@ -304,15 +319,15 @@ if ($('body').hasClass('ajax_cart')) {
     });
 
     $(document).on('click', '.js-add-to-cart-product-page', function (e) {
-       
+
         _this = $(this);
         $form = _this.closest('form');
-        
+
         if ($form.formValidate()) {
-         
+
             var line_properties = getFormData($('[name*=properties]', $form));
             let splMsgItem = CartJS.cart.items?.find(cartItem => cartItem?.id == 42680631197872);
-            
+
             if (!splMsgItem) {
                 var custom_line_properties = {
                     '_GiftCard': false,
@@ -328,11 +343,25 @@ if ($('body').hasClass('ajax_cart')) {
                     }
                 });
             }
-             
-          
+
+            // Check if packaging upsell is enabled and checked
+            var packagingUpsellChecked = $('#packaging-upsell-checkbox').length && $('#packaging-upsell-checkbox').is(':checked');
+            var packagingUpsellVariantId = $('.packaging-upsell-container').length ? $('.packaging-upsell-container').data('variant') : null;
+            var mainProductTitle = _this.closest('form').find('h1.product-name').text().trim() || 'Unknown Product';
+
+            // Update product title if packaging upsell is checked
+            if (packagingUpsellChecked) {
+                updateProductTitleWithPackaging();
+            }
+
+            // Add main product to cart
             _this.addClass('btn-loading').addClass('disabled').blur().html('<i class="icon icon-spinner3 spin"></i><span>' + locales.adding + '</span>');
             CartJS.addItem($('input[name=id]', $form).val(), $('[name=quantity]', $form).val(), line_properties, {
                 "success": function (data, textStatus, jqXHR) {
+                    // If packaging upsell is checked, add it to cart
+                    if (packagingUpsellChecked && packagingUpsellVariantId) {
+                        addPackagingUpsellToCart(mainProductTitle);
+                    }
 
                     if ($('.js-add-to-cart-product-page').length) {
 
@@ -393,10 +422,10 @@ if ($('body').hasClass('ajax_cart')) {
 function removeDigitalProcessingFee(lineNumber){
     CartJS.removeItem(lineNumber, {
         "success": function (data, textStatus, jqXHR) {
-            window.location.href = '/cart'; 
+            window.location.href = '/cart';
         },
         "error": function (jqXHR, textStatus, errorThrown) {
-            
+
             $('#modalError .modal-body p').text(errorThrown);
             $('#modalError').modal('show');
         }
@@ -404,7 +433,7 @@ function removeDigitalProcessingFee(lineNumber){
 }
 
 function cartPopupUpdate() {
-    
+
     $cart_count = $('.header-cart .badge');
     $title_count = $('.header-cart .title_count');
     cart_list = 'ul.minicart-product-items';
@@ -418,12 +447,12 @@ function cartPopupUpdate() {
         $updated_list = '<div class="options_title">';
         line_item = 1;
         $.each(CartJS.cart.items, function (index, item) {
-            
+
             if(CartJS.cart.items.length == 1 && CartJS.cart.items[0].id == 42680631197872 ){
                 checkoutModalRemoveItem(1)
             }
-           
-        
+
+
             variant_title = '';
             properties = '';
             // $.each(item.properties, function(a, b) {
@@ -434,7 +463,7 @@ function cartPopupUpdate() {
             // });
             var image =  item.image
             if(item.product_id == 7342245707952){
-                image = item.properties._Image 
+                image = item.properties._Image
             }
             if (item.variant_title != 'Default' && item.variant_title != undefined) { variant_title = item.variant_title }
             if(item.id == 42680631197872){
@@ -445,7 +474,7 @@ function cartPopupUpdate() {
                 $item =   ' <li class="minicart-product-item"> <div class = "minicart-product-row"><a class = "minicart-product-item-photo" href="' + item.url + '" title="' + item.product_title + '"> <img src = "' + image+ '" alt="' + item.product_title + '"> </a> <div class = "minicart-product-item-details"> <div class = "minicart-product-item-info"> <h2 class="product-title"><a href="' + item.url + '" title="' + item.product_title + '">' + item.product_title + '</a></h2><div class="options_title">' + variant_title + '</div>' + properties + '</div> <div class = "minicart-product-item-qty"> <label class="label">' + locales.qty + '</label> <span> ' + item.quantity + '</span> </div> <div class = "minicart-product-item-price"> <div class="product-price">' + Shopify.formatMoney(item.price, $price_format) + '</div> </div> <div class = "minicart-product-item-actions"> <a href = "' + item.url + '" data-variant-id="' + item.variant_id + '"  title="' + locales.remove + '" class="icon icon-trash-alt js-minicart-remove-item" data-line-number="' + line_item + '"></a> <a href = "' + item.url + '" title="' + locales.edit + '" class="icon icon-pencil"></a> </div> </div> </div> </li> ';
 
             }
-       
+
 
             $updated_list = $updated_list + $item;
             line_item = line_item + 1;
@@ -512,6 +541,12 @@ $(document).on('cart.requestComplete', function (event, cart) {
     cartPopupUpdate();
     modalCheckoutUpdate();
     currencyUpdate();
+
+    // Update checkout modal title if it's open
+    if ($('#modalCheckout').hasClass('show')) {
+        updateCheckoutModalTitle();
+    }
+
     /*$('.js-add-to-cart').removeClass('disabled');*/
 });
 
@@ -773,3 +808,128 @@ $(function () {
         $('#AddressNewForm').toggleClass('hide');
     });
 })
+
+// Function to update product title based on packaging upsell checkbox
+function updateProductTitleWithPackaging() {
+    var packagingUpsellChecked = $('#packaging-upsell-checkbox').length && $('#packaging-upsell-checkbox').is(':checked');
+    var $productTitle = $('h1.product-name');
+
+    if ($productTitle.length) {
+        var originalTitle = $productTitle.data('original-title') || $productTitle.text().trim();
+
+        // Store original title if not already stored
+        if (!$productTitle.data('original-title')) {
+            $productTitle.data('original-title', originalTitle);
+        }
+
+        // Get the clean original title by removing any existing packaging text
+        var cleanOriginalTitle = $productTitle.data('original-title');
+
+        if (packagingUpsellChecked) {
+            // Add packaging text to title
+            // var newTitle = cleanOriginalTitle + '& Insulated packaging + ice pack';
+            // $productTitle.text(newTitle);
+        } else {
+            // Restore original title
+            $productTitle.text(cleanOriginalTitle);
+        }
+    }
+}
+
+// Function to restore original product title
+function restoreOriginalProductTitle() {
+    var $productTitle = $('h1.product-name');
+    if ($productTitle.length && $productTitle.data('original-title')) {
+        $productTitle.text($productTitle.data('original-title'));
+    }
+}
+
+// Function to update checkout modal title with packaging upsell
+function updateCheckoutModalTitle() {
+    var packagingUpsellChecked = $('#packaging-upsell-checkbox').length && $('#packaging-upsell-checkbox').is(':checked');
+    var $modalTitle = $('.js-mdlchk-prd-title');
+
+    if ($modalTitle.length) {
+        var $titleLink = $modalTitle.find('a');
+        if ($titleLink.length) {
+            var originalTitle = $titleLink.data('original-title') || $titleLink.text().trim();
+
+            // Store original title if not already stored
+            if (!$titleLink.data('original-title')) {
+                $titleLink.data('original-title', originalTitle);
+            }
+
+            // Get the clean original title by removing any existing packaging text
+            var cleanOriginalTitle = $titleLink.data('original-title').replace(/& Insulated packaging \+ ice pack\s*$/i, '');
+
+            if (packagingUpsellChecked) {
+                // Add packaging text to title
+                var newTitle = cleanOriginalTitle + ' & Insulated packaging + ice pack';
+                $titleLink.text(newTitle);
+                $titleLink.attr('title', newTitle);
+            } else {
+                // Restore original title
+                $titleLink.text(cleanOriginalTitle);
+                $titleLink.attr('title', cleanOriginalTitle);
+            }
+        }
+    }
+}
+
+// Event listener for packaging upsell checkbox changes
+$(document).on('change', '#packaging-upsell-checkbox', function() {
+    updateProductTitleWithPackaging();
+    updateCheckoutModalTitle();
+});
+
+// Initialize title on page load
+$(document).ready(function() {
+    // Small delay to ensure DOM is fully loaded
+    setTimeout(function() {
+        updateProductTitleWithPackaging();
+    }, 100);
+});
+
+// Handle page unload to restore title
+$(window).on('beforeunload', function() {
+    restoreOriginalProductTitle();
+});
+
+// Handle page visibility change (when user switches tabs)
+$(document).on('visibilitychange', function() {
+    if (document.hidden) {
+        restoreOriginalProductTitle();
+    } else {
+        // Small delay to ensure DOM is ready when tab becomes visible again
+        setTimeout(function() {
+            updateProductTitleWithPackaging();
+        }, 100);
+    }
+});
+
+// Handle checkout modal shown event to update title
+$(document).on('shown.bs.modal', '#modalCheckout', function() {
+    // Small delay to ensure modal content is fully loaded
+    setTimeout(function() {
+        updateCheckoutModalTitle();
+    }, 100);
+});
+
+// Function to add packaging upsell to cart
+function addPackagingUpsellToCart(mainProductTitle) {
+    var packagingUpsellVariantId = $('.packaging-upsell-container').data('variant');
+    if (packagingUpsellVariantId) {
+        var packagingLineProperties = {
+            '_Purchased_with': mainProductTitle
+        };
+
+        CartJS.addItem(packagingUpsellVariantId, 1, packagingLineProperties, {
+            "success": function (data, textStatus, jqXHR) {
+                console.log('Packaging upsell added to cart successfully');
+            },
+            "error": function (jqXHR, textStatus, errorThrown) {
+                console.error('Error adding packaging upsell to cart:', errorThrown);
+            }
+        });
+    }
+}

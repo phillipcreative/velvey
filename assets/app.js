@@ -1,6 +1,6 @@
 "use strict";
 
-(function e(t, n, r) { 
+(function e(t, n, r) {
 	function s(o, u) {
 		if (!n[o]) {
 			if (!t[o]) {
@@ -50,7 +50,7 @@
 						return;
 					} if (!f) {
 						return;
-					} v = e.trim(w(o.text)).split(/\s+/); o.$el.html(n + v.join("</span> " + n) + "</span>"); o.$el.find("span").each(f); if (l != null) {
+					} v = e.trim(w(o.text)).split(/\s+/); o.$el.html(n + v.join(" " + n) + "</span>"); o.$el.find("span").each(f); if (l != null) {
 						b(l);
 					}
 				} function b(e) {
@@ -2629,7 +2629,7 @@
 			hideCarousel();
 
 			$(document).on("click", modalLink, function (e) {
-          
+
 				var $target = $(e.target),
 					_$modal = $modal,
 					id = $target.attr('data-variant-id'),
@@ -2640,7 +2640,7 @@
 			});
 
 			$modal.on('hidden.bs.modal', function (e) {
-              
+
 				$(".product-item").removeClass('hover');
 				closeModalEvent();
 				$('.modal-content', $modal).removeClass('modal-loading');
@@ -2649,7 +2649,7 @@
 			});
 
 			$(document).on("click", ".js-mdlchk-qty input[type=button]", function (e) {
-       
+
 				var funcName = $(e.target).closest('[data-qty-function]').attr('data-qty-function');
 				setTimeout(function () {
 					var qty = $(e.target).closest(".js-mdlchk-qty").find("input[type=text]").val(),
@@ -2671,7 +2671,7 @@
 				eval(funcNameUpsell)(prdstatus, $target.attr('data-variant-id'));
 				e.preventDefault();
 			}).on("click", ".js-lastadded-prd-delete", function (e) {
-                               
+
 
 				var funcName = $(e.target).closest('[data-remove-function]').attr('data-remove-function'),
 					$target = $(e.target);
@@ -2699,7 +2699,7 @@
 				}, removeDelay);
 				e.preventDefault();
 			}).on("click", ".js-title-upsell", function (e) {
-            
+
 				$upsellCarouselTab.addClass('active');
 				$upsellCarouselTab.closest('.title').show();
 				$upsellCarousel.removeClass('hidden-carousel');
@@ -2707,7 +2707,7 @@
 				$lastCarousel.addClass('hidden-carousel');
 				e.preventDefault();
 			}).on("click", ".js-title-lastadded", function (e) {
-           
+
 				$lastCarouselTab.addClass('active');
 				$lastCarouselTab.closest('.title').show();
 				$lastCarousel.removeClass('hidden-carousel');
@@ -2731,7 +2731,7 @@
 				var $modal = $(modal),
 					url = url;
 				parseDataCart($modal.data('cart'), $modal.data('variant-id'), $modal.data('price-converter'), $(window).width());
-              
+
 				var funcUpsellName = $modal.closest('[data-getupsells-function]').attr('data-getupsells-function'),
 					upsellsJson = eval(funcUpsellName)($modal.data('product-handle'), function (data) {
 						if (data) {
@@ -2780,7 +2780,7 @@
 						upsellCarouselHtml += '</div>';
 						upsellCarouselHtml += '<div class="lastadded-prd-info">';
 						upsellCarouselHtml += '<h2 class="lastadded-prd-title"><a href="' + item.url + '" title="' + item.title + '">' + _title + '</a></h2>';
-						upsellCarouselHtml += '<div class="lastadded-prd-price custom-color-alt">' + Shopify.formatMoney(item.price, $price_format) + '</div>';
+						upsellCarouselHtml += '<div class="lastadded-prd-price custom-color-alt">' + Shopify.formatMoney(item.price, price_format) + '</div>';
 						upsellCarouselHtml += statusHtml;
 						upsellCarouselHtml += '</div>';
 						upsellCarouselHtml += '</div>';
@@ -2824,7 +2824,7 @@
 						lastCarouselHtml += '</div>';
 						lastCarouselHtml += '<div class="lastadded-prd-info">';
 						lastCarouselHtml += '<h2 class="lastadded-prd-title"><a href="' + item.url + '" title="' + item.title + '">' + _title + '</a></h2>';
-						lastCarouselHtml += '<div class="lastadded-prd-price custom-color-alt">' + Shopify.formatMoney(item.price, $price_format) + '</div>';
+						lastCarouselHtml += '<div class="lastadded-prd-price custom-color-alt">' + Shopify.formatMoney(item.price, price_format) + '</div>';
 						lastCarouselHtml += '<div class="product-qty">';
 						lastCarouselHtml += '<div class="qty qty-changer js-mdlchk-qty">';
 						lastCarouselHtml += '<fieldset>';
@@ -2839,8 +2839,20 @@
 					} else {
 						mainPrd.id = item.id;
 						mainPrd.photo = '<a href="' + item.url + '" title="' + item.title + '"><img src="' + item.image + '" alt="' + item.title + '"></a>';
-						mainPrd.title = '<a href="' + item.url + '" title="' + item.title + '">' + item.title + '</a>';
-						mainPrd.price = Shopify.formatMoney(item.price, $price_format);
+
+						// Check if packaging upsell is checked and update title accordingly
+						var packagingUpsellChecked = $('#packaging-upsell-checkbox').length && $('#packaging-upsell-checkbox').is(':checked');
+
+						// Get the original product title by removing any existing packaging text
+						var originalProductTitle = item.title.replace(/& Insulated packaging \+ ice pack\s*$/i, '');
+						var productTitle = originalProductTitle;
+
+						if (packagingUpsellChecked) {
+							productTitle = originalProductTitle + ' & Insulated packaging + ice pack';
+						}
+
+						mainPrd.title = '<a href="' + item.url + '" title="' + productTitle + '">' + productTitle + '</a>';
+						mainPrd.price = Shopify.formatMoney(item.price, price_format);
 						mainPrd.qty = '<input type="text" class="qty-input" value="' + item.quantity + '" data-min="1">';
 					}
 				});
@@ -3194,7 +3206,7 @@
 				e.preventDefault();
 
 				// $('.js-mdlchk-row2').html('');
-				// $('.js-mdlchk-row').hide(); 
+				// $('.js-mdlchk-row').hide();
 
 				// $('#modalCheckout').on('hidden.bs.modal', function (e) {
 				// 	;
@@ -3214,11 +3226,11 @@
 
 
 					$('#modalGiftCardSelection').one('shown.bs.modal', async function() {
-					
+
 					//let giftCardBearerToken = GetGiftCardToken();
-					
+
 					let filteredGiftcards = await GetGiftCards(1, 20);
-				
+
 					// Unbind the event after it's executed once
 					$(this).off('shown.bs.modal');
 				});
@@ -3230,9 +3242,9 @@
 			/*---------------------MODAL GiftCard-----------------------------*/
 
 			async function GetGiftCards(pageNumber = 1, pageSize = 20, productName = '', productDescription = '') {
-				
+
 				//get giftcards
-				//filter on  "denominationType": and values 
+				//filter on  "denominationType": and values
 				let existingPriceList = [10, 25, 50, 100, 200, 500];
 				let stageUrl = 'https://localhost:7242/api/EGifter/GetProducts?';
 				let productionUrl = 'https://yourgreetings-server.azurewebsites.net/api/EGifter/GetProducts?';
@@ -3254,12 +3266,12 @@
 							position: relative;">
 							<a href = "#" onclick="clickvoucher('${s.id}','${(JSON.stringify(s.denominations)).toString()}','${s.denominationType}','${s.media.faceplates[0].path}')">
                     <img src="${s.media.faceplates[0].path}" alt="" class="voucher-img" />
-					
+
                     <div class="voucher-card-footer">
                         <p class="voucher-name">
                             ${s.name}
                         </p>
-						
+
                     </div>
 					</a>
 					<div class= "d-none" id="${s.id}">
@@ -3305,12 +3317,12 @@
 								<i class="icon icon-magnify"></i>
 								</button>
 								</div>
-							
-								
+
+
 					</div>
 					<div class="box-body">
 						${productsHtml.join('')}
-						
+
 					</div>
 					<div class="box-footer">
 						<button class="btn-prev" id="btn-prev">Prev</button>
@@ -3423,7 +3435,7 @@ function clickvoucher(id, denominations, denominationType,image) {
 
 				rd.hide();
 				content.html(``);
-			
+
 				var theTemplateScript = $("#giftcard-template").html();
 				var theTemplate = Handlebars.compile(theTemplateScript);
 				var context = {};
@@ -3433,7 +3445,7 @@ function clickvoucher(id, denominations, denominationType,image) {
 				$("#gift-options-ul").children().each((i, e) => giftPrices.push({ 'price': $(e).data('price') / 100, id: $(e).data('variant') }));
 				$('#giftImage').attr('src',image)
 				if (denominationType.includes('Variable')) {
-					//variable 
+					//variable
 					let firstDenom = denomObj[0];
 					let lastDenom = denomObj[denomObj.length - 1];
 					giftPrices.forEach(gp => {
