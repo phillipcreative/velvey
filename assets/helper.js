@@ -186,7 +186,31 @@ function add_to() {
     // Check if packaging upsell is enabled and checked
     var packagingUpsellChecked = $('#packaging-upsell-checkbox').length && $('#packaging-upsell-checkbox').is(':checked');
     var packagingUpsellVariantId = $('.packaging-upsell-container').length ? $('.packaging-upsell-container').data('variant') : null;
-    var mainProductTitle = _this.closest('form').find('h1.product-name').text().trim() || 'Unknown Product';
+
+    // Get the main product title more reliably
+    var mainProductTitle = '';
+    var $productTitle = $('h1.product-name');
+    if ($productTitle.length) {
+        // Use the original title if available, otherwise get current text and clean it
+        mainProductTitle = $productTitle.data('original-title') || $productTitle.text().trim();
+        // Clean any existing packaging text from the title
+        mainProductTitle = mainProductTitle.replace(/& Insulated packaging \+ ice pack\s*$/i, '');
+        console.log('Product title from DOM:', mainProductTitle);
+    }
+
+    // Fallback: try to get from product form data or other sources
+    if (!mainProductTitle || mainProductTitle === '') {
+        // Try to get from product form
+        var productHandle = window.location.pathname.split('/').pop();
+        if (productHandle && productHandle !== '') {
+            mainProductTitle = productHandle.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+        } else {
+            mainProductTitle = 'Product';
+        }
+        console.log('Product title from fallback:', mainProductTitle);
+    }
+
+    console.log('Final mainProductTitle for packaging upsell:', mainProductTitle);
 
     // Update product title if packaging upsell is checked
     if (packagingUpsellChecked) {
@@ -194,36 +218,43 @@ function add_to() {
     }
 
     var line_properties = getFormData($('[name*=properties]', $form));
+
+    // Function to handle success after both products are added
+    var handleSuccess = function() {
+        if (_this.length) {
+            if ($('body').hasClass('checkout-popup')) {
+                setTimeout(function () {
+                    _this.html("<i class='icon icon-check'></i><span>" + locales.added + "</span>");
+                    showCheckoutModal();
+                }, 1000);
+                setTimeout(function () {
+                    _this.html("<span>" + _this.attr("title") + "</span>");
+                    _this.removeClass('btn-loading');
+                    $('.js-add-to-cart').removeClass('disabled');
+                }, 2000);
+            } else {
+                setTimeout(function () {
+                    _this.html("<i class='icon icon-check'></i><span>" + locales.added + "</span>");
+                    $('.product-item-cart span', '.product-item.product-id-' + _this.data("variant-id")).html(CartJS.cart.item_count);
+                    $('.product-item-cart', '.product-item.product-id-' + _this.data("variant-id")).removeClass('hidden');
+                }, 1000)
+                setTimeout(function () {
+                    _this.html("<span>" + _this.attr("title") + "</span>");
+                    _this.removeClass('btn-loading');
+                    $('.js-add-to-cart').removeClass('disabled');
+                }, 2000)
+            }
+        }
+    };
+
+    // Add main product first
     CartJS.addItem(_this.data("variant-id"), 1, line_properties, {
         "success": function (data, textStatus, jqXHR) {
             // If packaging upsell is checked, add it to cart
             if (packagingUpsellChecked && packagingUpsellVariantId) {
-                addPackagingUpsellToCart(mainProductTitle);
-            }
-
-            if (_this.length) {
-                if ($('body').hasClass('checkout-popup')) {
-                    setTimeout(function () {
-                        _this.html("<i class='icon icon-check'></i><span>" + locales.added + "</span>");
-                        showCheckoutModal();
-                    }, 1000);
-                    setTimeout(function () {
-                        _this.html("<span>" + _this.attr("title") + "</span>");
-                        _this.removeClass('btn-loading');
-                        $('.js-add-to-cart').removeClass('disabled');
-                    }, 2000);
-                } else {
-                    setTimeout(function () {
-                        _this.html("<i class='icon icon-check'></i><span>" + locales.added + "</span>");
-                        $('.product-item-cart span', '.product-item.product-id-' + _this.data("variant-id")).html(CartJS.cart.item_count);
-                        $('.product-item-cart', '.product-item.product-id-' + _this.data("variant-id")).removeClass('hidden');
-                    }, 1000)
-                    setTimeout(function () {
-                        _this.html("<span>" + _this.attr("title") + "</span>");
-                        _this.removeClass('btn-loading');
-                        $('.js-add-to-cart').removeClass('disabled');
-                    }, 2000)
-                }
+                addPackagingUpsellToCart(mainProductTitle, handleSuccess);
+            } else {
+                handleSuccess();
             }
         },
         "error": function (jqXHR, textStatus, errorThrown) {
@@ -234,7 +265,9 @@ function add_to() {
             $('#modalError').modal('show');
         }
     });
-    CartJS.clearAttributes();/*ie 11 fix ajax add to cart*/
+
+    // Don't clear attributes immediately - let the packaging upsell use them
+    // CartJS.clearAttributes(); /*ie 11 fix ajax add to cart*/
 }
 
 function updateData($type, $id, $options) {
@@ -347,7 +380,27 @@ if ($('body').hasClass('ajax_cart')) {
             // Check if packaging upsell is enabled and checked
             var packagingUpsellChecked = $('#packaging-upsell-checkbox').length && $('#packaging-upsell-checkbox').is(':checked');
             var packagingUpsellVariantId = $('.packaging-upsell-container').length ? $('.packaging-upsell-container').data('variant') : null;
-            var mainProductTitle = _this.closest('form').find('h1.product-name').text().trim() || 'Unknown Product';
+
+            // Get the main product title more reliably
+            var mainProductTitle = '';
+            var $productTitle = $('h1.product-name');
+            if ($productTitle.length) {
+                // Use the original title if available, otherwise get current text and clean it
+                mainProductTitle = $productTitle.data('original-title') || $productTitle.text().trim();
+                // Clean any existing packaging text from the title
+                mainProductTitle = mainProductTitle.replace(/& Insulated packaging \+ ice pack\s*$/i, '');
+            }
+
+            // Fallback: try to get from product form data or other sources
+            if (!mainProductTitle || mainProductTitle === '') {
+                // Try to get from product form
+                var productHandle = window.location.pathname.split('/').pop();
+                if (productHandle && productHandle !== '') {
+                    mainProductTitle = productHandle.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+                } else {
+                    mainProductTitle = 'Product';
+                }
+            }
 
             // Update product title if packaging upsell is checked
             if (packagingUpsellChecked) {
@@ -916,20 +969,40 @@ $(document).on('shown.bs.modal', '#modalCheckout', function() {
 });
 
 // Function to add packaging upsell to cart
-function addPackagingUpsellToCart(mainProductTitle) {
+function addPackagingUpsellToCart(mainProductTitle, callback) {
+    console.log('Adding packaging upsell with mainProductTitle:', mainProductTitle);
     var packagingUpsellVariantId = $('.packaging-upsell-container').data('variant');
     if (packagingUpsellVariantId) {
         var packagingLineProperties = {
-            '_Purchased_with': mainProductTitle
+            'Purchased With': mainProductTitle
         };
+        console.log('Packaging line properties:', packagingLineProperties);
 
         CartJS.addItem(packagingUpsellVariantId, 1, packagingLineProperties, {
             "success": function (data, textStatus, jqXHR) {
                 console.log('Packaging upsell added to cart successfully');
+                // Clear attributes after packaging upsell is added
+                CartJS.clearAttributes();
+                // Call the callback if provided
+                if (callback && typeof callback === 'function') {
+                    callback();
+                }
             },
             "error": function (jqXHR, textStatus, errorThrown) {
                 console.error('Error adding packaging upsell to cart:', errorThrown);
+                // Clear attributes even on error
+                CartJS.clearAttributes();
+                // Call the callback if provided
+                if (callback && typeof callback === 'function') {
+                    callback();
+                }
             }
         });
+    } else {
+        // If no packaging upsell variant, clear attributes and call callback
+        CartJS.clearAttributes();
+        if (callback && typeof callback === 'function') {
+            callback();
+        }
     }
 }
