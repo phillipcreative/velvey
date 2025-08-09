@@ -11,7 +11,7 @@
   {% if settings.loader == 'body-loader' %}<div class="bodyLoader js-bodyloader"></div>{% endif %}
   {% section 'topline' %}
   {% section 'header' %}
-  <main class="page-main">
+  <main class="page-main {% if template.name == 'page' and template.suffix == 'weather-shipping-info' %}weather-page-wrapper{% endif %}">
     {{content_for_layout}}
   </main>
   {% section 'footer' %}

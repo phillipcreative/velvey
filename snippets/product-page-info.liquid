@@ -195,6 +195,12 @@
             {{ product.metafields.c_f.line_properties }}
           {% endif %}
           {% include 'product-options-form', design: 'default' %}
+
+          {% comment %} Packaging Upsell {% endcomment %}
+          {% if section.settings.packaging_upsell %}
+            {% include 'packaging-upsell' %}
+          {% endif %}
+
           {% if product.available %}
             <div class="product-actions-row">
               <div class="pull-left">

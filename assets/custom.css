@@ -213,7 +213,7 @@ body.page-index div.index-section .block.fullwidth>.container {
 }
 
 .welcome-txt>.container {
-  
+
     padding: 63px 15px 96px;
 }
 
@@ -925,7 +925,7 @@ header.page-header .header-content .header-middle-row .header-middle-right .head
 
 .block.global_width.slider_cstm_2>.container>.row .products-grid {
     padding: 0;
-   
+
 }
 
 .block.global_width.slider_cstm_2>.container .slick-slider .slick-slide {
@@ -3074,12 +3074,12 @@ body.page-product main.page-main div#shopify-section-product-section .block.prod
 }
 
 .share-button .social-list-wrap:before {
-   
+
     background: #000 !important;
 }
 body:not(.rtl) .share-button.share-button--right .share-caret, body.rtl .share-button.share-button--left .share-caret {
     border-right-color: #000 !important;
-  
+
  }
 body.page-product main.page-main div#shopify-section-product-section .block .row>div .product-actions .product-actions-row .product-actions-link .social-list-wrap {
     top: 5px !important;
@@ -3856,7 +3856,7 @@ body.page-index div.bnslider .slick-prev, body.page-index div.bnslider .slick-ne
 }
 
 .spy-newsletter {
-  z-index: 9999 !important;  
+  z-index: 9999 !important;
 }
 
 body.page-product main.page-main div#shopify-section-product-section .ebeded_description_pics + .block.global_width .title h2 {
@@ -4524,7 +4524,7 @@ body.page-index .bnslider-wrapper {
 @media(max-width:1600px){
 body .container {
     max-width: 1200px;
-   
+
 }
   body .container {
     padding-left: 0 !important;
@@ -4623,7 +4623,7 @@ div#shopify-section-collection-everyday .aside .collection-listing>.product-item
     padding-bottom: 220px;
 }
 body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:not(:last-child) .col-md-12 .row>.col-md-8 {
-   
+
     max-width: calc(100% - 368px);
    }
 body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:not(:last-child) .col-md-12 .row .heading_cust p {
@@ -4670,7 +4670,7 @@ body.page-index div.bnslider {
     padding: 0 15px;
 }
 div#shopify-section-footer footer#footer .footer-top .row>div ul.social-list-simple {
-  
+
     gap: 15px;
 }
 .block.global_width.slider_cstm_2>.container .title h2, .brands_cstm>.container .title h2 , body h2{
@@ -4711,7 +4711,7 @@ body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:n
 
 @media(max-width:1439px){
 .block.global_width.slider_cstm_2>.container {
-   
+
     padding: 70px 0 35px;
 }
 .welcome-txt>.container>h2 {
@@ -4743,7 +4743,7 @@ div#shopify-section-footer footer#footer .footer-top .row>div:last-child h4 {
     padding: 0 0 50px;
 }
 
- 
+
   div#shopify-section-footer footer#footer {
     margin-top: 50px;
     padding-top: 70px;
@@ -4880,14 +4880,14 @@ body.page-page\.gift_card1 .bg-story .story-content .item-banner .images_thress 
 header.page-header .megamenu ul>li>a {
     padding: 0 15px 20px !important;
     font-size: 20px !important;
-  
+
 }
 
   header.page-header .header-content .header-middle-row .header-logo {
     max-width: 260px;
 }
    div#shopify-section-footer footer#footer .footer-top .footer-logo>a {
-   
+
     max-width: 250px;
 }
 body.page-index div.bnslider .bnslider-text-content-flex.container {
@@ -4910,7 +4910,7 @@ padding-bottom: 80px;
     line-height: 20px;
  }
   header.page-header .megamenu {
-  
+
     padding: 15px 0 10px;
 }
 header.page-header .header-content .header-middle-row {
@@ -5262,7 +5262,7 @@ div#shopify-section-faq h3 {
 .bg-story>.container>.story-content .row>div>h3.italic-big {
     font-size: 40px;
     line-height: 45px;
-  
+
 }
 .bg-works>.container>.row.item-banner:nth-child(2)>.col-md-12>.row img.img-responsive {
     width: 100%;
@@ -5270,7 +5270,7 @@ div#shopify-section-faq h3 {
 }
 .bg-works>.container>.row.item-banner:not(:first-child):before {
     height: 120px;
- 
+
 }
 .bg-works>.container>.row.item-banner:not(:first-child) {
     padding-top: 90px;
@@ -5310,7 +5310,7 @@ body.page-page\.We-Love-Teachers .bg-story .story-content>.row.item-banner:nth-c
     width: 30px;
     height: 30px;
     font-size: 30px;
-   
+
 }
 body.page-product main.page-main div#shopify-section-product-section .block .row>div .product-actions .product-actions-row .pull-right button.btn.btn-lg, body.page-product main.page-main div#shopify-section-product-section .block .row>div .product-actions .shopify-payment-button button.shopify-payment-button__button {
     font-size: 20px;
@@ -5322,7 +5322,7 @@ body.page-product main.page-main div#shopify-section-product-section .block .row
     padding: 0 30px 0 0;
 }
 body.page-product main.page-main div#shopify-section-product-section .block .row>div:last-child {
-   
+
     max-width: 60%;
 }
 body.page-product main.page-main div#shopify-section-product-section .block .row>div .product-custom {
@@ -5438,7 +5438,7 @@ div#shopify-section-faq {
     padding: 50px 0 0;
  }
 .cart-table .table-footer .btn {
-   
+
     margin: 0 !important;
 }
 .cart-table .table-footer {
@@ -5776,7 +5776,7 @@ body.page-product main.page-main div#shopify-section-product-section .block .row
 
   .product-qty .qty.qty-changer {
     padding-right: 25px;
-   
+
 }
 .product-qty .qty.qty-changer input.qty-input {
     width: 62px;
@@ -5824,7 +5824,7 @@ body.page-page\.gift_card1 .bg-story .story-content .item-banner .images_thress 
     left: 240px;
 }
   body.page-page\.gift_card1 .bg-story .story-content .item-banner .images_thress .image_3 {
- 
+
     padding-left: 30px;
 }
 body.page-page\.gift_card1 .bg-story .story-content .item-banner .images_thress span.equal_sign {
@@ -6069,7 +6069,7 @@ header.page-header .header-content .header-nav-line .menu-toggle a.mobilemenu-to
     padding: 0;
 }
 .header-sticky.mobile-type .header-links a span.badge {
-  
+
     bottom: 0px;
     right: -8px;
 }
@@ -6136,7 +6136,7 @@ body.page-collection main.page-main>.block>.container ul.breadcrumbs {
 }
 .gift-card .box-fluid .box-header {
     max-width: 630px;
-  
+
 }
 
 }
@@ -6510,7 +6510,7 @@ body.page-product main.page-main div#shopify-section-product-section .block .row
     bottom: 5px;
 }
 
-  
+
 div.quick-view>.modal-dialog .container-fluid .row>.col-sm-6.col-md-6.col-lg-6:first-child {
     width: 40%;
 }
@@ -6603,7 +6603,7 @@ body.page-page\.gift_card1 .bg-story .story-content>.row>div .item-banner:last-c
   .bg-works>.container>.row.item-banner:first-child>.col-md-6>.row>div:last-child p>strong {
     padding: 0 0 10px;
 }
- 
+
 
   .bg-works>.container>.row.item-banner:first-child>.col-md-6:nth-child(3) img {
     transform: scale(1.2);
@@ -7261,7 +7261,7 @@ body.page-collection main.page-main>.block .row.row-table>div#shopify-section-co
 }
 
   body.page-collection main.page-main>.block .row.row-table>div#shopify-section-collection-section .product-listing .product-items.products-listview .product-item-inside>.product-item-photo-holder {
-  
+
     max-width: 100%;
 }
 
@@ -7317,7 +7317,7 @@ ul.breadcrumbs>li>span {
     grid-template-columns: repeat(2,1fr);
  }
   div#shopify-section-collection-everyday .aside .collection-listing>.product-items .product-item-photo>a:after {
-  
+
     padding-bottom: 100%;
 }
   div#shopify-section-collection-everyday .aside .collection-listing>.product-items>.product-item .product-item-details>.product-item-name a.product-item-link {
@@ -7628,7 +7628,7 @@ div#modalCheckout>.modal-dialog div.modal-content .mdlchk-row>.mdlchk-col1:first
   div#modalCheckout>.modal-dialog div.modal-content .mdlchk-row>div:last-child>.mdlchk-info>.text-center h2.mdlchk-prd-title.js-mdlchk-prd-title {
     font-size: 20px;
     line-height: 30px;
- 
+
 }
   div#modalCheckout>.modal-dialog div.modal-content .mdlchk-row>div:last-child>.mdlchk-info>.text-center p.mdlchk-added-text {
     font-size: 16px;
@@ -7858,7 +7858,7 @@ body.page-page\.gift_card1 .banner-bg.banner-relative .container.right-banner .b
     padding: 10px;
 }
   .banner-relative .container.right-banner {
-   
+
     padding: 0 15px 50px !important;
 }
   body.page-page\.We-Love-Teachers .banner-bg.banner-relative .container.right-banner .bs-content {

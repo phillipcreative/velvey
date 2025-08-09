@@ -1,4 +1,13 @@
-{
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
   "current": {
     "boxed": true,
     "loader": "none-loader",
@@ -7,10 +16,10 @@
     "rounded": false,
     "back_to_top_desctop": true,
     "wishlist": false,
-    "coming_soon_date": "2017\/12\/31",
+    "coming_soon_date": "2017/12/31",
     "ajax_cart": true,
     "checkout_popup": true,
-    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "favicon": "shopify://shop_images/favicon.png",
     "collection_block_width": "boxed",
     "collection_outer_margin": "offset-top-30",
     "collection_left_sidebar": true,
@@ -22,7 +31,7 @@
     "collections_filter_shopping_by": true,
     "megamenu_dark": true,
     "megamenu_style": "slidetop",
-    "labels": "Women:sale:alt;Men:new;Sales:-15%;Cell Phones:iPhone 5\/5s\/6\/6s:alt;Sale:-10%:alt;Ajax Attributes Filter - collapsed fixed:new in shopify;Configurable swatches - Clever:new in shopify;Product:NEW FEATURES:alt;Listing:NEW FEATURES:alt;Journal:new look;Test link 2:my label;Test link 3:blue label:alt;Banners \/ Grid Editor:EXCLUSIVE:alt;Hoodies:-15%:alt;Tees:new;Pants:sale:alt;Empty Category:0 items;Empty category:0 items;Dropdown level 2-2:test2;Dropdown level 3-1:test3;Dropdown level 4-1:test4",
+    "labels": "Women:sale:alt;Men:new;Sales:-15%;Cell Phones:iPhone 5/5s/6/6s:alt;Sale:-10%:alt;Ajax Attributes Filter - collapsed fixed:new in shopify;Configurable swatches - Clever:new in shopify;Product:NEW FEATURES:alt;Listing:NEW FEATURES:alt;Journal:new look;Test link 2:my label;Test link 3:blue label:alt;Banners / Grid Editor:EXCLUSIVE:alt;Hoodies:-15%:alt;Tees:new;Pants:sale:alt;Empty Category:0 items;Empty category:0 items;Dropdown level 2-2:test2;Dropdown level 3-1:test3;Dropdown level 4-1:test4",
     "megamenu_spy_navigation": true,
     "megamenu_spy_navigation_enable": false,
     "megamenu_spy_navigation_open_when": "1600",
@@ -57,7 +66,7 @@
     "cart_title_1": "FREE SHIPPING",
     "cart_text_1": "Spend $50.00 more and get free shipping or join Nike+ for free shipping on every order, every time. *Excludes gift cards.",
     "cart_title_2": "NEED HELP?",
-    "cart_text_2": "<a href=\"#\">How is my order secure?<\/a>\n\t\t\t\t\t\t\t<br><a href=\"#\">What payment methods can I use?<\/a>\n\t\t\t\t\t\t\t<br><a href=\"#\">Using Coke Rewards?<\/a>",
+    "cart_text_2": "<a href=\"#\">How is my order secure?</a>\n\t\t\t\t\t\t\t<br><a href=\"#\">What payment methods can I use?</a>\n\t\t\t\t\t\t\t<br><a href=\"#\">Using Coke Rewards?</a>",
     "cart_notes_enable": true,
     "checkout_popup_cart": true,
     "checkout_popup_cart_caption": "Previously added products",
@@ -67,7 +76,7 @@
     "checkout_popup_guaranteed_caption": "Guaranteed safe Checkout",
     "checkout_popup_guaranteed_image": "",
     "newsletter_mailchimp_yes": false,
-    "newsletter_action": "\/\/myshopify.us13.list-manage.com\/subscribe\/post?u=d981bdb0feb8dfab6170ae9b9&amp;id=47040fbf5f",
+    "newsletter_action": "//myshopify.us13.list-manage.com/subscribe/post?u=d981bdb0feb8dfab6170ae9b9&amp;id=47040fbf5f",
     "newsletter_title": "EMAIL ME SPECIAL OFFERS",
     "newsletter_desc": "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is painsome great pleasure.",
     "newsletter_popup_yes": true,
@@ -81,13 +90,13 @@
     "share_pinterest": false,
     "share_fancy": false,
     "share_google": true,
-    "social_twitter_link": "https:\/\/twitter.com\/velveys",
-    "social_facebook_link": "https:\/\/www.facebook.com\/velveys",
-    "social_pinterest_link": "https:\/\/www.pinterest.com\/velveyisforgivers",
-    "social_instagram_link": "https:\/\/www.instagram.com\/velveys",
+    "social_twitter_link": "https://twitter.com/velveys",
+    "social_facebook_link": "https://www.facebook.com/velveys",
+    "social_pinterest_link": "https://www.pinterest.com/velveyisforgivers",
+    "social_instagram_link": "https://www.instagram.com/velveys",
     "social_tumblr_link": "",
     "social_snapchat_link": "#",
-    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCCCHzWOFjSFrKinXpt77MMQ",
+    "social_youtube_link": "https://www.youtube.com/channel/UCCCHzWOFjSFrKinXpt77MMQ",
     "social_vimeo_link": "",
     "shop_info_caption_1_text": "Payment option",
     "shop_info_caption_1_icon": "icon-creditcard",
@@ -98,11 +107,11 @@
     "shop_info_caption_3_text": "Secure Transaction",
     "shop_info_caption_3_icon": "icon-cart",
     "shop_info_caption_3_link": "#",
-    "paymenticons1": "shopify:\/\/shop_images\/visa.png",
-    "paymenticons2": "shopify:\/\/shop_images\/mastercard.png",
-    "paymenticons3": "shopify:\/\/shop_images\/Amex.png",
-    "paymenticons4": "shopify:\/\/shop_images\/Apple_pay.png",
-    "paymenticons5": "shopify:\/\/shop_images\/paypal.png",
+    "paymenticons1": "shopify://shop_images/visa.png",
+    "paymenticons2": "shopify://shop_images/mastercard.png",
+    "paymenticons3": "shopify://shop_images/Amex.png",
+    "paymenticons4": "shopify://shop_images/Apple_pay.png",
+    "paymenticons5": "shopify://shop_images/paypal.png",
     "methods_of_payment_title": "100% SECURE PAYMENT",
     "payments_type": "icons",
     "payments_icons": "pf-visa,pf-mastercard,pf-american-express,pf-apple-pay,pf-paypal",
@@ -209,16 +218,16 @@
     "insta_sort": "most-recent",
     "blog_meta_yes": true,
     "blog_meta_title": "Meta",
-    "blog_meta_list": "<li><a href=\"#\">Log in<\/a><\/li><li><a href=\"#\">Entries RSS<\/a><\/li><li><a href=\"#\">Comments RSS<\/a><\/li><li><a href=\"#\">WordPress.org<\/a><\/li>",
+    "blog_meta_list": "<li><a href=\"#\">Log in</a></li><li><a href=\"#\">Entries RSS</a></li><li><a href=\"#\">Comments RSS</a></li><li><a href=\"#\">WordPress.org</a></li>",
     "blog_archives_yes": true,
     "blog_archives_title": "Archives",
-    "blog_archives_list": "<li><a href=\"#\">February 2015<\/a><\/li><li><a href=\"#\">April 2016<\/a><\/li><li><a href=\"#\">May 2016<\/a><\/li><li><a href=\"#\">Juny 2016<\/a><\/li>",
+    "blog_archives_list": "<li><a href=\"#\">February 2015</a></li><li><a href=\"#\">April 2016</a></li><li><a href=\"#\">May 2016</a></li><li><a href=\"#\">Juny 2016</a></li>",
     "blog_tags_yes": true,
     "blog_instagram_yes": true,
-    "password_page_logo": "shopify:\/\/shop_images\/velvey_logo_footer.png",
+    "password_page_logo": "shopify://shop_images/velvey_logo_footer.png",
     "password_page_logo_max_width": "210",
     "password_page_info": "Our Site will be launched soon. We will be up and running in:",
-    "password_page_date": "2017\/12\/31",
+    "password_page_date": "2017/12/31",
     "password_page_copyright": "2021 © Velvey. All Rights Reserved.",
     "show_multiple_currencies": true,
     "currency_format": "money_with_currency_format",
@@ -422,7 +431,7 @@
     "color_modal_checkout_box_color": "#000",
     "color_modal_checkout_box_bg": "#f5f5f5",
     "checkout_header_image": "",
-    "checkout_logo_image": "shopify:\/\/shop_images\/velvey_logo_footer.png",
+    "checkout_logo_image": "shopify://shop_images/velvey_logo_footer.png",
     "checkout_logo_position": "center",
     "checkout_logo_size": "medium",
     "checkout_body_background_image": "",
@@ -438,7 +447,7 @@
     "show_out_of_stock": true,
     "is_demo": true,
     "logo_home_page_1": "",
-    "logo_home_page_2": "shopify:\/\/shop_images\/logo_7bafafa8-8efd-475a-9710-03c1829bd4e5.png",
+    "logo_home_page_2": "shopify://shop_images/logo_7bafafa8-8efd-475a-9710-03c1829bd4e5.png",
     "logo_home_page_3": "",
     "logo_home_page_4": "",
     "logo_home_page_5": "",
@@ -446,15 +455,15 @@
     "logo_home_page_7": "",
     "logo_home_page_8": "",
     "logo_home_page_9": "",
-    "logo_sticky_home_page_1": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_2": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_3": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_4": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_5": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_6": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_7": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_8": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_9": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_1": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_2": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_3": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_4": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_5": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_6": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_7": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_8": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_9": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
     "logo_footer_home_page_1": "",
     "logo_footer_home_page_2": "",
     "logo_footer_home_page_3": "",
@@ -462,7 +471,7 @@
     "logo_footer_home_page_5": "",
     "logo_footer_home_page_6": "",
     "logo_footer_home_page_7": "",
-    "logo_footer_home_page_8": "shopify:\/\/shop_images\/logo_4698662d-3477-470d-b58a-69eb9e736c36.png",
+    "logo_footer_home_page_8": "shopify://shop_images/logo_4698662d-3477-470d-b58a-69eb9e736c36.png",
     "logo_footer_home_page_9": "",
     "sections": {
       "header": {
@@ -470,19 +479,19 @@
         "settings": {
           "block_width": "boxed",
           "style": "3",
-          "logo": "shopify:\/\/shop_images\/VELVY_LOGO.png",
+          "logo": "shopify://shop_images/VELVY_LOGO.png",
           "logo_max_width": "400",
           "languages": false,
           "currencies": false,
           "header_search": false,
           "login_box": true,
-          "header_support_time": "<span><\/span>",
+          "header_support_time": "<span></span>",
           "sticky": "sticky",
           "sticky_behavior": "smart",
-          "logo_sticky": "shopify:\/\/shop_images\/VELVEY_LOGO_003a5640-a634-48cc-96ca-2cc852f1883d.png",
+          "logo_sticky": "shopify://shop_images/VELVEY_LOGO_003a5640-a634-48cc-96ca-2cc852f1883d.png",
           "logo_bg_yes": false,
           "logo_bg_color": "rgba(0,0,0,0)",
-          "header_info": "<div class=\"shop-features\">\n\n<a href=\"#\" class=\"shop-feature-sm\">\n\t<div class=\"shop-feature-icon\"><i class=\"icon-car\"><\/i><\/div>\n\t<div class=\"shop-feature-text\">\n\t\tFree\n\t\t<br>shipping\n\t<\/div>\n<\/a>\n<a href=\"#\" class=\"shop-feature-sm\">\n\t<div class=\"shop-feature-icon\"><i class=\"icon-exchange\"><\/i><\/div>\n\t<div class=\"shop-feature-text\">\n\t\tOriginal\n\t\t<br>product\n\t<\/div>\n<\/a>\n<\/div>",
+          "header_info": "<div class=\"shop-features\">\n\n<a href=\"#\" class=\"shop-feature-sm\">\n\t<div class=\"shop-feature-icon\"><i class=\"icon-car\"></i></div>\n\t<div class=\"shop-feature-text\">\n\t\tFree\n\t\t<br>shipping\n\t</div>\n</a>\n<a href=\"#\" class=\"shop-feature-sm\">\n\t<div class=\"shop-feature-icon\"><i class=\"icon-exchange\"></i></div>\n\t<div class=\"shop-feature-text\">\n\t\tOriginal\n\t\t<br>product\n\t</div>\n</a>\n</div>",
           "social_icons": true,
           "blackout": false,
           "dropdown_animation": "fadein",
@@ -496,11 +505,11 @@
           "outer_margin": "offset-top-50",
           "style": "1",
           "logo_yes": true,
-          "logo": "shopify:\/\/shop_images\/VELVY_LOGO.png",
+          "logo": "shopify://shop_images/VELVY_LOGO.png",
           "logo_max_width": "330",
           "navigation_1": "new-footer-menu-1",
           "navigation_2": "website1",
-          "twitter_widget_content": "<h4>\n<span style=\"color:#ff358b\">Hurry up! <\/span>Limited Gift Cards!<\/h4><a href=\"https:\/\/help.shopify.com\/manual\/products\/gift-card-products\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/1880\/9649\/files\/gift_card_small_b3560c34-d4f4-44bd-8ff7-ad272a3a7b86.png?15558946316617159827\" alt=\"-25%\"><\/a>",
+          "twitter_widget_content": "<h4>\n<span style=\"color:#ff358b\">Hurry up! </span>Limited Gift Cards!</h4><a href=\"https://help.shopify.com/manual/products/gift-card-products\"><img src=\"https://cdn.shopify.com/s/files/1/1880/9649/files/gift_card_small_b3560c34-d4f4-44bd-8ff7-ad272a3a7b86.png?15558946316617159827\" alt=\"-25%\"></a>",
           "shop_info_yes": true,
           "newsletter": true,
           "show_methods_of_payment": true,
@@ -508,7 +517,7 @@
           "show_instagram": false,
           "social_icons": false,
           "support_time_title": "CONNECT WITH US",
-          "support_time": "<ul> <li>\n<i class=\"icon icon-phone\"><\/i> (801) 419-9622<\/li> <li>\n<i class=\"icon icon-close-envelope\"><\/i><a href=\"mailto:service@velvey.com\">service@velvey.com<\/a>\n<\/li>\n<\/ul>",
+          "support_time": "<ul> <li>\n<i class=\"icon icon-phone\"></i> (801) 419-9622</li> <li>\n<i class=\"icon icon-close-envelope\"></i><a href=\"mailto:service@velvey.com\">service@velvey.com</a>\n</li>\n</ul>",
           "copyright": "2024 © Velvey. All Rights Reserved."
         }
       },
@@ -518,12 +527,12 @@
           "1505066402732": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/VelveyInHand_1202137755_MB02.png",
+              "image": "shopify://shop_images/VelveyInHand_1202137755_MB02.png",
               "enable": true,
               "bg_v_alignment": "bg-middle",
               "type": "none",
               "video_id": "_9VUPq3SxOc",
-              "link": "shopify:\/\/products\/backless-mini-dress",
+              "link": "shopify://products/backless-mini-dress",
               "link_target": "_self",
               "link_button_yes": false,
               "link_button_text": "Shop now",
@@ -539,7 +548,7 @@
               "captions_h_alignment": "txt-left",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span>READY. SET.<\/span> GIVE.",
+              "caption_1": "<span>READY. SET.</span> GIVE.",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1000",
               "caption_1_color": "#2f2f2f",
@@ -576,7 +585,7 @@
           "1597702561035": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Man_with_Velvey_2x_ea4fbc76-73b7-4872-b2b5-429d16ef9b4f.png",
+              "image": "shopify://shop_images/Man_with_Velvey_2x_ea4fbc76-73b7-4872-b2b5-429d16ef9b4f.png",
               "enable": true,
               "bg_v_alignment": "bg-middle",
               "type": "none",
@@ -597,7 +606,7 @@
               "captions_h_alignment": "txt-left",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span>ROCK THE<\/span> GIFT",
+              "caption_1": "<span>ROCK THE</span> GIFT",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1000",
               "caption_1_color": "#000000",
@@ -634,7 +643,7 @@
           "1597702593834": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Man_with_Velvey_2x_5bfb9188-b330-4892-919f-d52fcf9a1ddf.png",
+              "image": "shopify://shop_images/Man_with_Velvey_2x_5bfb9188-b330-4892-919f-d52fcf9a1ddf.png",
               "enable": true,
               "bg_v_alignment": "bg-middle",
               "type": "none",
@@ -655,7 +664,7 @@
               "captions_h_alignment": "txt-left",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span>DARE TO<\/span> DELIGHT",
+              "caption_1": "<span>DARE TO</span> DELIGHT",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1000",
               "caption_1_color": "#000000",
@@ -692,7 +701,7 @@
           "1597702616411": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Man_with_Velvey_2x_21d443f9-1254-4da7-9684-2f1699fd8101.png",
+              "image": "shopify://shop_images/Man_with_Velvey_2x_21d443f9-1254-4da7-9684-2f1699fd8101.png",
               "enable": true,
               "bg_v_alignment": "bg-middle",
               "type": "none",
@@ -713,7 +722,7 @@
               "captions_h_alignment": "txt-left",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span>SEND SOME<\/span> SUNSHINE",
+              "caption_1": "<span>SEND SOME</span> SUNSHINE",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1000",
               "caption_1_color": "#000000",
@@ -750,7 +759,7 @@
           "1598552644197": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Man_with_Velvey_2x_b2e0a87d-ee3b-4f14-b8a4-73c529eb3a8e.png",
+              "image": "shopify://shop_images/Man_with_Velvey_2x_b2e0a87d-ee3b-4f14-b8a4-73c529eb3a8e.png",
               "enable": true,
               "bg_v_alignment": "bg-middle",
               "type": "none",
@@ -771,7 +780,7 @@
               "captions_h_alignment": "txt-left",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span>GIVE. GET.<\/span> REPEAT.",
+              "caption_1": "<span>GIVE. GET.</span> REPEAT.",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1000",
               "caption_1_color": "#000000",
@@ -845,6 +854,14 @@
       "product-section": {
         "type": "product-section",
         "settings": {
+          "packaging_upsell": true,
+          "packaging_upsell_product": "insulated-packaging-ice-pack",
+          "packaging_upsell_title": "Warm Weather Alert",
+          "packaging_upsell_description": "Chocolate, caramels, and gelatin-based gummies can melt when exposed to heat above 75°F. To help protect your gift in transit, we recommend adding insulated packaging and an ice pack when shipping to warm destinations.",
+          "checkbox_text": "Yes, please include insulated packaging and an ice pack with this order.",
+          "packaging_upsell_button_url": "shopify://pages/weather-shipping-info",
+          "section_background_color": "#eda822",
+          "section_text_color": "#ffffff",
           "product_image_size": "6",
           "dynamic_checkout_button": true,
           "zoom": true,
@@ -856,9 +873,9 @@
           "product_availability": false,
           "product_inventory_count": false,
           "list": false,
-          "list_content": "<p><i class=\"icon-check-square\"><\/i> Individual\/Global text block<\/p><p><i class=\"icon-check-square\"><\/i> 90% Positive Customer feedback<\/p>",
+          "list_content": "<p><i class=\"icon-check-square\"></i> Individual/Global text block</p><p><i class=\"icon-check-square\"></i> 90% Positive Customer feedback</p>",
           "shipping": true,
-          "shipping_content": "<p><b>You'll be provided with set-up instructions after checkout.<\/b><\/p>",
+          "shipping_content": "<p><b>You'll be provided with set-up instructions after checkout.</b></p>",
           "safe_checkout_image_yes": true,
           "tabs_float": "left",
           "product_tab_1": true,
@@ -931,7 +948,7 @@
           "button": true,
           "button_style": "btn-alt",
           "button_text": "shop now",
-          "button_link": "shopify:\/\/collections\/everyday-picks",
+          "button_link": "shopify://collections/everyday-picks",
           "expires": "1",
           "developer_mode": "true"
         }
@@ -942,10 +959,10 @@
           "enable": true,
           "block_width": "global_width",
           "outer_margin": "offset-top-50",
-          "address": "<p>Adress: 8901 Marmora Road, Glasgow D04 64 GR, New York<\/p>",
-          "phone": "<p><b>Phone:<\/b> 9823984244<\/p> <p><b>Phone:<\/b> 6543954265<\/p>",
-          "email": "<p><b>Email:<\/b> <a href=\"mailto:Banita@example.com\">Banitafax@example.com<\/a><\/p> <p><b>FAX:<\/b> <a href=\"mailto:Banita@example.com\">Banitafax@example.com<\/a><\/p>",
-          "time": "<p><b>Hours:<\/b> 7 Days a week from 09:00 am to 7:00 pm<\/p>",
+          "address": "<p>Adress: 8901 Marmora Road, Glasgow D04 64 GR, New York</p>",
+          "phone": "<p><b>Phone:</b> 9823984244</p> <p><b>Phone:</b> 6543954265</p>",
+          "email": "<p><b>Email:</b> <a href=\"mailto:Banita@example.com\">Banitafax@example.com</a></p> <p><b>FAX:</b> <a href=\"mailto:Banita@example.com\">Banitafax@example.com</a></p>",
+          "time": "<p><b>Hours:</b> 7 Days a week from 09:00 am to 7:00 pm</p>",
           "enable_map": true,
           "latitude": "40.7232814",
           "longitude": "-74.00161000000003"
@@ -971,7 +988,7 @@
               "bg_v_alignment": "bg-middle",
               "type": "none",
               "video_id": "_9VUPq3SxOc",
-              "link": "shopify:\/\/products\/backless-mini-dress",
+              "link": "shopify://products/backless-mini-dress",
               "link_target": "_self",
               "link_button_yes": true,
               "link_button_text": "Shop now",
@@ -1029,7 +1046,7 @@
               "bg_v_alignment": "bg-top",
               "type": "none",
               "video_id": "_9VUPq3SxOc",
-              "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+              "link": "shopify://products/cover-up-cotton-tunic",
               "link_target": "_self",
               "link_button_yes": true,
               "link_button_text": "Shop now",
@@ -1087,7 +1104,7 @@
               "bg_v_alignment": "bg-middle",
               "type": "background-box",
               "video_id": "zR0Sn-p5FFo",
-              "link": "shopify:\/\/products\/backless-mini-dress",
+              "link": "shopify://products/backless-mini-dress",
               "link_target": "_self",
               "link_button_yes": true,
               "link_button_text": "Shop now",
@@ -1182,7 +1199,7 @@
             "settings": {
               "enable": true,
               "title": "What do I do if my order is damaged in transit or never arrives?",
-              "answer": "We hope that NEVER happens! But if the impossible does occur, please contact us directly at <a href=\"service@velvey.com\">service@velvey.com<\/a>. Let us know what happened, and we'll ship a fresh new order for you right away—hassle-free."
+              "answer": "We hope that NEVER happens! But if the impossible does occur, please contact us directly at <a href=\"service@velvey.com\">service@velvey.com</a>. Let us know what happened, and we'll ship a fresh new order for you right away—hassle-free."
             }
           },
           "1504374014438": {
@@ -1198,7 +1215,7 @@
             "settings": {
               "enable": true,
               "title": "What do I do if the code on my card or packing slip doesn't work?",
-              "answer": "Email us at <a href=\"service@velvey.com\">service@velvey.com<\/a> with the code that isn’t working, and a customer service agent will reply shortly."
+              "answer": "Email us at <a href=\"service@velvey.com\">service@velvey.com</a> with the code that isn’t working, and a customer service agent will reply shortly."
             }
           },
           "1504374041263": {
@@ -1277,7 +1294,7 @@
             "type": "item",
             "settings": {
               "enable": true,
-              "title": "I’m shopping for my company\/school. How do I make a bulk order with you?",
+              "title": "I’m shopping for my company/school. How do I make a bulk order with you?",
               "answer": "Velvey is a fun, affordable solution for businesses! We have been able to accommodate bulk orders for employee recognition, client thank yous, and many other occasions. Please contact service@velvey.com with more information about your gifting needs and we’ll route your request to the appropriate person within our organization that can assist you."
             }
           },
@@ -1345,7 +1362,7 @@
           "link_target_3": "_self",
           "icon3": "",
           "box_3_caption_1": "ONLINE SUPPORT",
-          "box_3_caption_2": "Service support fast 24\/7"
+          "box_3_caption_2": "Service support fast 24/7"
         }
       },
       "carousels_50_50": {
@@ -1373,7 +1390,7 @@
         "settings": {
           "enable": true,
           "title": "Banners From Online Editor",
-          "html": "<div class=\"block global_width\"><div class=\"container\"><div class=\"row\">\n<div class=\"col-sm-6\"><div class=\"col-content\"><a href=\"#bannerLink\" class=\"banner-wrap\"><div class=\"banner style-5 autosize-text image-hover-scale \" data-fontratio=\"5.7\">\n<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/1323\/8471\/files\/placeholder_1.jpg?7690545741780427304\" alt=\"Banner\"><div class=\"banner-caption text-left\"><div class=\"vert-wrapper\"><div class=\"vert\">\n<div class=\"text-1\">AMAZING<\/div>\n<div class=\"text-2\">Designer jacket<\/div>\n<div class=\"text-3\">-60 OFF<\/div>\n<div class=\"banner-btn text-hover\" data-hover-color=\"#ffffff\" data-hover-bgcolor=\"#24CEFF\" style=\"\"><span>TRY NOW<\/span><\/div>\n<\/div><\/div><\/div>\n<\/div><\/a><\/div><\/div>\n<div class=\"col-sm-6\"><div class=\"col-content\"><a href=\"#bannerLink\" class=\"banner-wrap\"><div class=\"banner style-6 autosize-text image-hover-scale\" data-fontratio=\"5.7\">\n<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/1323\/8471\/files\/placeholder_2.jpg?7690545741780427304\" alt=\"Banner\"><div class=\"banner-caption text-bot text-left\"><div class=\"vert-wrapper\"><div class=\"vert\">\n<div class=\"text-1\">FASHION COLLECTION<\/div>\n<div class=\"text-2\">SUMMER 2017<\/div>\n<\/div><\/div><\/div>\n<\/div><\/a><\/div><\/div>\n<\/div><\/div><\/div>"
+          "html": "<div class=\"block global_width\"><div class=\"container\"><div class=\"row\">\n<div class=\"col-sm-6\"><div class=\"col-content\"><a href=\"#bannerLink\" class=\"banner-wrap\"><div class=\"banner style-5 autosize-text image-hover-scale \" data-fontratio=\"5.7\">\n<img src=\"//cdn.shopify.com/s/files/1/1323/8471/files/placeholder_1.jpg?7690545741780427304\" alt=\"Banner\"><div class=\"banner-caption text-left\"><div class=\"vert-wrapper\"><div class=\"vert\">\n<div class=\"text-1\">AMAZING</div>\n<div class=\"text-2\">Designer jacket</div>\n<div class=\"text-3\">-60 OFF</div>\n<div class=\"banner-btn text-hover\" data-hover-color=\"#ffffff\" data-hover-bgcolor=\"#24CEFF\" style=\"\"><span>TRY NOW</span></div>\n</div></div></div>\n</div></a></div></div>\n<div class=\"col-sm-6\"><div class=\"col-content\"><a href=\"#bannerLink\" class=\"banner-wrap\"><div class=\"banner style-6 autosize-text image-hover-scale\" data-fontratio=\"5.7\">\n<img src=\"//cdn.shopify.com/s/files/1/1323/8471/files/placeholder_2.jpg?7690545741780427304\" alt=\"Banner\"><div class=\"banner-caption text-bot text-left\"><div class=\"vert-wrapper\"><div class=\"vert\">\n<div class=\"text-1\">FASHION COLLECTION</div>\n<div class=\"text-2\">SUMMER 2017</div>\n</div></div></div>\n</div></a></div></div>\n</div></div></div>"
         }
       },
       "brands": {
@@ -1510,7 +1527,7 @@
               "image": "",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>To take a trivial example, which of us ever undert laborious physical <\/p>"
+              "testimonial": "<p>To take a trivial example, which of us ever undert laborious physical </p>"
             }
           },
           "1504824525170": {
@@ -1519,7 +1536,7 @@
               "image": "",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>To take a trivial example, which of us ever undert laborious physical <\/p>"
+              "testimonial": "<p>To take a trivial example, which of us ever undert laborious physical </p>"
             }
           }
         },
@@ -1564,7 +1581,7 @@
               "image": "",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<\/p>"
+              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
             }
           },
           "1505125864777": {
@@ -1573,7 +1590,7 @@
               "image": "",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<\/p>"
+              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
             }
           },
           "1505125866733": {
@@ -1582,7 +1599,7 @@
               "image": "",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<\/p>"
+              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
             }
           },
           "1505125867930": {
@@ -1591,7 +1608,7 @@
               "image": "",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<\/p>"
+              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
             }
           }
         },
@@ -1666,7 +1683,7 @@
           "outer_margin": "offset-top-50",
           "title": "About Us",
           "desc": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.",
-          "html": "<div class=\"box-icon-md\">\n<i class=\"icon icon-medal\"><\/i> <h4>2008<\/h4>\n<\/div> <div class=\"box-icon-md\">\n<i class=\"icon icon-trophy-cup\"><\/i> <h4>2012<\/h4> <\/div> <div class=\"box-icon-md\"> <i class=\"icon icon-medals\"><\/i> <h4>2016<\/h4> <\/div> <div class=\"box-icon-md\"> <i class=\"icon icon-star-cup\"><\/i> <h4>2020<\/h4> <\/div>",
+          "html": "<div class=\"box-icon-md\">\n<i class=\"icon icon-medal\"></i> <h4>2008</h4>\n</div> <div class=\"box-icon-md\">\n<i class=\"icon icon-trophy-cup\"></i> <h4>2012</h4> </div> <div class=\"box-icon-md\"> <i class=\"icon icon-medals\"></i> <h4>2016</h4> </div> <div class=\"box-icon-md\"> <i class=\"icon icon-star-cup\"></i> <h4>2020</h4> </div>",
           "bg": ""
         }
       },
@@ -1837,27 +1854,27 @@
       "1509974222766": {
         "type": "info_welcome_to",
         "settings": {
-          "poster": "shopify:\/\/shop_images\/Group_34137_2x_c13da804-7380-4e87-a292-9d6910ece827.png",
+          "poster": "shopify://shop_images/Group_34137_2x_c13da804-7380-4e87-a292-9d6910ece827.png",
           "enable_popup": false,
           "enable": true,
-          "section_bg_image": "shopify:\/\/shop_images\/Down_Arrow_2x_bbe35bd1-eb98-4e3c-bd67-3c3ee68def4c.png",
+          "section_bg_image": "shopify://shop_images/Down_Arrow_2x_bbe35bd1-eb98-4e3c-bd67-3c3ee68def4c.png",
           "block_width": "global_width",
           "outer_margin": "offset-top-0",
           "heading": "WELCOME TO VELVEY,",
           "description": "a little velvet pouch of goodness. We’re your one-stop-shop for giving made fun, easy, and affordable. Ready? Let’s make someone’s day!",
           "link_1": "#",
           "link_target_1": "_self",
-          "icon1": "shopify:\/\/shop_images\/last_grande_2x_c2f68125-7bf2-4c12-96f5-54b1f24cd505.png",
+          "icon1": "shopify://shop_images/last_grande_2x_c2f68125-7bf2-4c12-96f5-54b1f24cd505.png",
           "box_1_caption_1": "Pick Your velvey",
           "box_1_caption_2": "From classic black to romantic red and M&M’s to Skittles—we’ve got you covered.",
           "link_2": "#",
           "link_target_2": "_self",
-          "icon2": "shopify:\/\/shop_images\/GIFT_CARDS_2x_847cce02-635f-4887-9e6d-7619a298df84.png",
+          "icon2": "shopify://shop_images/GIFT_CARDS_2x_847cce02-635f-4887-9e6d-7619a298df84.png",
           "box_2_caption_1": "ADD A DIGITAL GIFT CARD",
           "box_2_caption_2": "Pick from a variety of merchants and choose a dollar amount.",
           "link_3": "#",
           "link_target_3": "_self",
-          "icon3": "shopify:\/\/shop_images\/MESSAGE_2x_b5fe26e7-afca-4f59-9dec-616b4d7106bc.png",
+          "icon3": "shopify://shop_images/MESSAGE_2x_b5fe26e7-afca-4f59-9dec-616b4d7106bc.png",
           "box_3_caption_1": "include a message",
           "box_3_caption_2": "Write or record a personal message. Receive a “GOT IT” confirmation and thank you!",
           "button_link1": "",
@@ -1875,14 +1892,14 @@
           "title": "FEATURED",
           "collection": "featured-1-homepage",
           "limit": "4",
-          "collection_url1": "\/collections\/featured",
+          "collection_url1": "/collections/featured",
           "show_view_all": "right",
           "per_row_desctop": "2",
           "per_row_mobile_port": "2",
           "title_2": "EVERYDAY PICKS",
           "collection_2": "everyday-picks-1-homepage",
           "limit_2": "4",
-          "collection_url2": "\/collections\/everyday-picks",
+          "collection_url2": "/collections/everyday-picks",
           "show_view_all_2": "right",
           "per_row_desctop_2": "2",
           "per_row_mobile_port_2": "1"
@@ -1893,7 +1910,7 @@
         "settings": {
           "enable": true,
           "title": "Banners From Online Editor",
-          "html": "<div class=\"block global_width text_with_btn\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-6 \">\n                <div class=\"col-content\">\n                    <a class=\"banner-wrap\" href=\"\/pages\/we-love-teachers\" target=\"_blank\">\n                        <div class=\"banner style-5 autosize-text image-hover-scale \" data-fontratio=\"5.7\">\n                            <img alt=\"Banner\" src=\"\/\/cdn.shopify.com\/s\/files\/1\/0447\/4047\/7095\/files\/banner2_1024.jpg?v=1627312075\">\n                            <div class=\"banner-custom-caption\">\n                                <div class=\"banner-custom-heading1\">\n                                <span class=\"cap-head2\">TREAT A <br><span class=\"caption-gold\">TEACHER<\/span><\/span>\n                                <\/div>\n                                <div class=\"banner-custom-button1\">\n                                <button class=\"cap-btn\">Learn More<\/button>\n                            <\/div>\n                            <\/div>\n                        <\/div>\n                    <\/a>\n                <\/div>\n            <\/div>\n            <div class=\"col-sm-6 \">\n                <div class=\"col-content\">\n                   <a class=\"banner-wrap\" href=\"\/pages\/gift-card\" target=\"_blank\">\n                        <div class=\"banner style-6 autosize-text image-hover-scale\" data-fontratio=\"5.7\">\n                            <img alt=\"Banner\" src=\"\/\/cdn.shopify.com\/s\/files\/1\/0447\/4047\/7095\/files\/banner1_1024.jpg?v=1627312074\">\n                              <div class=\"banner-custom-caption\">\n                                 <div class=\"banner-custom-heading2\">\n                                <span class=\"cap-head\">ADD TO THEIR <br><span class=\"caption-gold\">SUPRISE<\/span><\/span>\n                                    <\/div>\n                                  <div class=\"banner-custom-button2\">\n                                   <button class=\"cap-btn\">Learn More<\/button>\n                                    <\/div>\n                            <\/div>\n                        <\/div>\n                    <\/a>\n                <\/div>\n            <\/div>\n        <\/div>\n    <\/div>\n<\/div>"
+          "html": "<div class=\"block global_width text_with_btn\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-6 \">\n                <div class=\"col-content\">\n                    <a class=\"banner-wrap\" href=\"/pages/we-love-teachers\" target=\"_blank\">\n                        <div class=\"banner style-5 autosize-text image-hover-scale \" data-fontratio=\"5.7\">\n                            <img alt=\"Banner\" src=\"//cdn.shopify.com/s/files/1/0447/4047/7095/files/banner2_1024.jpg?v=1627312075\">\n                            <div class=\"banner-custom-caption\">\n                                <div class=\"banner-custom-heading1\">\n                                <span class=\"cap-head2\">TREAT A <br><span class=\"caption-gold\">TEACHER</span></span>\n                                </div>\n                                <div class=\"banner-custom-button1\">\n                                <button class=\"cap-btn\">Learn More</button>\n                            </div>\n                            </div>\n                        </div>\n                    </a>\n                </div>\n            </div>\n            <div class=\"col-sm-6 \">\n                <div class=\"col-content\">\n                   <a class=\"banner-wrap\" href=\"/pages/gift-card\" target=\"_blank\">\n                        <div class=\"banner style-6 autosize-text image-hover-scale\" data-fontratio=\"5.7\">\n                            <img alt=\"Banner\" src=\"//cdn.shopify.com/s/files/1/0447/4047/7095/files/banner1_1024.jpg?v=1627312074\">\n                              <div class=\"banner-custom-caption\">\n                                 <div class=\"banner-custom-heading2\">\n                                <span class=\"cap-head\">ADD TO THEIR <br><span class=\"caption-gold\">SUPRISE</span></span>\n                                    </div>\n                                  <div class=\"banner-custom-button2\">\n                                   <button class=\"cap-btn\">Learn More</button>\n                                    </div>\n                            </div>\n                        </div>\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
         }
       },
       "1509975903873": {
@@ -1904,7 +1921,7 @@
             "settings": {
               "enable": true,
               "title": "Levis",
-              "image": "shopify:\/\/shop_images\/MMS_2x_7811f058-968e-4477-82f4-5cedae481646.png",
+              "image": "shopify://shop_images/MMS_2x_7811f058-968e-4477-82f4-5cedae481646.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1914,7 +1931,7 @@
             "settings": {
               "enable": true,
               "title": "Prada",
-              "image": "shopify:\/\/shop_images\/REESES_2x_1d2c51b9-3e5b-4aae-8c32-c7b749f78a67.png",
+              "image": "shopify://shop_images/REESES_2x_1d2c51b9-3e5b-4aae-8c32-c7b749f78a67.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1924,7 +1941,7 @@
             "settings": {
               "enable": true,
               "title": "Lacoste",
-              "image": "shopify:\/\/shop_images\/SOUR_PATCH_2x_306e7248-8a94-4254-95b6-427c9f800b65.png",
+              "image": "shopify://shop_images/SOUR_PATCH_2x_306e7248-8a94-4254-95b6-427c9f800b65.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1934,7 +1951,7 @@
             "settings": {
               "enable": true,
               "title": "Mexx",
-              "image": "shopify:\/\/shop_images\/HARIBO_2x_5c3ecb8d-a703-4e25-9a32-3e51cfe87895.png",
+              "image": "shopify://shop_images/HARIBO_2x_5c3ecb8d-a703-4e25-9a32-3e51cfe87895.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1944,7 +1961,7 @@
             "settings": {
               "enable": true,
               "title": "Bigsteps",
-              "image": "shopify:\/\/shop_images\/SKITTLES_2x_647bb99f-defc-4e62-9b47-2bb90eede4d9.png",
+              "image": "shopify://shop_images/SKITTLES_2x_647bb99f-defc-4e62-9b47-2bb90eede4d9.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1954,7 +1971,7 @@
             "settings": {
               "enable": true,
               "title": "Kenzo",
-              "image": "shopify:\/\/shop_images\/RUNTS_2x_e1551eb9-e436-41ad-9d64-6112185d61b2.png",
+              "image": "shopify://shop_images/RUNTS_2x_e1551eb9-e436-41ad-9d64-6112185d61b2.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1964,7 +1981,7 @@
             "settings": {
               "enable": true,
               "title": "Bigsteps",
-              "image": "shopify:\/\/shop_images\/Reeses_2x_95649ed2-e818-4b4c-a0b8-8fb4527f35f4.png",
+              "image": "shopify://shop_images/Reeses_2x_95649ed2-e818-4b4c-a0b8-8fb4527f35f4.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1974,7 +1991,7 @@
             "settings": {
               "enable": true,
               "title": "Swedish Fish",
-              "image": "shopify:\/\/shop_images\/Swedish_Fish_2x_f40450e4-8e8b-4a84-bd28-475a916a3b99.png",
+              "image": "shopify://shop_images/Swedish_Fish_2x_f40450e4-8e8b-4a84-bd28-475a916a3b99.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1984,7 +2001,7 @@
             "settings": {
               "enable": true,
               "title": "Starburst",
-              "image": "shopify:\/\/shop_images\/Starburst_2x_40c56166-37cd-4fb8-ae5c-85793e4dbf61.png",
+              "image": "shopify://shop_images/Starburst_2x_40c56166-37cd-4fb8-ae5c-85793e4dbf61.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1994,7 +2011,7 @@
             "settings": {
               "enable": true,
               "title": "Cinnamon",
-              "image": "shopify:\/\/shop_images\/Cinnamon_2x_ec9a79fe-34af-4224-95da-d91524b36c39.png",
+              "image": "shopify://shop_images/Cinnamon_2x_ec9a79fe-34af-4224-95da-d91524b36c39.png",
               "link": "",
               "link_target": "_self"
             }
@@ -2004,7 +2021,7 @@
             "settings": {
               "enable": true,
               "title": "Lindor",
-              "image": "shopify:\/\/shop_images\/Lindor_2x_5910cc0d-3932-4ccc-8d9f-718f63cc1ffd.png",
+              "image": "shopify://shop_images/Lindor_2x_5910cc0d-3932-4ccc-8d9f-718f63cc1ffd.png",
               "link": "",
               "link_target": "_self"
             }
@@ -2014,7 +2031,7 @@
             "settings": {
               "enable": true,
               "title": "Black Forest",
-              "image": "shopify:\/\/shop_images\/Black_Forest_2x_dce68a3e-6ce5-4a3d-9d83-af376728600b.png",
+              "image": "shopify://shop_images/Black_Forest_2x_dce68a3e-6ce5-4a3d-9d83-af376728600b.png",
               "link": "",
               "link_target": "_self"
             }
@@ -2024,7 +2041,7 @@
             "settings": {
               "enable": true,
               "title": "Tootsie Roll",
-              "image": "shopify:\/\/shop_images\/Tootsie_Roll_2x_70ca8f50-e1e0-4197-a22c-a8e2697d06d5.png",
+              "image": "shopify://shop_images/Tootsie_Roll_2x_70ca8f50-e1e0-4197-a22c-a8e2697d06d5.png",
               "link": "",
               "link_target": "_self"
             }
@@ -2034,7 +2051,7 @@
             "settings": {
               "enable": true,
               "title": "Hottamales",
-              "image": "shopify:\/\/shop_images\/Hot_Tamales_2x_0ac19bd6-e826-4f8f-82c4-2707bc5c72ac.png",
+              "image": "shopify://shop_images/Hot_Tamales_2x_0ac19bd6-e826-4f8f-82c4-2707bc5c72ac.png",
               "link": "",
               "link_target": "_self"
             }
@@ -2044,7 +2061,7 @@
             "settings": {
               "enable": true,
               "title": "Werthers",
-              "image": "shopify:\/\/shop_images\/Werthers_2x_2bd2933f-e30f-4c82-94d0-23a0cc27b3eb.png",
+              "image": "shopify://shop_images/Werthers_2x_2bd2933f-e30f-4c82-94d0-23a0cc27b3eb.png",
               "link": "",
               "link_target": "_self"
             }
@@ -2054,7 +2071,7 @@
             "settings": {
               "enable": true,
               "title": "jollyrancher",
-              "image": "shopify:\/\/shop_images\/Jolly_Rancher_2x_e5590eac-ff3e-4b60-b220-20a9f7c58c3c.png",
+              "image": "shopify://shop_images/Jolly_Rancher_2x_e5590eac-ff3e-4b60-b220-20a9f7c58c3c.png",
               "link": "",
               "link_target": "_self"
             }
@@ -2064,7 +2081,7 @@
             "settings": {
               "enable": true,
               "title": "Nerds",
-              "image": "shopify:\/\/shop_images\/Nerds_2x_af13f859-07ba-426e-aee1-a68bca159630.png",
+              "image": "shopify://shop_images/Nerds_2x_af13f859-07ba-426e-aee1-a68bca159630.png",
               "link": "",
               "link_target": "_self"
             }
@@ -2074,7 +2091,7 @@
             "settings": {
               "enable": true,
               "title": "Mike",
-              "image": "shopify:\/\/shop_images\/Mike_Ike_2x_66bc0b3f-b2df-438e-982e-4d868df76cbc.png",
+              "image": "shopify://shop_images/Mike_Ike_2x_66bc0b3f-b2df-438e-982e-4d868df76cbc.png",
               "link": "",
               "link_target": "_self"
             }
@@ -2115,7 +2132,7 @@
           "block_width": "boxed",
           "outer_margin": "offset-top-50",
           "image": "",
-          "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+          "link": "shopify://products/cover-up-cotton-tunic",
           "link_target": "_self",
           "captions_h_alignment": "text-left",
           "captions_v_alignment": "text-middle",
@@ -2266,8 +2283,8 @@
             "settings": {
               "title": "OCCASION OPTIONS",
               "subtitle": "With custom cards and envelopes",
-              "link": "shopify:\/\/collections\/featured",
-              "image": "shopify:\/\/shop_images\/Image_2_2x_3e874c5c-d989-4be0-a030-9535ebaf566d.png"
+              "link": "shopify://collections/featured",
+              "image": "shopify://shop_images/Image_2_2x_3e874c5c-d989-4be0-a030-9535ebaf566d.png"
             }
           },
           "custom_link_df3BwR": {
@@ -2275,8 +2292,8 @@
             "settings": {
               "title": "GHOST GIVER OPTIONS",
               "subtitle": "Send a Velvey anonymously",
-              "link": "shopify:\/\/pages\/welcome-to-ghost-giver",
-              "image": "shopify:\/\/shop_images\/velvey-gifts-for-werthers-original-soft-caramels-ghost-giver-gift-card_2x_adc8121e-86b6-4f29-99bf-d2c3756a5009.png"
+              "link": "shopify://pages/welcome-to-ghost-giver",
+              "image": "shopify://shop_images/velvey-gifts-for-werthers-original-soft-caramels-ghost-giver-gift-card_2x_adc8121e-86b6-4f29-99bf-d2c3756a5009.png"
             }
           }
         },
