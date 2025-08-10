@@ -149,15 +149,41 @@ function checkoutModalUpsellsAddToCart(status, id) {
 
 function checkoutModalRemoveItem(lineNumber) {
     modalCheckoutPreAjax();
-    CartJS.removeItem(lineNumber, {
-        "success": function (data, textStatus, jqXHR) {
-        },
-        "error": function (jqXHR, textStatus, errorThrown) {
-            modalCheckoutPostAjax();
-            $('#modalError .modal-body p').text(errorThrown);
-            $('#modalError').modal('show');
-        }
-    })
+    console.log('lineNumber', lineNumber);
+    // Get the main product ID before removing it
+    var mainProductId = null;
+    if (CartJS.cart.items[lineNumber - 1]) {
+        mainProductId = CartJS.cart.items[lineNumber - 1].variant_id;
+    }
+
+    // Remove associated packaging products first
+    if (mainProductId) {
+        removeAssociatedPackaging(mainProductId, function() {
+            // After packaging is removed, remove the main product
+            CartJS.removeItem(lineNumber, {
+                "success": function (data, textStatus, jqXHR) {
+                    // Main product removed successfully
+                },
+                "error": function (jqXHR, textStatus, errorThrown) {
+                    modalCheckoutPostAjax();
+                    $('#modalError .modal-body p').text(errorThrown);
+                    $('#modalError').modal('show');
+                }
+            });
+        });
+    } else {
+        // No packaging to remove, just remove the main product
+        CartJS.removeItem(lineNumber, {
+            "success": function (data, textStatus, jqXHR) {
+                // Main product removed successfully
+            },
+            "error": function (jqXHR, textStatus, errorThrown) {
+                modalCheckoutPostAjax();
+                $('#modalError .modal-body p').text(errorThrown);
+                $('#modalError').modal('show');
+            }
+        });
+    }
 }
 
 /*---------------------END MODAL CHECKOUT-----------------------------*/
@@ -252,7 +278,7 @@ function add_to() {
         "success": function (data, textStatus, jqXHR) {
             // If packaging upsell is checked, add it to cart
             if (packagingUpsellChecked && packagingUpsellVariantId) {
-                addPackagingUpsellToCart(mainProductTitle, handleSuccess);
+                addPackagingUpsellToCart(mainProductTitle, _this.data("variant-id"));
             } else {
                 handleSuccess();
             }
@@ -342,6 +368,41 @@ function updateData($type, $id, $options) {
     currencyUpdate();
 }
 
+$(document).on('click', '.icon-close-2', function (e) {
+  e.preventDefault();
+console.log('remove item clicked')
+
+
+  const mainProductId = parseInt($(e.currentTarget).data('item-id'));
+  const cartItems = CartJS.cart.items;
+  let insulatedPackagingItem = mainProductId + '_' + 44668268019888;
+
+  let updates = {};
+
+  updates[mainProductId] = 0;
+
+  const associatedItem = cartItems.find(item => item.properties && item.properties.hasOwnProperty('_main_product_id') && item.properties['_main_product_id'] === insulatedPackagingItem);
+
+  if (associatedItem) {
+    updates[associatedItem.id] = 0;
+  }
+
+  if (Object.keys(updates).length > 0) {
+    CartJS.updateItemQuantitiesById(updates)
+      .then(function(cart) {
+        // Success block: Log the updated cart object
+        console.log('Success: Items were removed from the cart.');
+        console.log('Updated Cart:', cart);
+        window.location.href = '/cart';
+      })
+      .catch(function(error) {
+        // Error block: Log the error object
+        console.error('Error: Failed to remove items from the cart.');
+        console.error('Error details:', error);
+      });
+  }
+});
+
 if ($('body').hasClass('ajax_cart')) {
     $(document).on('click', '.js-add-to-cart', function (e) {
 
@@ -413,7 +474,7 @@ if ($('body').hasClass('ajax_cart')) {
                 "success": function (data, textStatus, jqXHR) {
                     // If packaging upsell is checked, add it to cart
                     if (packagingUpsellChecked && packagingUpsellVariantId) {
-                        addPackagingUpsellToCart(mainProductTitle);
+                        addPackagingUpsellToCart(mainProductTitle, $('input[name=id]', $form).val());
                     }
 
                     if ($('.js-add-to-cart-product-page').length) {
@@ -473,16 +534,38 @@ if ($('body').hasClass('ajax_cart')) {
 }
 
 function removeDigitalProcessingFee(lineNumber){
-    CartJS.removeItem(lineNumber, {
-        "success": function (data, textStatus, jqXHR) {
-            window.location.href = '/cart';
-        },
-        "error": function (jqXHR, textStatus, errorThrown) {
+    // Get the main product ID before removing it (if it has associated packaging)
+    var mainProductId = null;
+    if (CartJS.cart.items[lineNumber - 1] && CartJS.cart.items[lineNumber - 1].properties) {
+        mainProductId = CartJS.cart.items[lineNumber - 1].properties['_main_product_id'];
+    }
 
-            $('#modalError .modal-body p').text(errorThrown);
-            $('#modalError').modal('show');
-        }
-    })
+    // Remove associated packaging products first
+    if (mainProductId) {
+        removeAssociatedPackaging(mainProductId, function() {
+            // After packaging is removed, remove the digital processing fee
+            CartJS.removeItem(lineNumber, {
+                "success": function (data, textStatus, jqXHR) {
+                    window.location.href = '/cart';
+                },
+                "error": function (jqXHR, textStatus, errorThrown) {
+                    $('#modalError .modal-body p').text(errorThrown);
+                    $('#modalError').modal('show');
+                }
+            });
+        });
+    } else {
+        // No packaging to remove, just remove the digital processing fee
+        CartJS.removeItem(lineNumber, {
+            "success": function (data, textStatus, jqXHR) {
+                window.location.href = '/cart';
+            },
+            "error": function (jqXHR, textStatus, errorThrown) {
+                $('#modalError .modal-body p').text(errorThrown);
+                $('#modalError').modal('show');
+            }
+        });
+    }
 }
 
 function cartPopupUpdate() {
@@ -565,14 +648,41 @@ function currencyUpdate() {
 }
 
 $(document).on('click', 'a.js-minicart-remove-item', function (e) {
-    CartJS.removeItem($(this).data('line-number'), {
-        "success": function (data, textStatus, jqXHR) {
-        },
-        "error": function (jqXHR, textStatus, errorThrown) {
-            $('#modalError .modal-body p').text(errorThrown);
-            $('#modalError').modal('show');
-        }
-    })
+    var lineNumber = $(this).data('line-number');
+
+    // Get the main product ID before removing it
+    var mainProductId = null;
+    if (CartJS.cart.items[lineNumber - 1]) {
+        mainProductId = CartJS.cart.items[lineNumber - 1].variant_id;
+    }
+
+    // Remove associated packaging products first
+    if (mainProductId) {
+        removeAssociatedPackaging(mainProductId, function() {
+            // After packaging is removed, remove the main product
+            CartJS.removeItem(lineNumber, {
+                "success": function (data, textStatus, jqXHR) {
+                    // Main product removed successfully
+                },
+                "error": function (jqXHR, textStatus, errorThrown) {
+                    $('#modalError .modal-body p').text(errorThrown);
+                    $('#modalError').modal('show');
+                }
+            });
+        });
+    } else {
+        // No packaging to remove, just remove the main product
+        CartJS.removeItem(lineNumber, {
+            "success": function (data, textStatus, jqXHR) {
+                // Main product removed successfully
+            },
+            "error": function (jqXHR, textStatus, errorThrown) {
+                $('#modalError .modal-body p').text(errorThrown);
+                $('#modalError').modal('show');
+            }
+        });
+    }
+
     e.preventDefault();
 })
 $(document).on('click', '.update_qty', function (e) {
@@ -969,12 +1079,13 @@ $(document).on('shown.bs.modal', '#modalCheckout', function() {
 });
 
 // Function to add packaging upsell to cart
-function addPackagingUpsellToCart(mainProductTitle, callback) {
-    console.log('Adding packaging upsell with mainProductTitle:', mainProductTitle);
+function addPackagingUpsellToCart(mainProductTitle, mainProductId, callback) {
+    console.log('Adding packaging upsell with mainProductTitle:', mainProductTitle, 'and mainProductId:', mainProductId);
     var packagingUpsellVariantId = $('.packaging-upsell-container').data('variant');
     if (packagingUpsellVariantId) {
         var packagingLineProperties = {
-            'Purchased With': mainProductTitle
+            'Purchased With': mainProductTitle,
+            '_main_product_id': mainProductId + '_' + packagingUpsellVariantId
         };
         console.log('Packaging line properties:', packagingLineProperties);
 
@@ -1004,5 +1115,38 @@ function addPackagingUpsellToCart(mainProductTitle, callback) {
         if (callback && typeof callback === 'function') {
             callback();
         }
+    }
+}
+
+// Function to remove associated packaging products when a main product is removed
+function removeAssociatedPackaging(mainProductId, callback) {
+    if (!mainProductId) return;
+
+    // Find packaging products that have this main product ID in their properties
+    var packagingItemsToRemove = [];
+    CartJS.cart.items.forEach(function(item, index) {
+        if (item.properties && item.properties['_main_product_id'] == mainProductId) {
+            packagingItemsToRemove.push({
+                lineNumber: index + 1,
+                item: item
+            });
+        }
+    });
+
+    // Remove packaging products (in reverse order to maintain correct line numbers)
+    packagingItemsToRemove.reverse().forEach(function(packagingItem) {
+        console.log('Removing associated packaging product:', packagingItem.item.product_title);
+        CartJS.removeItem(packagingItem.lineNumber, {
+            "success": function (data, textStatus, jqXHR) {
+                console.log('Packaging product removed successfully');
+            },
+            "error": function (jqXHR, textStatus, errorThrown) {
+                console.error('Error removing packaging product:', errorThrown);
+            }
+        });
+    });
+    // Call the callback after all packaging products are removed
+    if (callback && typeof callback === 'function') {
+        callback();
     }
 }

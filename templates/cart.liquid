@@ -88,7 +88,7 @@
 
             {% comment %} {%- assign sorted_cart_items = cart.items | reverse -%} {% endcomment %}
             {% for item in cart.items %}
-            
+
               <div
                 class="table-row"
                 {% if item.id == {{variant_id}} %}
@@ -218,15 +218,15 @@
                   {% endif %}
                 </div>
 
-                <div class="remove">
-                  {% if item.id != {{variant_id}} and item.id != 43012589224112 and item.product.title != "Digital Gift Card"%}
-                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="icon icon-close-2"></a>
+                <div class="remove item-{{ item.id }}">
+                  {% if item.id != {{variant_id}} and item.id != 43012589224112 and item.product.title != "Digital Gift Card" and item.id != 44668268019888 %}
+                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="icon icon-close-2" data-item-id="{{ item.id }}"></a>
                   {% endif %}
                   {% if item.id != {{variant_id}} and item.id != 43012589224112 and item.product.title == "Digital Gift Card" %}
                     <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" data-variant-id="{{ item.variant_id }}" data-line-number="{{ forloop.index }}" title="{{ 'cart.general.remove' | t }}" class="icon icon-close-2 js-minicart-remove-item"></a>
                   {% endif %}
                 </div>
-                
+
 
               </div>
             {% endfor %}
@@ -360,7 +360,7 @@
                 //  window.location.href = '/cart';
                 //}
               //};
-              
+
               if (( cartItems.length >= 1) && (qtyInTheCart !== 1 )) {
                 const params = {
                   type: 'POST',
@@ -391,7 +391,7 @@
   {% else %}
     <script>
       (function($) {
-        
+
           let cartItems = {{ cart.items | json }},
               qtyInTheCart = 0,
               cartUpdates = {};
@@ -413,7 +413,7 @@
           else {
             return;
           }
-          
+
           if (( cartItems.length >= 1) && (qtyInTheCart !== 1 )) {
               const params = {
                 type: 'POST',
