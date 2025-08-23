@@ -19,6 +19,31 @@ document.addEventListener('DOMContentLoaded', function() {
       video.play();
     });
   }
+
+  // Intersection Observer for video pause/play on scroll
+  if (video) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Video is in viewport, play it
+          if (video.paused && video.style.display !== 'none') {
+            video.play().catch(error => {
+              console.log('Video autoplay failed:', error);
+            });
+          }
+        } else {
+          // Video is out of viewport, pause it
+          if (!video.paused) {
+            video.pause();
+          }
+        }
+      });
+    }, {
+      threshold: 0.5 // Trigger when 50% of video is visible
+    });
+
+    videoObserver.observe(video);
+  }
 });
 </script>
 
@@ -148,14 +173,13 @@ document.addEventListener('DOMContentLoaded', function() {
             {{ section.settings.video | video_tag:
               image_size: '1100x',
               autoplay: true,
-              loop: true,
               class: 'video_player',
               id: 'video_player',
               controls: true,
               muted: false
             }}
           {% else %}
-            <video width="700" controls loop playsinline id="video_player" class="video_player">
+            <video width="700" controls playsinline id="video_player" class="video_player">
               <source src="https://cdn.shopify.com/videos/c/o/v/6b46afcf1cfb4d058dab38d40b9fa83e.mp4" type="video/mp4">
               Your browser does not support HTML5 video.
             </video>
