@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-page",
@@ -103,7 +103,7 @@
         "block_width": "global_width",
         "outer_margin": "offset-top-50",
         "main_title": "Warm Weather Shipping Information",
-        "title_color": "#6f42c1",
+        "title_color": "#db8f16",
         "subtitle": "(Or how to help your gift arrive looking as good as it should!)"
       }
     }

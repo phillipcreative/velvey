@@ -5,7 +5,7 @@
             <div class="spy-menu-open js-spy-open"><i class="icon-menu"></i></div>
             <div class="spy-menu-close js-spy-close"><i class="icon-close"></i></div>
             <ul class="nav">
-                {% for link in  linklists['spy-menu'].links %}
+                {% for link in  linklists['main-menu-mobile-upwork'].links %}
                     <li class="submenu-open">
                     {% include 'header-navigation-label' label:link.title %}
                     {{ link.title | append:label | link_to: link.url }}

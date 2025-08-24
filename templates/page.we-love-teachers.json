@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -11,26 +20,26 @@
     "we_love_teachers_zRN7UF": {
       "type": "we-love-teachers",
       "settings": {
-        "imgbanner": "shopify:\/\/shop_images\/give_a_velvey_to_a_teacher.jpg",
-        "bannername": "<span>WE <i class=\"fa fa-heart\"><\/i><\/span> TEACHERS",
-        "heading_belwbanner": "GIVE A VELVEY TO A TEACHER",
-        "heading_text_belwbanner": "Here at Velvey, we love teachers. The amazing men and women who rise daily to the challenge of inspiring, mentoring and enlightening our kids. lt’s more than a job. lt’s a mission to change lives. lt’s also one of the most demanding jobs on the planet—to do more, achieve more, and dream bigger on less.",
+        "imgbanner": "shopify://shop_images/give_a_velvey_to_a_teacher.jpg",
+        "bannername": "<span>WE <i class=\"fa fa-heart\"></i></span> TEACHERS",
+        "heading_belwbanner": "GIVE A TEACHER A VELVEY",
+        "heading_text_belwbanner": "Here at Velvey, we love teachers. The amazing men and women who rise daily to the challenge of inspiring, mentoring and enlightening our kids. lt’s more than a job. lt’s a mission to change lives. lt’s also one of the most demanding jobs on the planet: to do more, achieve more, and dream bigger on less.",
         "left_text_right_image": "And still, thousands of teachers show up every day and in every possible classroom condition to make sure their students feel valued, seen, heard, and understood. They show up to make sure that the next generation is empowered with both an education and, more importantly, with hope for the future. That’s a pretty tall order. We’re just here to say thank you—to a favorite English teacher… to the math teacher who never gave up on you… to the drama teacher who saw your inner star… or the coach who taught you about the game of life. Whoever they are, let us help you say thanks.",
-        "right_image": "shopify:\/\/shop_images\/velvey-v3-20a.jpg",
+        "right_image": "shopify://shop_images/velvey-v3-20a.jpg",
         "knowteachr_heading": "KNOW A TEACHER YOU WANT TO THANK?",
         "knowteachr_text": "Check out all the ways we can help you make that happen.",
-        "knowteachr_img": "shopify:\/\/shop_images\/Books_Apple_Teacher_School_2x_61c33b50-cd3b-4a10-9bc8-de85d775a3ad.png",
-        "step1": "<strong> 1. Send a Velvey to a teacher you know and love <\/strong>  This one’s easy. Just pick your favorite teacher (or two!) and send them a Velvey—including a personalized message from you.",
-        "img_text_step1_url": "shopify:\/\/collections\/everyday-picks",
-        "img_step1": "shopify:\/\/shop_images\/POUCH_ICON_2x_1cb2627e-8f0b-4f5b-a6e5-b0645bbcf604.png",
+        "knowteachr_img": "shopify://shop_images/Books_Apple_Teacher_School_2x_61c33b50-cd3b-4a10-9bc8-de85d775a3ad.png",
+        "step1": "<strong> 1. Send a Velvey to a teacher you know and love </strong>  This one’s easy. Just pick your favorite teacher (or two!) and send them a Velvey, including a personalized message from you.",
+        "img_text_step1_url": "shopify://collections/everyday-picks",
+        "img_step1": "shopify://shop_images/POUCH_ICON_2x_1cb2627e-8f0b-4f5b-a6e5-b0645bbcf604.png",
         "img_text_step1": "Send to a Teacher",
-        "img_text_step2_url": "shopify:\/\/pages\/nominate-teacher-new",
-        "step2": "<strong> 2. Nominate a teacher for a #SuperVelvey <\/strong> Super Velveys include gifts and prizes for those extra-miler teachers. (Think day-spa trips, airfare, cash prizes)",
-        "img_step2": "shopify:\/\/shop_images\/Group_34155_2x_2c21508f-b1dd-458e-abe3-8eb22308f431.png",
+        "img_text_step2_url": "shopify://pages/nominate-teacher-new",
+        "step2": "<strong> 2. Nominate a teacher for a #SuperVelvey </strong> Super Velveys include gifts and prizes for those extra-miler teachers. (Think day-spa trips, airfare, cash prizes)",
+        "img_step2": "shopify://shop_images/Group_34155_2x_2c21508f-b1dd-458e-abe3-8eb22308f431.png",
         "img_text_step2": "Nominate a Teacher",
-        "img_text_step3_url": "https:\/\/account.venmo.com\/u\/velveys",
-        "step3": "<strong>3. Donate cash through Venmo<\/strong> Your donation will be used to gift Velveys to teachers at entire schools – which I guess you could say, is our own way of celebrating Teacher Appreciation Day. Please send Venmo donations to <a target=\"_blank\" href=\"https:\/\/account.venmo.com\/u\/velveys\">@velveys<\/a>",
-        "img_step3": "shopify:\/\/shop_images\/Venmo_Icon_2x_b7556f3e-b348-49d3-bb4c-5049cf415609.png",
+        "img_text_step3_url": "https://account.venmo.com/u/velveys",
+        "step3": "<strong>3. Donate cash through Venmo</strong> Your donation will be used to gift Velveys to teachers at entire schools, which I guess you could say, is our own way of celebrating Teacher Appreciation Day. Please send Venmo donations to <a target=\"_blank\" href=\"https://account.venmo.com/u/velveys\">@velveys</a>",
+        "img_step3": "shopify://shop_images/Venmo_Icon_2x_b7556f3e-b348-49d3-bb4c-5049cf415609.png",
         "img_text_step3": "Venmo Donation"
       }
     }

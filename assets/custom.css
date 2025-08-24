@@ -1210,7 +1210,7 @@ header.page-header>.container {
 }
 
 .bg-story>.container>.story-content .row>div h3.text-center.h-big {
-    margin: 0 0 43px;
+    margin: 0 0 50px;
 }
 
 .bg-story>.container>.story-content .row>div p {
@@ -2417,7 +2417,8 @@ body.page-page\.We-Love-Teachers .bg-story .story-content p.big-info {
     font-family: 'Montserrat';
     letter-spacing: 0;
     color: #BC7300 !important;
-    margin: 0 auto 170px;
+    /* margin: 0 auto 170px; */
+    margin: 0 auto 50px;
     max-width: 1470px;
     letter-spacing: 0;
 }
@@ -2710,7 +2711,8 @@ body.page-page\.nominate_teacher_new .bg-story {
 }
 body.page-page\.nominate_teacher_new .bg-story .story-content h3.text-center.h-big {
     max-width: 100%;
-    margin: 0 0 86px;
+    /* margin: 0 0 86px; */
+    margin: 0 0 50px;
     text-transform: uppercase;
 }
 
@@ -2741,6 +2743,7 @@ body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:n
     color: #000;
     line-height: 37px;
     letter-spacing: 0;
+    /* text-align: center; */
 }
 
 body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:not(:last-child) .col-md-12 .row>.col-md-8 p {
@@ -2762,8 +2765,8 @@ body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:n
 body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:not(:last-child) .col-md-12 .row .heading_cust {
     order: -1;
     text-align: center;
-    min-height: 160px;
-    margin: 0 0 79px;
+    /* min-height: 160px; */
+    margin: 0 0 50px;
     width: 100%;
 }
 
@@ -2788,8 +2791,9 @@ body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:n
 body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:not(:last-child) .col-md-12 .row .heading_cust {
     order: -1;
     text-align: center;
-    min-height: 160px;
-    margin: 0 0 79px;
+    /* min-height: 160px; */
+    /* margin: 0 0 79px; */
+    margin: 0 0 50px;
     width: 100%;
 }
 
@@ -6137,6 +6141,10 @@ body.page-collection main.page-main>.block>.container ul.breadcrumbs {
 .gift-card .box-fluid .box-header {
     max-width: 630px;
 
+}
+
+body.page-page\.nominate_teacher_new .bg-story .story-content .row.item-banner:not(:last-child) .col-md-12 .row>.col-md-8 p {
+    text-align: center;
 }
 
 }
