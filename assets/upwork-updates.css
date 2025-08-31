@@ -71,6 +71,12 @@ body.modal-open .modal .modal-dialog {
   max-width: 1000px !important;
 }
 
+.gift-card .box-fluid .box-footer .btn-next:disabled,
+.gift-card .box-fluid .box-footer .btn-prev:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
 @media only screen and (max-width: 950px) {
   body.modal-open .modal .modal-dialog {
     width: 95% !important;
