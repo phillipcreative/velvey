@@ -3104,31 +3104,44 @@
 						cachedPages: giftCardKeys.length,
 						keys: giftCardKeys
 					});
-
-					// Log details of each cached item
-					giftCardKeys.forEach(key => {
-						try {
-							const cachedData = localStorage.getItem(key);
-							const parsedData = JSON.parse(cachedData);
-							const cacheAge = Date.now() - parsedData.timestamp;
-							const cacheAgeMinutes = Math.round(cacheAge / (1000 * 60));
-
-							console.log(`Cache entry "${key}":`, {
-								timestamp: `${cacheAgeMinutes} minutes old`,
-								dataSize: JSON.stringify(parsedData.data).length + ' characters',
-								hasData: !!parsedData.data
-							});
-						} catch (error) {
-							console.warn(`Error reading cache entry "${key}":`, error);
-						}
-					});
 				} else {
 					console.log('No existing gift card cache found');
 				}
 			}
 
+			// Check if we have valid gift card cache on page load
+			function hasValidGiftCardCache() {
+				const keys = Object.keys(localStorage);
+				const giftCardKeys = keys.filter(key => key.startsWith('gift_cards_'));
+
+				if (giftCardKeys.length === 0) {
+					return false;
+				}
+
+				// Check if we have the first page cached and it's not expired
+				const firstPageKey = 'gift_cards_1_500__';
+				try {
+					const cachedData = localStorage.getItem(firstPageKey);
+					if (!cachedData) {
+						return false;
+					}
+
+					const parsedData = JSON.parse(cachedData);
+					const cacheAge = Date.now() - parsedData.timestamp;
+					const cacheExpiry = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+					return cacheAge < cacheExpiry && parsedData.data && parsedData.data.data;
+				} catch (error) {
+					console.warn('Error checking gift card cache validity:', error);
+					return false;
+				}
+			}
+
 			// Run cache check on page load
 			checkGiftCardCache();
+
+			// Store cache validity status
+			window.hasValidGiftCardCache = hasValidGiftCardCache();
 
 			//ALL FUNCTIONS INITIALIZATION
 			$('body').addClass('body--loaded');
@@ -3265,7 +3278,17 @@
 
 					//let giftCardBearerToken = GetGiftCardToken();
 
-					let filteredGiftcards = await GetGiftCards(1, 500);
+					// Check if we have valid cache before making API call
+					if (window.hasValidGiftCardCache) {
+						console.log('Using cached gift card data - no API call needed');
+						// Use cached data directly
+						const cachedData = localStorage.getItem('gift_cards_1_500__');
+						const parsedData = JSON.parse(cachedData);
+						renderGiftCardsFromData(parsedData.data, 1, 1);
+					} else {
+						console.log('No valid cache found - making API call');
+						let filteredGiftcards = await GetGiftCards(1, 500);
+					}
 
 					// Unbind the event after it's executed once
 					$(this).off('shown.bs.modal');
@@ -3387,7 +3410,7 @@
 							const cachedData = localStorage.getItem(key);
 							const parsedData = JSON.parse(cachedData);
 							const cacheAge = Date.now() - parsedData.timestamp;
-							const cacheExpiry = 30 * 60 * 1000; // 30 minutes
+							const cacheExpiry = 7 * 24 * 60 * 60 * 1000; // 7 days
 
 							if (cacheAge < cacheExpiry && parsedData.data && parsedData.data.data) {
 								allCachedCards = allCachedCards.concat(parsedData.data.data);
@@ -3524,7 +3547,7 @@
 					try {
 						const parsedData = JSON.parse(cachedData);
 						const cacheAge = Date.now() - parsedData.timestamp;
-						const cacheExpiry = 30 * 60 * 1000; // 30 minutes
+						const cacheExpiry = 7 * 24 * 60 * 60 * 1000; // 7 days
 
 						if (cacheAge < cacheExpiry) {
 							console.log('Gift card data retrieved from localStorage cache');
