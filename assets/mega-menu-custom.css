@@ -11,7 +11,7 @@
   flex-direction: row;
   align-items: center;
   min-width: auto !important;
-  width: 25%;
+  width: auto;
   justify-content: center;
 }
 
@@ -29,4 +29,26 @@
 .header__shop-wrapper {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.address-actions .remove-address-btn {
+  display: flex;
+}
+
+.address-actions .remove-address-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.address-actions .remove-address-btn svg path {
+  fill: red;
+}
+
+.address-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 185px;
+  flex-direction: column;
+  row-gap: 8px;
 }

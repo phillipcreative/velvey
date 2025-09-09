@@ -7044,6 +7044,11 @@ details-disclosure > details {
   max-width: 92px;
   max-height: 92px;
   height: 80px;
+  max-width: 92px;
+  max-height: 92px;
+  height: 92px;
+  position: absolute;
+  top: -46px;
 }
 
 .step-el p {
@@ -7098,6 +7103,12 @@ details-disclosure > details {
 
 .process select {
   color: black;
+}
+
+.process .service-type-dropdown {
+  width: 180px;
+  height: 39px;
+  font-size: 14px;
 }
 
 .form-group label {
@@ -7396,7 +7407,7 @@ fieldset {
   max-width: 800px;
   margin: 0 auto;
   height: 900px;
-  overflow: scroll;
+  /* overflow-y: scroll; */
 }
 
 .item-title {
@@ -7517,6 +7528,7 @@ fieldset {
 
 .property-process .step-el,
 .lease-transaction-process .step-el {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8112,7 +8124,7 @@ fieldset {
 #pmc-info input[type="url"],
 #pmc-info textarea,
 #pmc-info button[type="submit"] {
-  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+  font: 400 16px/16px "Roboto", Helvetica, Arial, sans-serif;
 }
 
 #pmc-info {

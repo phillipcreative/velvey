@@ -447,20 +447,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const todayChargeSpan = document.getElementById('today-charge');
     const monthlyChargeSpan = document.getElementById('monthly-charge');
 
-    unitsInput?.addEventListener('input', function() {
-      const unitCount = parseInt(this.value);
-      console.log('Units input changed:', unitCount);
-      if (unitCount && unitCount > 0) {
-        const unitRange = getUnitRangeAndPricing(unitCount);
-        console.log('Unit range determined:', unitRange);
-        selectedRangeSpan.textContent = unitRange.range;
-        todayChargeSpan.textContent = `$${unitRange.today.toFixed(2)}`;
-        monthlyChargeSpan.textContent = `$${unitRange.monthly.toFixed(2)}`;
-        unitsInfo.style.display = 'block';
-      } else {
-        unitsInfo.style.display = 'none';
-      }
-    });
+    // unitsInput?.addEventListener('input', function() {
+    //   const unitCount = parseInt(this.value);
+    //   console.log('Units input changed:', unitCount);
+    //   if (unitCount && unitCount > 0) {
+    //     const unitRange = getUnitRangeAndPricing(unitCount);
+    //     console.log('Unit range determined:', unitRange);
+    //     selectedRangeSpan.textContent = unitRange.range;
+    //     todayChargeSpan.textContent = `$${unitRange.today.toFixed(2)}`;
+    //     monthlyChargeSpan.textContent = `$${unitRange.monthly.toFixed(2)}`;
+    //     unitsInfo.style.display = 'block';
+    //   } else {
+    //     unitsInfo.style.display = 'none';
+    //   }
+    // });
 
     // Handle form submission
     unitsForm.addEventListener('submit', async function(e) {
@@ -1257,16 +1257,32 @@ function renderFinalOverview() {
               <th>Address Action</th>
             </tr>
             <tr>
-              <td style="color:#e00; font-weight:bold;">${addressServiceType}</td>
+              <td>
+                <select class="service-type-dropdown" data-unique="${uniqueId}" data-address-index="${idx}" style="padding:4px; border:1px solid #ccc; border-radius:3px; font-weight:bold; color:#e00;">
+                  <option value="44005175853238" ${addressServiceType === 'Broker Oversight' ? 'selected' : ''}>Broker Oversight</option>
+                  <option value="44005175886006" ${addressServiceType === 'Registered Company' ? 'selected' : ''}>Registered Company</option>
+                </select>
+              </td>
               <td>${address.businessName || 'ABC Apartments'}</td>
               <td style="color:#0074d9;">${address.street || '123 Main Street'}, ${address.city || 'Atlanta'}, ${address.state || 'GA'} ${address.zipcode || '30309'}</td>
               <td>${addressItem && addressItem.properties.Units ? addressItem.properties.Units : units[0].range}</td>
               <td style="color:#e00; font-weight:bold;">$${todayCharge.toFixed(2)}</td>
-              <td style="text-align:center;">
+              <td class="address-actions" style="text-align:center;">
                 <button class="edit-address-btn" data-address-index="${idx}" style="color:blue; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Address</button>
-                <button class="edit-units-btn" data-address-index="${idx}" style="color:green; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Units</button>
-                <button class="edit-service-btn" data-address-index="${idx}" style="color:orange; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Service</button>
-                <button class="remove-address-btn" data-unique="${uniqueId}" style="color:red; background:none; border:none; cursor:pointer; font-weight:bold;">Remove Address</button>
+                <button class="edit-units-btn" data-address-index="${idx}" style="color:blue; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Units</button>
+                <button class="edit-service-btn" data-address-index="${idx}" style="color:blue; background:none; border:none; cursor:pointer; font-weight:bold; margin-right:8px;">Edit Service</button>
+                <button class="remove-address-btn" data-unique="${uniqueId}" style="color:red; background:none; border:none; cursor:pointer; font-weight:bold;"><?xml version="1.0" encoding="utf-8"?>
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 826 1144.5" style="enable-background:new 0 0 826 1144.5;" xml:space="preserve">
+<g transform="translate(0.000000,1142.000000) scale(0.100000,-0.100000)">
+	<path d="M2730,10645v-625H1470H210V8955V7890h258h257l148-3887c81-2139,148-3894,148-3900c-1-10,626-13,3104-13
+		c2476,0,3106,3,3109,13s298,7755,296,7780c0,4,117,7,260,7h260v1065v1065H6790H5530v625v625H4130H2730V10645z M4790,10280v-250
+		h-660h-660v250v250h660h660V10280z M7310,8960v-330H4130H950v330v330h3180h3180V8960z M6790,7749c0-37-137-3667-225-5954
+		c-19-500-35-924-35-942v-33H4130H1730v30c0,17-49,1318-110,2893c-60,1574-120,3129-133,3455l-22,592h2662h2663V7749z"/>
+	<path d="M2730,4305V1700h370h370v2605v2605h-370h-370V4305z"/>
+	<path d="M4790,4270V1640h370h370v2630v2630h-370h-370V4270z"/>
+</g>
+</svg>Remove Property</button>
               </td>
             </tr>
           </table>
@@ -1458,6 +1474,130 @@ function renderFinalOverview() {
           document.querySelector('.process-header h1').textContent = 'Property Management Process';
           document.querySelector('.progress-container .progress').style.width = '25%';
           window.setActiveStep('process-icon-one');
+        });
+      });
+
+      // Attach service type dropdown change listeners
+      document.querySelectorAll('.service-type-dropdown').forEach(dropdown => {
+        dropdown.addEventListener('change', async function() {
+          const uniqueId = this.getAttribute('data-unique');
+          const newVariantId = this.value;
+          const addressIndex = parseInt(this.getAttribute('data-address-index'));
+
+          // Map variant ID to service type name
+          const variantToServiceType = {
+            '44005175853238': 'Broker Oversight',
+            '44005175886006': 'Registered Company'
+          };
+          const newServiceType = variantToServiceType[newVariantId];
+
+          console.log('Service type changed to:', newServiceType, 'variant ID:', newVariantId, 'for uniqueId:', uniqueId);
+
+          try {
+            // Get current cart
+            const cart = await fetch('/cart.js').then(res => res.json());
+            console.log('Current cart items:', cart.items);
+            console.log('Looking for uniqueId:', uniqueId, 'type:', typeof uniqueId);
+
+            // Debug: show all items and their _unique values
+            cart.items.forEach((item, index) => {
+              if (item.properties && item.properties._unique) {
+                console.log(`Item ${index}: _unique = ${item.properties._unique} (type: ${typeof item.properties._unique}), ServiceType = ${item.properties.ServiceType}, Units = ${item.properties.Units}`);
+              }
+            });
+
+            // Find the service item to update
+            const serviceItem = cart.items.find(item =>
+              item.properties &&
+              item.properties._unique &&
+              item.properties._unique.toString() === uniqueId.toString() &&
+              item.properties.ServiceType &&
+              !item.properties.Units // ServiceType item does not have Units
+            );
+
+            console.log('Found service item:', serviceItem);
+
+            if (!serviceItem) {
+              console.error('Service item not found for uniqueId:', uniqueId);
+              console.log('Available items with _unique:', cart.items.filter(item => item.properties && item.properties._unique));
+              console.log('Items with ServiceType:', cart.items.filter(item => item.properties && item.properties.ServiceType));
+              console.log('Items without Units:', cart.items.filter(item => item.properties && !item.properties.Units));
+              return;
+            }
+
+            // Validate the variant ID
+            if (!newVariantId || !variantToServiceType[newVariantId]) {
+              console.error('Invalid variant ID:', newVariantId);
+              return;
+            }
+
+            // Remove the old service item
+            const removeUpdates = {};
+            removeUpdates[serviceItem.key] = 0;
+
+            const removeResponse = await fetch('/cart/update.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ updates: removeUpdates })
+            });
+
+            if (!removeResponse.ok) {
+              throw new Error('Failed to remove old service item');
+            }
+
+            // Add the new service item
+            const addResponse = await fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                items: [{
+                  id: newVariantId,
+                  quantity: 1,
+                  properties: {
+                    ServiceType: newServiceType,
+                    _unique: uniqueId
+                  }
+                }]
+              })
+            });
+
+            if (!addResponse.ok) {
+              throw new Error('Failed to add new service item');
+            }
+
+            console.log('Service type updated successfully');
+
+            // Re-render the overview to show updated pricing
+            renderFinalOverview();
+
+          } catch (error) {
+            console.error('Error updating service type:', error);
+            alert('Failed to update service type. Please try again.');
+            // Revert the dropdown selection - get current value from cart
+            fetch('/cart.js')
+              .then(res => res.json())
+              .then(cart => {
+                const currentServiceItem = cart.items.find(item =>
+                  item.properties &&
+                  item.properties._unique &&
+                  item.properties._unique.toString() === uniqueId.toString() &&
+                  item.properties.ServiceType &&
+                  !item.properties.Units
+                );
+                if (currentServiceItem) {
+                  // Map service type back to variant ID
+                  const serviceTypeToVariant = {
+                    'Broker Oversight': '44005175853238',
+                    'Registered Company': '44005175886006'
+                  };
+                  const currentVariantId = serviceTypeToVariant[currentServiceItem.properties.ServiceType];
+                  if (currentVariantId) {
+                    this.value = currentVariantId;
+                  }
+                }
+              })
+              .catch(err => console.error('Error reverting dropdown:', err));
+          }
         });
       });
   });
