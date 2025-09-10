@@ -7007,6 +7007,10 @@ details-disclosure > details {
   display: none;
 }
 
+.process-content {
+  /* overflow: scroll; */
+}
+
 .step-el {
   display: flex;
   flex-direction: column;
@@ -7083,7 +7087,7 @@ details-disclosure > details {
 .process select {
   -webkit-appearance: none;
   outline: none;
-  font-size: 20px;
+  font-size: 16px;
   box-sizing: border-box;
   border-radius: 0;
   background: #fff;
@@ -7446,13 +7450,31 @@ fieldset {
 .cancel-btn {
   padding: 1rem 10px;
   border-radius: 9px;
-  color: red;
-  background: none !important;
-  text-decoration: underline;
-  color: red;
+  color: #030303 !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 0;
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  padding-top: 10px !important;
+  bottom: -45px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cancel-btn:hover {
+  color: red !important;
+}
+
+.cancel-btn svg path {
+  fill: #030303 !important;
+}
+
+.cancel-btn:hover svg path {
+  fill: red !important;
 }
 
 
@@ -7707,7 +7729,7 @@ fieldset {
   list-style: none;
   max-width: 80%;
   margin: auto;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .step {
@@ -7789,15 +7811,12 @@ fieldset {
 
 .step__label {
   position: relative;
-  /* bottom: -2rem;
-  left: 50%; */
   color: #000000 !important;
   text-align: center;
   margin-top: 1rem;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
-  /* transform: translateX(-50%); */
 }
 
 .step--active .step__label {
@@ -7917,7 +7936,7 @@ fieldset {
   padding: 0px !important;
   margin: 0px !important;
   border-radius: 9px;
-  background: red;
+  background: #DA3B49;
   text-decoration: underline;
   color: red;
   font-weight: bold;
@@ -8124,7 +8143,7 @@ fieldset {
 #pmc-info input[type="url"],
 #pmc-info textarea,
 #pmc-info button[type="submit"] {
-  font: 400 16px/16px "Roboto", Helvetica, Arial, sans-serif;
+  font: 600 16px/16px "Roboto", Helvetica, Arial, sans-serif;
 }
 
 #pmc-info {
@@ -8305,4 +8324,15 @@ fieldset {
   border-collapse: collapse !important;
   margin: auto !important;
   margin-bottom: 24px !important;
+}
+
+.address-actions button:hover {
+  text-decoration: underline;
+}
+
+.process-progress-box {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgba(39,39,39,0.2);
+  position: relative;
 }
